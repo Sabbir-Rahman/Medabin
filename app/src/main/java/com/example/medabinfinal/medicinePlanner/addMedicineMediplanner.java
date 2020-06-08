@@ -2,6 +2,7 @@ package com.example.medabinfinal.medicinePlanner;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.content.Intent;
 import android.database.sqlite.SQLiteDatabase;
 import android.os.Bundle;
 import android.view.View;
@@ -11,6 +12,8 @@ import android.widget.Switch;
 import android.widget.Toast;
 
 import com.example.medabinfinal.R;
+import com.example.medabinfinal.dashboard.UserDashboard;
+import com.example.medabinfinal.loginRegister.SignUp;
 import com.example.medabinfinal.medicinePlanner.Database.MediplannerDatabaseHelper;
 import com.example.medabinfinal.medicinePlanner.Database.mediplannerMedicineModel;
 import com.google.android.material.textfield.TextInputLayout;
@@ -42,26 +45,17 @@ public class addMedicineMediplanner extends AppCompatActivity {
         addMedicine.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                mediplannerMedicineModel medicineModel;
+                String name=medicineName.getEditText().getText().toString().trim();
+                String company=medicineCompnay.getEditText().getText().toString().trim();
+                Integer schedule=Integer.parseInt(medicineSchedule.getEditText().getText().toString().trim());
+                Float consume=Float.parseFloat(medicineConsume.getEditText().getText().toString().trim());
+                Float rate=Float.parseFloat(medicineRate.getEditText().getText().toString().trim());
 
+                    long value=databaseHelper.addOne(name,company,schedule,consume,rate,isCurrent.isChecked());
+                    if(value>0){
+                        Toast.makeText(addMedicineMediplanner.this,"Medicine have registered",Toast.LENGTH_SHORT).show();
+                        }
 
-                try {
-                    medicineModel = new mediplannerMedicineModel(-1,medicineName.getEditText().toString(),medicineCompnay.getEditText().toString(),Integer.parseInt(medicineSchedule.getEditText().toString()),Float.parseFloat(medicineConsume.getEditText().toString()),Float.parseFloat(medicineRate.getEditText().toString()),isCurrent.isChecked());
-
-                    Toast.makeText(addMedicineMediplanner.this, medicineModel.toString(), Toast.LENGTH_SHORT).show();
-                }
-                catch (Exception e){
-                    Toast.makeText(addMedicineMediplanner.this, "Oh no! Something happen input again", Toast.LENGTH_SHORT).show();
-
-                    medicineModel = new mediplannerMedicineModel(-1,"Error","Error",0,0,0,false);
-
-                }
-
-                MediplannerDatabaseHelper databaseHelper = new MediplannerDatabaseHelper(addMedicineMediplanner.this);
-
-                boolean success = databaseHelper.addOne(medicineModel);
-
-                Toast.makeText(addMedicineMediplanner.this, "Success="+success, Toast.LENGTH_SHORT).show();
             }
         });
 

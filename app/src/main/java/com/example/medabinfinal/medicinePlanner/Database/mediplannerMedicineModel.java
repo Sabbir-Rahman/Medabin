@@ -24,15 +24,15 @@ public class mediplannerMedicineModel {
 
     @Override
     public String toString() {
-        return "mediplannerMedicineModel{" +
-                "id=" + id +
-                ", name='" + name + '\'' +
-                ", company='" + company + '\'' +
-                ", schedule=" + schedule +
-                ", consume=" + consume +
-                ", rate=" + rate +
-                ", isActive=" + isActive +
-                '}';
+        return
+                " Medicine id=" + id +
+                "\n Medicine Name: " + name +
+                "\n Medicine Company: " + company +
+                "\n Medicine Schedule: " +"Repeat in "+ schedule +" day"+
+                "\n Medicine consume: " + consume +" times in " +schedule+ " day" +
+                "\n Medicine Rate: " + rate +" tk" + " per 1 pc"+
+                "\n Currently Active Medicine? " + isActive +
+                '\n'+'\n';
     }
 
     public int getId() {
