@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <array name="preloaded_fonts" translatable="false">
+        <item>@font/allan_bold</item>
+        <item>@font/audiowide</item>
+        <item>@font/averia_libre_light</item>
+        <item>@font/bilbo</item>
+        <item>@font/calligraffitti</item>
+        <item>@font/carter_one</item>
+        <item>@font/denk_one</item>
+        <item>@font/hanalei_fill</item>
+        <item>@font/kaushan_script</item>
+        <item>@font/kavoon</item>
+        <item>@font/lobster</item>
+    </array>
+</resources>

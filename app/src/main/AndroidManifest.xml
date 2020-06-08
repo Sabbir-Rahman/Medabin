@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="utf-8"?>
+<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    package="com.example.medabinfinal">
+
+    <application
+        android:allowBackup="true"
+        android:icon="@mipmap/ic_launcher"
+        android:label="@string/app_name"
+        android:roundIcon="@mipmap/ic_launcher_round"
+        android:supportsRtl="true"
+        android:theme="@style/AppTheme">
+        <activity android:name=".medicinePlanner.editMedicineMediplanner"/>
+        <activity android:name=".medicinePlanner.viewMedicineMediplanner" />
+        <activity android:name=".medicinePlanner.deleteMedicineMediplanner" />
+        <activity android:name=".medicinePlanner.addMedicineMediplanner" />
+        <activity android:name=".medicinePlanner.planningMenu" />
+        <activity android:name=".medicinePlanner.MedicineMenu" />
+        <activity android:name=".medicinePlanner.medicinePlannerMenu" />
+        <activity android:name=".medicinePlanner.medicinePlannerDashboard" />
+        <activity android:name=".drawer.general" />
+        <activity android:name=".drawer.profileDetails" />
+        <activity android:name=".loginRegister.SignUp" />
+        <activity android:name=".loginRegister.Login" />
+        <activity android:name=".splashScreen.SplashScreenMedabin" />
+        <activity android:name=".dashboard.UserDashboard" />
+        <activity android:name=".walkthrough.OnBoarding" />
+        <activity android:name=".splashScreen.SplashScreen">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
+
+        <meta-data
+            android:name="preloaded_fonts"
+            android:resource="@array/preloaded_fonts" />
+    </application>
+
+</manifest>

@@ -1,0 +1,52 @@
+<resources>
+
+    <string name="app_name"></string>
+    <string name="logo_name">Medical Assitant</string>
+    <string name="slogan_name">Everyone can hurts but
+    Only GOD can heals...</string>
+    <string name="duplicate">Please check username is duplicate or not first. To check click on me </string>
+    But only GOD can heals....
+    <!--Titles-->
+    <string name="first_slide_title">Pill Reminder</string>
+    <string name="second_slide_title">Warning!!</string>
+    <string name="third_slide_title">Cost and planning</string>
+    <string name="fourth_slide_title">Help to be fit</string>
+    <string name="fifth_slide_title">Medical note</string>
+    <string name="sixth_slide_title">Ranking</string>
+    <string name="seventh_slide_title">Record</string>
+    <string name="eighth_slide_title">Hospital info and tips</string>
+
+    <!--Descriptions-->
+    <string name="first_slide_desc">You can give reminder to your medicine and can put notification for task </string>
+    <string name="second_slide_desc">Warning for end of medicine</string>
+    <string name="third_slide_desc">How much money will you need to buy your medicine and if you go outside medicine planning</string>
+    <string name="fourth_slide_desc">Updating weight,height,pressure,water level BMI and many other activity to keep you fit </string>
+    <string name="fifth_slide_desc">Take o note of medical symtomps that help in the appoinment of the doctor</string>
+    <string name="sixth_slide_desc">Ranking the medicine,doctor according to your feedback</string>
+    <string name="seventh_slide_desc">Keep record of your medical profiles</string>
+    <string name="eighth_slide_desc">Hospital info like hospital cost,location,phone number and some basic beauty and healthy tips</string>
+
+    <!--Buttons-->
+    <string name="skip_btn">Skip</string>
+    <string name="next_btn">Next</string>
+    <string name="let_get_started">Lets Get Started</string>
+    <string name="title_activity_login">Sign in</string>
+    <string name="prompt_email">Email</string>
+    <string name="prompt_password">Password</string>
+    <string name="action_sign_in">Sign in or register</string>
+    <string name="action_sign_in_short">Sign in</string>
+    <string name="welcome">"Welcome !"</string>
+    <string name="invalid_username">Not a valid username</string>
+    <string name="invalid_password">Password must be >5 characters</string>
+    <string name="login_failed">"Login failed"</string>
+    <string name="navigation_drawer_open">Open Navigation drawer</string>
+    <string name="navigation_drawer_close">Close Navigation drawer</string>
+
+
+    <string name="schedule_hint_text_1">How often you take the medicine Suppose you take the medicine at morning and night it means 2 times in a day.Then your schedule is 1 day and consume is 2 times.</string>
+    <string name="schedule_hint_text_2">Just write the duration in days and must input as number</string>
+    <string name="consume_hint_text_1">How much in quantity you consume in your selected schedule. Suppose you have a injection which you need to take 1 time after 7 days. Then select schedule 7 and select consume 1. If you take half just input .5</string>
+    <string name="consume_hint_text_2">Just write the consume quantity in decimal number</string>
+    <string name="rate_hint_text_1">Just write the rate in bdt . Input it as decimal number</string>
+
+</resources>

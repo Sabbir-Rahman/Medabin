@@ -1,0 +1,109 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".medicinePlanner.MedicineMenu"
+    android:background="@mipmap/back_1"
+    >
+
+
+    <ImageButton
+        android:id="@+id/addMedicine"
+        android:layout_width="141dp"
+        android:layout_height="141dp"
+        android:layout_marginStart="30dp"
+        android:layout_marginTop="34dp"
+        android:background="@drawable/border1"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:srcCompat="@mipmap/add" />
+
+    <TextView
+        android:id="@+id/textView1"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="41dp"
+        android:layout_marginTop="4dp"
+        android:fontFamily="@font/carter_one"
+        android:text="Add Medicine"
+        android:textSize="18sp"
+        android:textStyle="bold"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/addMedicine" />
+
+    <ImageButton
+        android:id="@+id/deleteMedicine"
+        android:layout_width="141dp"
+        android:layout_height="141dp"
+        android:layout_marginTop="34dp"
+        android:layout_marginEnd="30dp"
+        android:background="@drawable/border1"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:srcCompat="@mipmap/app" />
+
+    <TextView
+        android:id="@+id/textView2"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="4dp"
+        android:layout_marginEnd="31dp"
+        android:fontFamily="@font/carter_one"
+        android:text="Delete Medicine"
+        android:textSize="18sp"
+        android:textStyle="bold"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/deleteMedicine" />
+
+
+    <ImageButton
+        android:id="@+id/editMedicine"
+        android:layout_width="141dp"
+        android:layout_height="141dp"
+        android:layout_marginStart="30dp"
+        android:layout_marginTop="248dp"
+        android:background="@drawable/border1"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:srcCompat="@mipmap/pencil" />
+
+    <TextView
+        android:id="@+id/textView3"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="41dp"
+        android:layout_marginTop="4dp"
+        android:fontFamily="@font/carter_one"
+        android:text="Edit Medicine"
+        android:textSize="18sp"
+        android:textStyle="bold"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/editMedicine" />
+
+    <ImageButton
+        android:id="@+id/viewMedicine"
+        android:layout_width="141dp"
+        android:layout_height="141dp"
+        android:layout_marginTop="248dp"
+        android:layout_marginEnd="30dp"
+        android:background="@drawable/border1"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:srcCompat="@mipmap/eye" />
+
+    <TextView
+        android:id="@+id/textView4"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="4dp"
+        android:layout_marginEnd="41dp"
+        android:fontFamily="@font/carter_one"
+        android:text="View Medicine"
+        android:textSize="18sp"
+        android:textStyle="bold"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/viewMedicine" />
+
+</androidx.constraintlayout.widget.ConstraintLayout>
