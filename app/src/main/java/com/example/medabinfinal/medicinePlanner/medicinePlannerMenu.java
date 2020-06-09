@@ -47,7 +47,7 @@ public class medicinePlannerMenu extends AppCompatActivity {
     }
 
     public void SendUserToPlanningMenu(){
-        Intent intent = new Intent(medicinePlannerMenu.this,planningMenu.class);
+        Intent intent = new Intent(medicinePlannerMenu.this,plannerActivity.class);
         startActivity(intent);
     }
 }

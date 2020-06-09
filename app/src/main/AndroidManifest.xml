@@ -9,11 +9,11 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".medicinePlanner.editMedicineMediplanner"/>
+        <activity android:name=".medicinePlanner.plannerActivity"></activity>
+        <activity android:name=".medicinePlanner.editMedicineMediplanner" />
         <activity android:name=".medicinePlanner.viewMedicineMediplanner" />
         <activity android:name=".medicinePlanner.deleteMedicineMediplanner" />
         <activity android:name=".medicinePlanner.addMedicineMediplanner" />
-        <activity android:name=".medicinePlanner.planningMenu" />
         <activity android:name=".medicinePlanner.MedicineMenu" />
         <activity android:name=".medicinePlanner.medicinePlannerMenu" />
         <activity android:name=".medicinePlanner.medicinePlannerDashboard" />

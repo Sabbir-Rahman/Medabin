@@ -2,6 +2,7 @@ package com.example.medabinfinal.medicinePlanner;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.view.WindowManager;
 import android.widget.ArrayAdapter;
@@ -32,5 +33,10 @@ public class viewMedicineMediplanner extends AppCompatActivity {
     private void ShowMedicineOnlistView(MediplannerDatabaseHelper dataBasehelper2) {
         medicineArrayAdapter = new ArrayAdapter<mediplannerMedicineModel>(viewMedicineMediplanner.this, android.R.layout.simple_list_item_1, dataBasehelper2.getEveryone());
         lv_medicine.setAdapter(medicineArrayAdapter);
+    }
+    public void onBackPressed(){
+        Intent intent = new Intent(viewMedicineMediplanner.this,MedicineMenu.class);
+        startActivity(intent);
+        finish();
     }
 }

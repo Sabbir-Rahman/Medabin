@@ -56,8 +56,21 @@ public class addMedicineMediplanner extends AppCompatActivity {
                         Toast.makeText(addMedicineMediplanner.this,"Medicine have registered",Toast.LENGTH_SHORT).show();
                         }
 
+                    SendUserToMedicineMenu();
+
             }
         });
 
+
+
     }
+
+    public void SendUserToMedicineMenu(){
+        Intent intent = new Intent(addMedicineMediplanner.this,MedicineMenu.class);
+        startActivity(intent);
+    }
+
+
+
+
 }

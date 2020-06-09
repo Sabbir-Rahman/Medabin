@@ -103,6 +103,107 @@ public class MediplannerDatabaseHelper extends SQLiteOpenHelper {
 
     }
 
+
+    public List<plannerModel> planMedicine(Integer day){
+
+        List<plannerModel> retuenList = new ArrayList<>();
+
+
+        String queryString = "SELECT * FROM " +TABLE_NAME;
+        SQLiteDatabase db = this.getReadableDatabase();
+
+        Cursor cs = db.rawQuery(queryString,null);
+
+        if(cs.moveToFirst()){
+            //loop through the cursor
+
+
+                do {
+
+                    if (cs.getInt(6) == 1) {
+                        int medicineId = cs.getInt(0);
+                        String medicineName = cs.getString(1);
+                        String companyName = cs.getString(2);
+                        Integer schedule = cs.getInt(3);
+                        Float consume = cs.getFloat(4);
+                        Float rate = cs.getFloat(5);
+                        Float quantity = day * (consume / schedule);
+                        double roundQuantity = Math.ceil(quantity);
+                        double ttl_rate = rate * roundQuantity;
+                        // Float ttl_rate = rate * quantity;
+
+
+                        //new object
+
+                        plannerModel Medicine = new plannerModel(medicineName, roundQuantity, rate, ttl_rate);
+                        retuenList.add(Medicine);
+
+                    }
+                }
+                while (cs.moveToNext());
+
+
+        }
+
+        else {
+            //failure do not do anything
+        }
+        cs.close();
+        db.close();
+
+        return retuenList;
+
+    }
+
+
+    public double totalMoney(Integer day){
+        //List<plannerModel> retuenList = new ArrayList<>();
+        float total = 0;
+
+        String queryString = "SELECT * FROM " +TABLE_NAME;
+        SQLiteDatabase db = this.getReadableDatabase();
+
+        Cursor cs = db.rawQuery(queryString,null);
+
+        if(cs.moveToFirst()){
+            //loop through the cursor
+
+
+                do {
+                    if (cs.getInt(6) == 1) {
+                        int medicineId = cs.getInt(0);
+                        String medicineName = cs.getString(1);
+                        String companyName = cs.getString(2);
+                        Integer schedule = cs.getInt(3);
+                        Float consume = cs.getFloat(4);
+                        Float rate = cs.getFloat(5);
+                        Float quantity = day * (consume / schedule);
+                        double roundQuantity = Math.ceil(quantity);
+                        double ttl_rate = rate * roundQuantity;
+                        total += ttl_rate;
+
+
+                        //new object
+
+                    }
+                }
+                while (cs.moveToNext());
+
+
+        }
+
+        else {
+            //failure do not do anything
+        }
+        cs.close();
+        db.close();
+
+        return total;
+
+    }
+
+
+
     public boolean deleteOne(mediplannerMedicineModel medicineModel){
 
         //find the medicine in the database if exist  return true

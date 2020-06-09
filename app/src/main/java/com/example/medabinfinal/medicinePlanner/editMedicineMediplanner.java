@@ -2,6 +2,7 @@ package com.example.medabinfinal.medicinePlanner;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import android.view.WindowManager;
@@ -71,5 +72,11 @@ public class editMedicineMediplanner extends AppCompatActivity {
 
             }
         });
+    }
+
+    public void onBackPressed(){
+        Intent intent = new Intent(editMedicineMediplanner.this,MedicineMenu.class);
+        startActivity(intent);
+        finish();
     }
 }

@@ -2,6 +2,7 @@ package com.example.medabinfinal.medicinePlanner;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import android.view.WindowManager;
@@ -38,7 +39,10 @@ public class deleteMedicineMediplanner extends AppCompatActivity {
                 databaseHelper.deleteOne(clickmedicineModel);
                 ShowMedicineOnlistView(databaseHelper);
                 Toast.makeText(deleteMedicineMediplanner.this, "Deleted "+clickmedicineModel.toString(), Toast.LENGTH_SHORT).show();
+                SendUserToMedicineMenu();
+
             }
+
         });
 
     }
@@ -46,6 +50,11 @@ public class deleteMedicineMediplanner extends AppCompatActivity {
     private void ShowMedicineOnlistView(MediplannerDatabaseHelper dataBasehelper2) {
         medicineArrayAdapter = new ArrayAdapter<mediplannerMedicineModel>(deleteMedicineMediplanner.this, android.R.layout.simple_list_item_1, dataBasehelper2.getEveryone());
         lv_medicine.setAdapter(medicineArrayAdapter);
+    }
+
+    public void SendUserToMedicineMenu(){
+        Intent intent = new Intent(deleteMedicineMediplanner.this,MedicineMenu.class);
+        startActivity(intent);
     }
 
 
