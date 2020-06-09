@@ -5,26 +5,57 @@
     <application
         android:allowBackup="true"
         android:icon="@mipmap/ic_launcher"
-        android:label="@string/app_name"
+        android:label="Medabin"
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".medicinePlanner.plannerActivity"></activity>
-        <activity android:name=".medicinePlanner.editMedicineMediplanner" />
-        <activity android:name=".medicinePlanner.viewMedicineMediplanner" />
-        <activity android:name=".medicinePlanner.deleteMedicineMediplanner" />
-        <activity android:name=".medicinePlanner.addMedicineMediplanner" />
-        <activity android:name=".medicinePlanner.MedicineMenu" />
-        <activity android:name=".medicinePlanner.medicinePlannerMenu" />
-        <activity android:name=".medicinePlanner.medicinePlannerDashboard" />
-        <activity android:name=".drawer.general" />
-        <activity android:name=".drawer.profileDetails" />
-        <activity android:name=".loginRegister.SignUp" />
-        <activity android:name=".loginRegister.Login" />
-        <activity android:name=".splashScreen.SplashScreenMedabin" />
-        <activity android:name=".dashboard.UserDashboard" />
-        <activity android:name=".walkthrough.OnBoarding" />
+        <activity android:name=".medicinePlanner.plannerActivity">
+            android:screenOrientation="portrait"
+        </activity>
+        <activity android:name=".medicinePlanner.editMedicineMediplanner" >
+            android:screenOrientation="portrait"
+        </activity>
+        <activity android:name=".medicinePlanner.viewMedicineMediplanner" >
+            android:screenOrientation="portrait"
+        </activity>
+        <activity android:name=".medicinePlanner.deleteMedicineMediplanner" >
+            android:screenOrientation="portrait"
+        </activity>
+        <activity android:name=".medicinePlanner.addMedicineMediplanner" >
+            android:screenOrientation="portrait"
+        </activity>
+        <activity android:name=".medicinePlanner.MedicineMenu" >
+            android:screenOrientation="portrait"
+        </activity>
+        <activity android:name=".medicinePlanner.medicinePlannerMenu" >
+            android:screenOrientation="portrait"
+        </activity>
+        <activity android:name=".medicinePlanner.medicinePlannerDashboard" >
+            android:screenOrientation="portrait"
+        </activity>
+        <activity android:name=".drawer.general" >
+            android:screenOrientation="portrait"
+        </activity>
+        <activity android:name=".drawer.profileDetails" >
+            android:screenOrientation="portrait"
+        </activity>
+        <activity android:name=".loginRegister.SignUp" >
+            android:screenOrientation="portrait"
+        </activity>
+        <activity android:name=".loginRegister.Login" >
+            android:screenOrientation="portrait"
+        </activity>
+        <activity android:name=".splashScreen.SplashScreenMedabin" >
+            android:screenOrientation="portrait"
+        </activity>
+        <activity android:name=".dashboard.UserDashboard" >
+            android:screenOrientation="portrait"
+        </activity>
+        <activity android:name=".walkthrough.OnBoarding" >
+            android:screenOrientation="portrait"
+        </activity>
         <activity android:name=".splashScreen.SplashScreen">
+            android:screenOrientation="portrait"
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
