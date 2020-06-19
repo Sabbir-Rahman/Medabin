@@ -116,7 +116,7 @@
             android:layout_height="match_parent"
             android:layout_margin="12dp"
             android:layout_weight="1"
-            android:onClick="createNote"
+            android:onClick="mediNote"
             android:fadingEdgeLength="6dp"
             app:cardElevation="6dp"
             app:cardMaxElevation="6dp">
@@ -128,7 +128,7 @@
                 android:layout_gravity="center_horizontal"
                 android:layout_marginTop="97dp"
                 android:fontFamily="@font/denk_one"
-                android:text="Create Note"
+                android:text="@string/medi_note_dashboard"
                 android:textColor="#8B0700"
                 android:textSize="18sp" />
 

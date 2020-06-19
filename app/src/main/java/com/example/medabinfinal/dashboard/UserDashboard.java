@@ -12,6 +12,7 @@ import android.view.View;
 import android.widget.Toast;
 
 import com.example.medabinfinal.R;
+import com.example.medabinfinal.mediNote.splashScreenMediNote;
 import com.example.medabinfinal.medicinePlanner.medicinePlannerDashboard;
 import com.google.android.material.navigation.NavigationView;
 
@@ -48,8 +49,9 @@ public class UserDashboard extends AppCompatActivity {
         super.onBackPressed();}
     }
 
-    public void createNote(View v){
+    public void mediNote(View v){
         Toast.makeText(this, "Going To Create Note", Toast.LENGTH_SHORT).show();
+        sendUserTomediNote();
     }
 
     public void remindMe(View v){
@@ -83,6 +85,11 @@ public class UserDashboard extends AppCompatActivity {
 
     public void sendUserToMediplanner(){
         Intent intent = new Intent(UserDashboard.this, medicinePlannerDashboard.class);
+        startActivity(intent);
+    }
+
+    public void sendUserTomediNote(){
+        Intent intent = new Intent(UserDashboard.this, splashScreenMediNote.class);
         startActivity(intent);
     }
 

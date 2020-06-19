@@ -181,7 +181,7 @@
                 android:layout_height="wrap_content"
                 android:layout_marginBottom="10dp"
                 android:hint="Phone"
-                android:id="@+id/phone"
+                android:id="@+id/textTime"
                 app:boxStrokeColor="@color/lime_green">
 
                 <com.google.android.material.textfield.TextInputEditText
@@ -198,7 +198,7 @@
                 android:layout_height="wrap_content"
                 android:layout_marginBottom="10dp"
                 android:hint="Email"
-                android:id="@+id/email"
+                android:id="@+id/textTime"
                 app:boxStrokeColor="@color/lime_green">
 
                 <com.google.android.material.textfield.TextInputEditText

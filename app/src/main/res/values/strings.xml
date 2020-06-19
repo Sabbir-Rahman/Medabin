@@ -48,5 +48,6 @@
     <string name="consume_hint_text_1">How much in quantity you consume in your selected schedule. Suppose you have a injection which you need to take 1 time after 7 days. Then select schedule 7 and select consume 1. If you take half just input .5</string>
     <string name="consume_hint_text_2">Just write the consume quantity in decimal number</string>
     <string name="rate_hint_text_1">Just write the rate in bdt . Input it as decimal number</string>
+    <string name="medi_note_dashboard">Medi Note</string>
 
 </resources>

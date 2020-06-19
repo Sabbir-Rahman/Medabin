@@ -8,13 +8,11 @@ import android.graphics.Color;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
-import android.widget.EditText;
 import android.widget.TextView;
 import android.widget.Toast;
 
 import com.example.medabinfinal.R;
 import com.example.medabinfinal.dashboard.UserDashboard;
-import com.google.android.material.textfield.TextInputEditText;
 import com.google.android.material.textfield.TextInputLayout;
 
 public class SignUp extends AppCompatActivity {
@@ -52,8 +50,8 @@ public class SignUp extends AppCompatActivity {
         mBlood_group=findViewById(R.id.blood_group);
         mOccupation=findViewById(R.id.occupation);
         mGender=findViewById(R.id.gender);
-        mPhone=findViewById(R.id.phone);
-        mEmail=findViewById(R.id.email);
+        mPhone=findViewById(R.id.textTime);
+        mEmail=findViewById(R.id.textTime);
         mAddress=findViewById(R.id.address);
         mEmergencyContact=findViewById(R.id.emergency_contact);
         mPassword=findViewById(R.id.Password);

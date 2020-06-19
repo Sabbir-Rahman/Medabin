@@ -80,4 +80,9 @@ public class MedicineMenu extends AppCompatActivity {
         Intent intent = new Intent(MedicineMenu.this,deleteMedicineMediplanner.class);
         startActivity(intent);
     }
+    public void onBackPressed(){
+        Intent intent = new Intent(MedicineMenu.this,medicinePlannerMenu.class);
+        startActivity(intent);
+        finish();
+    }
 }

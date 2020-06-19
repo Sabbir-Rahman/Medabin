@@ -7,7 +7,7 @@
         <item name="colorPrimaryDark">@color/pale_green</item>
         <item name="colorAccent">@color/colorAccent</item>
         <item name="android:windowContentTransitions">true</item>
-        <item name="android:statusBarColor">#00000000</item>
+        <item name="android:statusBarColor">#203C00</item>
     </style>
 
 </resources>

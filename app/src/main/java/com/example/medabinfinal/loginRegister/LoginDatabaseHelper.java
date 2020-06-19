@@ -7,7 +7,7 @@ import android.database.sqlite.SQLiteDatabase;
 import android.database.sqlite.SQLiteOpenHelper;
 
 public class LoginDatabaseHelper extends SQLiteOpenHelper {
-    public static final String DATABASE_NAME = "hd.db";
+    public static final String DATABASE_NAME = "register.db";
     public static final String TABLE_NAME = "registeruser";
     public static final String ID = "ID";
     public static final String USER_FULL_NAME = "Fullname";
