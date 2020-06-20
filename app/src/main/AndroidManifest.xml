@@ -1,26 +1,31 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
     package="com.example.medabinfinal">
 
     <application
+        tools:node="replace"
         android:allowBackup="true"
         android:icon="@mipmap/ic_launcher"
         android:label="Medabin"
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
+        <activity android:name=".mediNote.mediNoteSearch" />
+        <activity android:name=".mediNote.editNote" />
+        <activity
+            android:name=".mediNote.medinoteDetails"
+            android:label="@string/title_activity_medinote_details"
+            android:theme="@style/AppTheme.NoActionBar" />
         <activity android:name=".mediNote.addNote">
             <meta-data
                 android:name="android.support.PARENT_ACTIVITY"
-                android:value=".mediNote.mainActivityMediNote"
-                />
+                android:value=".mediNote.mainActivityMediNote" />
         </activity>
-        <activity android:name=".mediNote.mainActivityMediNote" >
+        <activity android:name=".mediNote.mainActivityMediNote">
             <meta-data
                 android:name="android.support.PARENT_ACTIVITY"
-                android:value=".dashboard.UserDashboard"
-                />
-
+                android:value=".dashboard.UserDashboard" />
         </activity>
         <activity android:name=".mediNote.splashScreenMediNote" />
         <activity android:name=".medicinePlanner.plannerActivity" />
@@ -38,6 +43,8 @@
         <activity android:name=".splashScreen.SplashScreenMedabin" />
         <activity android:name=".dashboard.UserDashboard" />
         <activity android:name=".walkthrough.OnBoarding" />
+        <activity android:name=".mediNote.searchByTitle"></activity>
+
         <activity android:name=".splashScreen.SplashScreen">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
