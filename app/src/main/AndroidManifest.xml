@@ -4,13 +4,16 @@
     package="com.example.medabinfinal">
 
     <application
-        tools:node="replace"
         android:allowBackup="true"
         android:icon="@mipmap/ic_launcher"
         android:label="Medabin"
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
-        android:theme="@style/AppTheme">
+        android:theme="@style/AppTheme"
+        tools:node="replace">
+        <activity android:name=".mediNote.searchByContent"></activity>
+        <activity android:name=".mediNote.searchByTime" />
+        <activity android:name=".mediNote.searchByDate" />
         <activity android:name=".mediNote.mediNoteSearch" />
         <activity android:name=".mediNote.editNote" />
         <activity
@@ -43,8 +46,7 @@
         <activity android:name=".splashScreen.SplashScreenMedabin" />
         <activity android:name=".dashboard.UserDashboard" />
         <activity android:name=".walkthrough.OnBoarding" />
-        <activity android:name=".mediNote.searchByTitle"></activity>
-
+        <activity android:name=".mediNote.searchByTitle" />
         <activity android:name=".splashScreen.SplashScreen">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
