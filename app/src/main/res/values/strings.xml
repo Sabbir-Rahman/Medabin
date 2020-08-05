@@ -60,5 +60,6 @@
     <string name="hello_second_fragment">Hello second fragment. Arg: %1$s</string>
     <string name="warning_search_time_medinote">Here 12 means 00 so if you want to search for 12:12 day you will input 00:12 PM and if you search for night 12:12 you will input 00:12 AM</string>
     <string name="text_warning_medinote_search_details">Showing details in suggestion list is very inefficient so we will not show any suggestion here</string>
+    <string name="regular_medicine_warning">If you take this medicine regulary in a day then fill it otherwise select others</string>
 
 </resources>

@@ -11,7 +11,16 @@
         android:supportsRtl="true"
         android:theme="@style/AppTheme"
         tools:node="replace">
-        <activity android:name=".mediNote.searchByContent"></activity>
+        <activity android:name=".updateRecord.medicineRecord.update_record_medicine_view"></activity>
+        <activity android:name=".splashScreen.update_record_splash_screen" />
+        <activity android:name=".updateRecord.personalRecord.personal_record_dashboard" />
+        <activity android:name=".updateRecord.doctorRecord.doctor_record_dashboard" />
+        <activity android:name=".updateRecord.hospitalRecord.hospital_record_dashboard" />
+        <activity android:name=".updateRecord.medicalReport.medical_report_dashboard" />
+        <activity android:name=".updateRecord.medicineRecord.update_record_medicine_record_menu" />
+        <activity android:name=".updateRecord.medicineRecord.medicineRecordAddMedicine" />
+        <activity android:name=".updateRecord.dasboard.updaterecordDashboard" />
+        <activity android:name=".mediNote.searchByContent" />
         <activity android:name=".mediNote.searchByTime" />
         <activity android:name=".mediNote.searchByDate" />
         <activity android:name=".mediNote.mediNoteSearch" />

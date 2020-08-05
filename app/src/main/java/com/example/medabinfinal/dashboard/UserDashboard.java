@@ -14,6 +14,7 @@ import android.widget.Toast;
 import com.example.medabinfinal.R;
 import com.example.medabinfinal.mediNote.splashScreenMediNote;
 import com.example.medabinfinal.medicinePlanner.medicinePlannerDashboard;
+import com.example.medabinfinal.splashScreen.update_record_splash_screen;
 import com.google.android.material.navigation.NavigationView;
 
 public class UserDashboard extends AppCompatActivity {
@@ -69,6 +70,7 @@ public class UserDashboard extends AppCompatActivity {
 
     public void updateRecord(View v){
         Toast.makeText(this, "Going To Update Record", Toast.LENGTH_SHORT).show();
+        sendUserToUpdateRecord();
     }
 
     public void giveFeedback(View v){
@@ -90,6 +92,11 @@ public class UserDashboard extends AppCompatActivity {
 
     public void sendUserTomediNote(){
         Intent intent = new Intent(UserDashboard.this, splashScreenMediNote.class);
+        startActivity(intent);
+    }
+
+    public void sendUserToUpdateRecord(){
+        Intent intent = new Intent(UserDashboard.this, update_record_splash_screen.class);
         startActivity(intent);
     }
 
