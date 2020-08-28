@@ -1,0 +1,94 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".ProfileActivity">
+    <ImageView
+        android:id="@+id/profile_background_image"
+        android:layout_width="match_parent"
+        android:layout_height="250dp"
+        android:background="@drawable/profile_background">
+
+
+
+
+    </ImageView>
+    <de.hdodenhof.circleimageview.CircleImageView
+        android:id="@+id/visit_profile_image"
+        android:layout_width="130dp"
+        android:layout_height="130dp"
+        android:layout_alignParentTop="true"
+        android:layout_centerHorizontal="false"
+        android:layout_marginStart="10dp"
+        android:layout_marginTop="40dp"
+        android:src="@drawable/profile_image"
+        />
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/visit_profile_name"
+        android:layout_marginStart="20dp"
+
+        android:text="User name"
+        android:textColor="@color/white"
+        android:layout_marginLeft="15dp"
+        android:layout_marginTop="180dp"
+        android:textAlignment="textStart"
+        android:textSize="20sp"
+        android:textStyle="bold"
+        />
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/visit_profile_status"
+        android:layout_below="@+id/visit_profile_name"
+        android:layout_marginStart="20dp"
+
+        android:text="Status"
+        android:textColor="@color/white"
+        android:layout_marginLeft="15dp"
+        android:layout_marginTop="5dp"
+        android:textAlignment="textStart"
+        android:textSize="20sp"
+        android:textStyle="bold"
+        />
+    <Button
+        android:id="@+id/send_message_request_button"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="260dp"
+        android:layout_marginLeft="15dp"
+        android:layout_marginRight="15dp"
+        android:background="@drawable/teledoctor_button5"
+        android:textColor="@color/red"
+        android:text="Send Message Request"
+        android:textAllCaps="false"
+        android:textSize="18sp"
+        android:textStyle="bold"
+
+
+        />
+
+    <Button
+        android:id="@+id/decline_message_request_button"
+        android:layout_below="@+id/send_message_request_button"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="10dp"
+        android:layout_marginLeft="15dp"
+        android:layout_marginRight="15dp"
+        android:background="@drawable/teledoctor_button5"
+        android:textColor="@color/sky_blue"
+        android:text="Cancel chat Request"
+        android:textAllCaps="false"
+        android:textSize="18sp"
+        android:textStyle="bold"
+        android:visibility="invisible"
+
+
+        />
+
+</RelativeLayout>
+

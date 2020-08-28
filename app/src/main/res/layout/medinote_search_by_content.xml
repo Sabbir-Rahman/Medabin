@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@drawable/green_back"
+    >
+
+    <com.mancj.materialsearchbar.MaterialSearchBar
+        android:layout_margin="8dp"
+        android:id="@+id/search_bar_medinote_content"
+        android:layout_alignParentTop="true"
+        app:mt_speechMode="false"
+        app:mt_hint="Search"
+        app:mt_placeholder="Search Here by Details"
+        app:mt_hintColor="@color/black"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        />
+
+    <TextView
+        android:id="@+id/textWarningSearchContentMedinote"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/search_bar_medinote_content"
+        android:text="@string/text_warning_medinote_search_details"
+        android:textAlignment="center"
+        android:textColor="@color/black"
+        android:layout_margin="5dp"
+        android:textSize="14sp" />
+
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/recyclerSearchContent"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_below="@+id/textWarningSearchContentMedinote"
+        android:layout_marginTop="5dp" />
+
+
+
+
+
+
+
+</RelativeLayout>

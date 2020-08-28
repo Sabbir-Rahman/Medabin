@@ -1,0 +1,283 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    tools:context=".updateRecord.dasboard.updaterecordDashboard"
+    >
+
+
+    <androidx.appcompat.widget.Toolbar
+        android:id="@+id/toolbar"
+        android:layout_width="match_parent"
+        android:layout_height="60dp"
+        android:background="@color/dark_green"
+        android:minHeight="?attr/actionBarSize"
+        android:theme="@style/ThemeOverlay.AppCompat.Dark.ActionBar"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:titleTextColor="@android:color/white"
+
+        >
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:fontFamily="@font/carter_one"
+            android:gravity="center|start"
+            android:text="Update Record"
+            android:textColor="@color/white"
+            android:textSize="24sp"
+            android:textStyle="bold"
+            tools:layout_editor_absoluteX="72dp"
+            tools:layout_editor_absoluteY="10dp" />
+
+
+    </androidx.appcompat.widget.Toolbar>
+
+
+
+
+      <ScrollView
+          android:layout_width="match_parent"
+          android:layout_height="match_parent">
+
+          <LinearLayout
+              android:layout_width="match_parent"
+              android:layout_height="match_parent"
+              android:orientation="vertical"
+              >
+
+              <LinearLayout
+                  android:layout_width="match_parent"
+                  android:layout_height="180dp"
+                  android:orientation="horizontal"
+                  android:layout_margin="10dp"
+                  >
+
+                  <LinearLayout
+                      android:layout_width="0dp"
+                      android:layout_weight="1"
+                      android:layout_marginRight="5dp"
+                      android:layout_height="180dp"
+                      android:background="#66DAF4D4"
+                      android:orientation="vertical"
+                      android:onClick="enterMedicineRecord"
+                      >
+
+
+                      <ImageView
+                          android:id="@+id/imageView_record_menu_medicine"
+                          android:layout_width="match_parent"
+                          android:layout_height="0dp"
+                          android:layout_weight="9"
+                          android:layout_marginRight="5dp"
+
+                          app:srcCompat="@drawable/medicine_record_menu"
+
+
+                          />
+
+                      <TextView
+                          android:layout_width="match_parent"
+                          android:layout_height="0dp"
+                          android:layout_weight="2"
+
+                          android:fontFamily="@font/aladin"
+                          android:gravity="center"
+                          android:textSize="24sp"
+                          android:text="Medicine Record" />
+
+                  </LinearLayout>
+
+
+
+                  <LinearLayout
+                      android:layout_width="0dp"
+                      android:layout_weight="1"
+                      android:layout_marginLeft="5dp"
+                      android:layout_height="180dp"
+                      android:background="#66DAF4D4"
+                      android:orientation="vertical"
+                      android:onClick="enterDoctorRecord"
+                      >
+
+
+                      <ImageView
+                          android:id="@+id/imageView_record_menu_doctor"
+                          android:layout_width="match_parent"
+                          android:layout_height="0dp"
+                          android:layout_weight="9"
+                          android:layout_marginRight="5dp"
+
+                          app:srcCompat="@drawable/doctor_record_menu"
+
+
+                          />
+
+                      <TextView
+                          android:layout_width="match_parent"
+                          android:layout_height="0dp"
+                          android:layout_weight="2"
+
+                          android:fontFamily="@font/aladin"
+                          android:gravity="center"
+                          android:textSize="24sp"
+                          android:text="Doctor Record" />
+
+                  </LinearLayout>
+
+
+
+
+
+              </LinearLayout>
+
+
+              <LinearLayout
+                  android:layout_width="match_parent"
+                  android:layout_height="180dp"
+                  android:orientation="horizontal"
+                  android:layout_margin="10dp"
+                  >
+
+                  <LinearLayout
+                      android:layout_width="0dp"
+                      android:layout_weight="1"
+                      android:layout_marginRight="5dp"
+                      android:layout_height="180dp"
+                      android:background="#66DAF4D4"
+                      android:orientation="vertical"
+                      android:onClick="enterPersonalRecord"
+                      >
+
+
+                      <ImageView
+                          android:id="@+id/imageView_record_menu_personal_record"
+                          android:layout_width="match_parent"
+                          android:layout_height="0dp"
+                          android:layout_weight="9"
+                          android:layout_marginRight="5dp"
+
+                          app:srcCompat="@drawable/personal_record"
+
+
+                          />
+
+                      <TextView
+                          android:layout_width="match_parent"
+                          android:layout_height="0dp"
+                          android:layout_weight="2"
+
+                          android:fontFamily="@font/aladin"
+                          android:gravity="center"
+                          android:textSize="24sp"
+                          android:text="Personal Record" />
+
+                  </LinearLayout>
+
+                  <LinearLayout
+                      android:layout_width="0dp"
+                      android:layout_weight="1"
+                      android:layout_marginLeft="5dp"
+                      android:layout_height="180dp"
+                      android:background="#66DAF4D4"
+                      android:orientation="vertical"
+                      android:onClick="enterMedicalReport"
+                      >
+
+
+                      <ImageView
+                          android:id="@+id/imageView_record_menu_medical_report"
+                          android:layout_width="match_parent"
+                          android:layout_height="0dp"
+                          android:layout_weight="9"
+                          android:layout_marginRight="5dp"
+
+                          app:srcCompat="@drawable/medical_report"
+
+
+                          />
+
+                      <TextView
+                          android:layout_width="match_parent"
+                          android:layout_height="0dp"
+                          android:layout_weight="2"
+
+                          android:fontFamily="@font/aladin"
+                          android:gravity="center"
+                          android:textSize="24sp"
+                          android:text="Mecical Report" />
+
+                  </LinearLayout>
+
+              </LinearLayout>
+
+              <LinearLayout
+                  android:layout_width="match_parent"
+                  android:layout_height="180dp"
+                  android:orientation="horizontal"
+                  android:layout_margin="10dp"
+                  >
+
+
+                  <LinearLayout
+                      android:layout_width="0dp"
+                      android:layout_weight="1"
+                      android:layout_marginLeft="5dp"
+                      android:layout_height="180dp"
+                      android:background="#66DAF4D4"
+                      android:orientation="vertical"
+                      android:onClick="enterHospitalRecord"
+                      >
+
+
+                      <ImageView
+                          android:id="@+id/imageView_record_menu_hospital_record"
+                          android:layout_width="match_parent"
+                          android:layout_height="0dp"
+                          android:layout_weight="9"
+                          android:layout_marginRight="5dp"
+
+                          app:srcCompat="@drawable/record_hospital_info"
+
+
+                          />
+
+                      <TextView
+                          android:layout_width="match_parent"
+                          android:layout_height="0dp"
+                          android:layout_weight="2"
+
+                          android:fontFamily="@font/aladin"
+                          android:gravity="center"
+                          android:textSize="24sp"
+                          android:text="Hsopital Record" />
+
+                  </LinearLayout>
+
+                  <ImageView
+                      android:id="@+id/imageView_record_menu_blank"
+                      android:layout_width="0dp"
+                      android:layout_height="match_parent"
+                      android:layout_marginLeft="5dp"
+                      android:layout_weight="1"
+                      />
+
+              </LinearLayout>
+
+
+
+
+          </LinearLayout>
+
+
+
+      </ScrollView>
+
+
+
+</LinearLayout>

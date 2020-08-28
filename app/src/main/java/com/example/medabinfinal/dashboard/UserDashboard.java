@@ -15,6 +15,9 @@ import com.example.medabinfinal.R;
 import com.example.medabinfinal.mediNote.splashScreenMediNote;
 import com.example.medabinfinal.medicinePlanner.medicinePlannerDashboard;
 import com.example.medabinfinal.splashScreen.update_record_splash_screen;
+
+
+import com.example.medabinfinal.teleDoctor.MainActivity;
 import com.google.android.material.navigation.NavigationView;
 
 public class UserDashboard extends AppCompatActivity {
@@ -66,6 +69,7 @@ public class UserDashboard extends AppCompatActivity {
 
     public void teleDoctor(View v){
         Toast.makeText(this, "Going To Tele Doctor", Toast.LENGTH_SHORT).show();
+        sendUserToTeledoctor();
     }
 
     public void updateRecord(View v){
@@ -97,6 +101,12 @@ public class UserDashboard extends AppCompatActivity {
 
     public void sendUserToUpdateRecord(){
         Intent intent = new Intent(UserDashboard.this, update_record_splash_screen.class);
+        startActivity(intent);
+    }
+
+    public void sendUserToTeledoctor()
+    {
+        Intent intent = new Intent(UserDashboard.this, MainActivity.class);
         startActivity(intent);
     }
 

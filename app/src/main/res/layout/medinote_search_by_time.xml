@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@drawable/green_back"
+    >
+
+    <com.mancj.materialsearchbar.MaterialSearchBar
+        android:layout_margin="8dp"
+        android:id="@+id/search_bar_medinote_time"
+        android:layout_alignParentTop="true"
+        app:mt_speechMode="false"
+        app:mt_hint="Search"
+        app:mt_placeholder="Search Here by Time"
+        app:mt_hintColor="@color/black"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        />
+
+    <TextView
+        android:id="@+id/textWarningSearchTimeMedinote"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/search_bar_medinote_time"
+        android:text="@string/warning_search_time_medinote"
+        android:textAlignment="center"
+        android:textColor="@color/black"
+        android:layout_margin="5dp"
+        android:background="@drawable/border3"
+        android:textSize="14sp" />
+
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/recyclerSearchTime"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_below="@+id/textWarningSearchTimeMedinote"
+        android:layout_marginTop="5dp" />
+
+
+
+
+
+
+
+</RelativeLayout>

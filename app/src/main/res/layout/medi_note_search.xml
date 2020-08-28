@@ -1,0 +1,263 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".mediNote.mediNoteSearch"
+    android:background="@drawable/search_back">
+
+    <androidx.appcompat.widget.Toolbar
+        android:id="@+id/toolbarMediNote"
+        android:layout_width="match_parent"
+        android:layout_height="60dp"
+        android:background="@color/dark_green"
+        android:minHeight="?attr/actionBarSize"
+        android:theme="@style/ThemeOverlay.AppCompat.Dark.ActionBar"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:titleTextColor="@android:color/white"
+
+        >
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:fontFamily="@font/carter_one"
+            android:gravity="center|start"
+            android:text=" Medi Note Search"
+            android:textColor="@color/white"
+            android:textSize="24sp"
+            android:textStyle="bold"
+            tools:layout_editor_absoluteX="72dp"
+            tools:layout_editor_absoluteY="10dp" />
+
+
+    </androidx.appcompat.widget.Toolbar>
+
+    <androidx.cardview.widget.CardView
+        android:id="@+id/mediNoteSearchTitle"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+
+        android:onClick="searchByTitle"
+
+        android:layout_margin="8dp"
+        android:layout_marginTop="5dp"
+        android:background="#999E99"
+        android:elevation="10dp"
+        android:padding="5dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/toolbarMediNote">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_margin="8dp"
+            android:background="@android:color/white"
+            android:orientation="horizontal">
+
+            <ImageView
+                android:layout_width="70dp"
+                android:layout_height="70dp"
+                android:layout_marginTop="10dp"
+                android:src="@drawable/title" />
+
+            <LinearLayout
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_weight="9"
+                android:gravity="center|center_horizontal"
+                android:orientation="vertical">
+
+                <TextView
+                    android:id="@+id/titleSearch"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:fontFamily="@font/audiowide"
+                    android:gravity="center|center_horizontal"
+                    android:text="Search with title"
+                    android:textAllCaps="true"
+                    android:textColor="@color/dark_green"
+                    android:textSize="20sp"
+                    android:textStyle="bold" />
+
+
+            </LinearLayout>
+
+        </LinearLayout>
+
+
+    </androidx.cardview.widget.CardView>
+
+    <androidx.cardview.widget.CardView
+        android:id="@+id/mediNoteSearchDate"
+        android:layout_width="0dp"
+
+        android:onClick="searchByDate"
+
+        android:layout_height="wrap_content"
+        android:layout_margin="8dp"
+        android:layout_marginTop="5dp"
+        android:background="#999E99"
+        android:elevation="10dp"
+        android:padding="5dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/mediNoteSearchTitle">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_margin="8dp"
+            android:background="@android:color/white"
+            android:orientation="horizontal">
+
+            <ImageView
+                android:layout_width="70dp"
+                android:layout_height="70dp"
+                android:layout_marginTop="10dp"
+                android:src="@drawable/search_calendar" />
+
+            <LinearLayout
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_weight="9"
+                android:gravity="center|center_horizontal"
+                android:orientation="vertical">
+
+                <TextView
+                    android:id="@+id/searchDate"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:fontFamily="@font/audiowide"
+                    android:gravity="center|center_horizontal"
+                    android:text="Search with Date"
+                    android:textAllCaps="true"
+                    android:textColor="@color/dark_green"
+                    android:textSize="20sp"
+                    android:textStyle="bold" />
+
+
+            </LinearLayout>
+
+        </LinearLayout>
+
+
+    </androidx.cardview.widget.CardView>
+
+    <androidx.cardview.widget.CardView
+        android:id="@+id/mediNoteTimeSearch"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+
+        android:onClick="searchByTime"
+
+        android:layout_margin="8dp"
+        android:layout_marginTop="5dp"
+        android:background="#999E99"
+        android:elevation="10dp"
+        android:padding="5dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/mediNoteSearchDate">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_margin="8dp"
+            android:background="@android:color/white"
+            android:orientation="horizontal">
+
+            <ImageView
+                android:layout_width="70dp"
+                android:layout_height="70dp"
+                android:layout_marginTop="10dp"
+                android:src="@drawable/search_time" />
+
+            <LinearLayout
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_weight="9"
+                android:gravity="center|center_horizontal"
+                android:orientation="vertical">
+
+                <TextView
+                    android:id="@+id/searchTime"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:fontFamily="@font/audiowide"
+                    android:gravity="center|center_horizontal"
+                    android:text="Search with Time"
+                    android:textAllCaps="true"
+                    android:textColor="@color/dark_green"
+                    android:textSize="20sp"
+                    android:textStyle="bold" />
+
+
+            </LinearLayout>
+
+        </LinearLayout>
+
+
+    </androidx.cardview.widget.CardView>
+
+    <androidx.cardview.widget.CardView
+        android:id="@+id/mediNoteContentSearch"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+
+        android:onClick="searchByDetails"
+
+        android:layout_margin="8dp"
+        android:layout_marginTop="5dp"
+        android:background="#999E99"
+        android:elevation="10dp"
+        android:padding="5dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/mediNoteTimeSearch">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_margin="8dp"
+            android:background="@android:color/white"
+            android:orientation="horizontal">
+
+            <ImageView
+                android:layout_width="70dp"
+                android:layout_height="70dp"
+                android:layout_marginTop="10dp"
+                android:src="@drawable/isearch_details" />
+
+            <LinearLayout
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_weight="9"
+                android:gravity="center|center_horizontal"
+                android:orientation="vertical">
+
+                <TextView
+                    android:id="@+id/searchContent"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:fontFamily="@font/audiowide"
+                    android:gravity="center|center_horizontal"
+                    android:text="Search with Details"
+                    android:textAllCaps="true"
+                    android:textColor="@color/dark_green"
+                    android:textSize="20sp"
+                    android:textStyle="bold" />
+
+
+            </LinearLayout>
+
+        </LinearLayout>
+
+
+    </androidx.cardview.widget.CardView>
+
+</androidx.constraintlayout.widget.ConstraintLayout>

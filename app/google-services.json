@@ -1,0 +1,77 @@
+{
+  "project_info": {
+    "project_number": "555354929054",
+    "firebase_url": "https://teledoctor-ce043.firebaseio.com",
+    "project_id": "teledoctor-ce043",
+    "storage_bucket": "teledoctor-ce043.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:555354929054:android:7ce64550d891716c7fc88f",
+        "android_client_info": {
+          "package_name": "com.example.medabinfinal"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "555354929054-is5i3iv422q3lecefmb4lgogj8cbn4sj.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDuE7Z7qoMCZlWS8n4yp9oPUQNt1Ve-PCY"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "555354929054-is5i3iv422q3lecefmb4lgogj8cbn4sj.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    },
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:555354929054:android:9a9a8094779cba617fc88f",
+        "android_client_info": {
+          "package_name": "com.example.teledoctor"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "555354929054-rku3a0omnjh60bpaisr1q2c72juvsq81.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.example.teledoctor",
+            "certificate_hash": "c4b13061d59a927a1b4c228094378e98a2ce1749"
+          }
+        },
+        {
+          "client_id": "555354929054-is5i3iv422q3lecefmb4lgogj8cbn4sj.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDuE7Z7qoMCZlWS8n4yp9oPUQNt1Ve-PCY"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "555354929054-is5i3iv422q3lecefmb4lgogj8cbn4sj.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

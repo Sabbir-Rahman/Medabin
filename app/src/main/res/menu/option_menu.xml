@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <item
+        android:id="@+id/menu_find_doctor"
+        android:title="Find Doctors and user"
+        app:showAsAction="never">
+
+        //if the user click on the three small button then only will it appear
+
+
+    </item>
+    <item
+        android:id="@+id/menu_create_groups"
+        android:title="Create Groups"
+        app:showAsAction="never">
+
+        //if the user click on the three small button then only will it appear
+
+
+    </item>
+
+    <item
+    android:id="@+id/menu_settings"
+    android:title="Settings"
+    app:showAsAction="never">//if the user click on the three small button then only will it appear
+
+
+    </item>
+
+    <item
+        android:id="@+id/menu_logout"
+        android:title="Logout"
+        app:showAsAction="never">//if the user click on the three small button then only will it appear
+
+
+    </item>
+
+</menu>

@@ -1,0 +1,95 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".TeleDoctorPhoneLoginActivity">
+
+    <EditText
+        android:id="@+id/phoneNumberLogin"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignParentStart="true"
+        android:layout_marginStart="17dp"
+        android:layout_marginEnd="17dp"
+        android:layout_marginTop="210dp"
+        android:background="@drawable/teledoctor_border1"
+        android:padding="10dp"
+        android:hint="Phone Number.."
+        android:textAlignment="center"
+        android:drawableStart="@drawable/phone"
+        android:textColor="@color/blue"
+        android:textAllCaps="false"
+        android:textSize="20sp"
+        android:textStyle="bold"
+        />
+    <TextView
+        android:id="@+id/country_code"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="150dp"
+        android:layout_marginStart="18dp"
+        android:layout_marginEnd="18dp"
+        android:layout_marginBottom="10dp"
+        android:text="Dont forget to add country code before your phone number for Bangladesh it is +880 and then it will starts from 1 example +8801711111111"
+
+        />
+
+    <EditText
+        android:id="@+id/verification_code_input"
+        android:layout_below="@+id/phoneNumberLogin"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignParentStart="true"
+        android:layout_marginStart="70dp"
+        android:layout_marginEnd="70dp"
+        android:layout_marginTop="20dp"
+        android:background="@drawable/teledoctor_border3"
+        android:padding="10dp"
+        android:visibility="invisible"
+        android:hint="Verification Code"
+        android:textAlignment="center"
+        android:drawableStart="@drawable/correct"
+        android:textColor="@color/red"
+        android:textAllCaps="false"
+        android:textSize="17sp"
+        android:textStyle="bold"
+        />
+
+    <Button
+        android:id="@+id/send_verification_code"
+        android:layout_below="@+id/verification_code_input"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="50dp"
+        android:layout_marginEnd="50dp"
+        android:layout_marginTop="20dp"
+        android:textAllCaps="false"
+        android:background="@drawable/teledoctor_button4"
+        android:textSize="20sp"
+        android:textStyle="bold"
+        android:textColor="@color/blue"
+        android:text="Send Verification code"
+
+        />
+
+    <Button
+        android:id="@+id/verify_phone_login_button"
+        android:layout_below="@+id/send_verification_code"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="17dp"
+        android:layout_marginEnd="17dp"
+        android:layout_marginTop="10dp"
+        android:textAllCaps="false"
+        android:background="@drawable/teledoctor_button3"
+        android:textSize="26sp"
+        android:textStyle="bold"
+        android:textColor="@color/white"
+        android:text="Verify"
+        android:visibility="invisible"
+
+        />
+
+</RelativeLayout>
