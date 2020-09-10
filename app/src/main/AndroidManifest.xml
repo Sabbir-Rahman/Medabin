@@ -13,7 +13,11 @@
         android:supportsRtl="true"
         android:theme="@style/AppTheme"
         tools:node="replace">
-        <activity android:name=".updateRecord.medicineRecord.update_record_medicine_view"></activity>
+        <activity android:name=".healthTips.health_tips_show"></activity>
+        <activity android:name=".healthTips.healthTips_splashScreen" />
+        <activity android:name=".updateRecord.medicalReport.view_report" />
+        <activity android:name=".updateRecord.medicalReport.add_report" />
+        <activity android:name=".updateRecord.medicineRecord.update_record_medicine_view" />
         <activity android:name=".splashScreen.update_record_splash_screen" />
         <activity android:name=".updateRecord.personalRecord.personal_record_dashboard" />
         <activity android:name=".updateRecord.doctorRecord.doctor_record_dashboard" />
@@ -62,7 +66,6 @@
         <activity android:name=".teleDoctor.RegisterActivity" />
         <activity android:name=".teleDoctor.MainActivity" />
         <activity android:name=".teleDoctor.SettingsActivity" />
-
         <activity android:name=".splashScreen.SplashScreen">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
@@ -70,9 +73,10 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <meta-data android:name="com.google.android.gms.version"
-            android:value="@integer/google_play_services_version" />
 
+        <meta-data
+            android:name="com.google.android.gms.version"
+            android:value="@integer/google_play_services_version" />
     </application>
 
 </manifest>

@@ -70,5 +70,6 @@
     <string name="warning_search_time_medinote">Here 12 means 00 so if you want to search for 12:12 day you will input 00:12 PM and if you search for night 12:12 you will input 00:12 AM</string>
     <string name="text_warning_medinote_search_details">Showing details in suggestion list is very inefficient so we will not show any suggestion here</string>
     <string name="regular_medicine_warning">If you take this medicine regulary in a day then fill it otherwise select others</string>
+    <string name="details_tips_1">The start of a new decade brings with it new resolutions to improve one’s life, including a healthier lifestyle. Here are 20 practical health tips to help you start off towards healthy living in 2020. 1. Eat a healthy diet 1_20190529_091438_LR Photo: FAO/J. Grey Eat a combination of different foods, including fruit, vegetables, legumes, nuts and whole grains. Adults should eat at least five portions (400g) of fruit and vegetables per day. You can improve your intake of fruits and vegetables by always including veggies in your meal; eating fresh fruit and vegetables as snacks; eating a variety of fruits and vegetables; and eating them in season. By eating healthy, you will reduce your risk of malnutrition and noncommunicable diseases (NCDs) such as diabetes, heart disease, stroke and cancer.</string>
 
 </resources>

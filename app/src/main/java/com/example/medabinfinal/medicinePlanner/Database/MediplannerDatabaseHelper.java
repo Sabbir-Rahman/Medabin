@@ -203,6 +203,213 @@ public class MediplannerDatabaseHelper extends SQLiteOpenHelper {
     }
 
 
+    public String getSingleMedicineName(String id)
+    {
+        SQLiteDatabase db = this.getReadableDatabase();
+        String queryString = "SELECT * FROM " + TABLE_NAME + " WHERE " + ID + " = " +id;
+        Cursor cs = db.rawQuery(queryString,null);
+
+        String name = null;
+        if(cs.moveToFirst()){
+            //loop through the cursor
+
+
+            do {
+
+                    String medicineName = cs.getString(1);
+                    name = medicineName;
+
+
+            }
+            while (cs.moveToNext());
+
+
+        }
+
+        else {
+            //failure do not do anything
+        }
+        cs.close();
+        db.close();
+
+        return name;
+
+    }
+
+    public String getSingleMedicineCompany(String id)
+    {
+        SQLiteDatabase db = this.getReadableDatabase();
+        String queryString = "SELECT * FROM " + TABLE_NAME + " WHERE " + ID + " = " +id;
+        Cursor cs = db.rawQuery(queryString,null);
+
+        String company = null;
+        if(cs.moveToFirst()){
+            //loop through the cursor
+
+
+            do {
+
+                String medicineCompany = cs.getString(2);
+                company = medicineCompany;
+
+
+            }
+            while (cs.moveToNext());
+
+
+        }
+
+        else {
+            //failure do not do anything
+        }
+        cs.close();
+        db.close();
+
+        return company;
+
+    }
+
+    public Integer getSingleMedicineSchedule(String id)
+    {
+        SQLiteDatabase db = this.getReadableDatabase();
+        String queryString = "SELECT * FROM " + TABLE_NAME + " WHERE " + ID + " = " +id;
+        Cursor cs = db.rawQuery(queryString,null);
+
+        Integer schedule = 0;
+        if(cs.moveToFirst()){
+            //loop through the cursor
+
+
+            do {
+
+                Integer medicineSchedule = cs.getInt(3);
+                schedule = medicineSchedule;
+
+
+            }
+            while (cs.moveToNext());
+
+
+        }
+
+        else {
+            //failure do not do anything
+        }
+        cs.close();
+        db.close();
+
+        return schedule;
+
+    }
+
+
+    public boolean getSingleMedicineIsActive(String id)
+    {
+        SQLiteDatabase db = this.getReadableDatabase();
+        String queryString = "SELECT * FROM " + TABLE_NAME + " WHERE " + ID + " = " +id;
+        Cursor cs = db.rawQuery(queryString,null);
+
+        Boolean isActive = false;
+        if(cs.moveToFirst()){
+            //loop through the cursor
+
+
+            do {
+
+
+                    Integer active = cs.getInt(6);
+                    if(active ==1)
+                        isActive = true;
+
+
+
+            }
+            while (cs.moveToNext());
+
+
+        }
+
+        else {
+            //failure do not do anything
+        }
+        cs.close();
+        db.close();
+
+        return isActive;
+
+    }
+
+
+    public Float getSingleMedicineConsume(String id)
+    {
+        SQLiteDatabase db = this.getReadableDatabase();
+        String queryString = "SELECT * FROM " + TABLE_NAME + " WHERE " + ID + " = " +id;
+        Cursor cs = db.rawQuery(queryString,null);
+
+        Float consume = null;
+        if(cs.moveToFirst()){
+            //loop through the cursor
+
+
+            do {
+
+                Float medicineConsume = cs.getFloat(4);
+                consume = medicineConsume;
+
+
+            }
+            while (cs.moveToNext());
+
+
+        }
+
+        else {
+            //failure do not do anything
+        }
+        cs.close();
+        db.close();
+
+        return consume;
+
+    }
+
+    public Float getSingleMedicineRate(String id)
+    {
+        SQLiteDatabase db = this.getReadableDatabase();
+        String queryString = "SELECT * FROM " + TABLE_NAME + " WHERE " + ID + " = " +id;
+        Cursor cs = db.rawQuery(queryString,null);
+
+        Float rate = null;
+        if(cs.moveToFirst()){
+            //loop through the cursor
+
+
+            do {
+
+                Float medicineRate = cs.getFloat(5);
+                rate = medicineRate;
+
+
+            }
+            while (cs.moveToNext());
+
+
+        }
+
+        else {
+            //failure do not do anything
+        }
+        cs.close();
+        db.close();
+
+        return rate;
+
+    }
+
+
+
+
+
 
     public boolean deleteOne(mediplannerMedicineModel medicineModel){
 

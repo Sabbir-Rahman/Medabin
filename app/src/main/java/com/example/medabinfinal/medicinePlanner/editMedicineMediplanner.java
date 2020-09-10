@@ -20,7 +20,7 @@ import com.example.medabinfinal.medicinePlanner.Database.mediplannerMedicineMode
 public class editMedicineMediplanner extends AppCompatActivity {
 
     EditText edit_id,editMedicineName,editMedicineCompany,editMedicineSchedule,editMedicineConsume,editMedicineRate;
-    Button btn_update;
+    Button btn_update,retrive_info;
     Switch sw_active;
     ListView lv_medicine;
     ArrayAdapter medicineArrayAdapter;
@@ -41,12 +41,30 @@ public class editMedicineMediplanner extends AppCompatActivity {
         btn_update = findViewById(R.id.button_update);
         sw_active = findViewById(R.id.switchEdit);
         lv_medicine = findViewById(R.id.list_view_edit);
+        retrive_info = findViewById(R.id.retrive_info);
 
         dataBasehelper = new MediplannerDatabaseHelper(editMedicineMediplanner.this);
         ShowMedicineOnlistView(dataBasehelper);
         updateData();
 
 
+    }
+
+    public void retreiveData(View v)
+    {
+        if(edit_id.getText().toString()!=null)
+        {
+            //calling the single function from database to retrive info
+            editMedicineName.setText(dataBasehelper.getSingleMedicineName(edit_id.getText().toString()));
+            editMedicineCompany.setText(dataBasehelper.getSingleMedicineCompany(edit_id.getText().toString()));
+            editMedicineSchedule.setText(Integer.toString(dataBasehelper.getSingleMedicineSchedule(edit_id.getText().toString())));
+            editMedicineConsume.setText(Float.toString(dataBasehelper.getSingleMedicineConsume(edit_id.getText().toString())));
+            editMedicineRate.setText(Float.toString(dataBasehelper.getSingleMedicineRate(edit_id.getText().toString())));
+            sw_active.setChecked(dataBasehelper.getSingleMedicineIsActive(edit_id.getText().toString()));
+
+        }
+        else
+            Toast.makeText(this, "Please enter id first", Toast.LENGTH_SHORT).show();
     }
 
     private void ShowMedicineOnlistView(MediplannerDatabaseHelper dataBasehelper2) {

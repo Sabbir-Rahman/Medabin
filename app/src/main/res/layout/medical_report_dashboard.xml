@@ -4,6 +4,29 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="@drawable/back_second"
     tools:context=".updateRecord.medicalReport.medical_report_dashboard">
+
+    <ImageView
+        android:id="@+id/imageAddReport"
+        android:layout_width="150dp"
+        android:layout_height="150dp"
+        android:layout_marginStart="40dp"
+        android:layout_marginTop="50dp"
+        android:onClick="sendUserToAddReport"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:srcCompat="@drawable/add_record" />
+
+    <ImageView
+        android:id="@+id/imageViewReport"
+        android:layout_width="150dp"
+        android:layout_height="150dp"
+        android:layout_marginTop="20dp"
+        android:layout_marginEnd="40dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        android:onClick="sendUserToViewreport"
+        app:layout_constraintTop_toBottomOf="@+id/imageAddReport"
+        app:srcCompat="@drawable/view_report" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

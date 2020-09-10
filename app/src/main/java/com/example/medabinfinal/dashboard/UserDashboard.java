@@ -12,12 +12,13 @@ import android.view.View;
 import android.widget.Toast;
 
 import com.example.medabinfinal.R;
+import com.example.medabinfinal.healthTips.healthTips_splashScreen;
 import com.example.medabinfinal.mediNote.splashScreenMediNote;
 import com.example.medabinfinal.medicinePlanner.medicinePlannerDashboard;
 import com.example.medabinfinal.splashScreen.update_record_splash_screen;
 
 
-import com.example.medabinfinal.teleDoctor.MainActivity;
+
 import com.google.android.material.navigation.NavigationView;
 
 public class UserDashboard extends AppCompatActivity {
@@ -69,7 +70,7 @@ public class UserDashboard extends AppCompatActivity {
 
     public void teleDoctor(View v){
         Toast.makeText(this, "Going To Tele Doctor", Toast.LENGTH_SHORT).show();
-        sendUserToTeledoctor();
+
     }
 
     public void updateRecord(View v){
@@ -87,6 +88,7 @@ public class UserDashboard extends AppCompatActivity {
 
     public void healthTips(View v){
         Toast.makeText(this, "Going To Health Tips", Toast.LENGTH_SHORT).show();
+        sendUserToHealthTips();
     }
 
     public void sendUserToMediplanner(){
@@ -104,10 +106,11 @@ public class UserDashboard extends AppCompatActivity {
         startActivity(intent);
     }
 
-    public void sendUserToTeledoctor()
+    public void sendUserToHealthTips()
     {
-        Intent intent = new Intent(UserDashboard.this, MainActivity.class);
+        Intent intent = new Intent(this, healthTips_splashScreen.class);
         startActivity(intent);
+        finish();
     }
 
 
