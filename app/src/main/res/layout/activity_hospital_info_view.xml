@@ -4,34 +4,29 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@drawable/login_back">
+    tools:context=".hospitalinfo.hospitalInfoVIew"
+    android:background="@drawable/green_back"
+    >
 
 
     <com.mancj.materialsearchbar.MaterialSearchBar
         android:layout_margin="8dp"
-        android:id="@+id/searchbarUpdateRecordMedicine"
-        android:layout_alignParentTop="true"
-        app:mt_speechMode="false"
-        app:mt_hint="Search"
-        app:mt_placeholder="Search Here by Medicine Name"
-        app:mt_hintColor="@color/black"
+        android:id="@+id/search_bar_hospital_view"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        app:mt_placeholder="Search Here by Hospital Name"
+        app:mt_hintColor="@color/black"
+        android:layout_alignParentTop="true"
+        app:mt_hint="Search"
+        app:mt_speechMode="false" />
 
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/recyclerSearchHospitalView"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_below="@+id/search_bar_hospital_view"
 
 
         />
 
-    <androidx.recyclerview.widget.RecyclerView
-        android:id="@+id/recyclerSearchMedicineName"
-        android:layout_below="@+id/searchbarUpdateRecordMedicine"
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"/>
-
-
-
-
 </RelativeLayout>
-
-
-

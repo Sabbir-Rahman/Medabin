@@ -1,0 +1,284 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.cardview.widget.CardView
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    app:layout_constraintBottom_toBottomOf="parent"
+    app:layout_constraintEnd_toEndOf="parent"
+    app:layout_constraintStart_toStartOf="parent"
+    app:layout_constraintTop_toTopOf="parent"
+    android:elevation="10dp"
+    android:padding="5dp"
+    android:layout_margin="10dp"
+    android:layout_marginBottom="10dp"
+    >
+
+    <LinearLayout
+        android:background="@drawable/hospital_info_back"
+        android:layout_margin="5dp"
+        android:orientation="horizontal"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+
+        >
+
+
+
+        <LinearLayout
+            android:orientation="vertical"
+            android:layout_weight="9"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content">
+
+
+
+            <TextView
+                android:id="@+id/name_hospital"
+                android:layout_marginLeft="15dp"
+                android:layout_marginTop="10dp"
+                android:gravity="center_vertical|start"
+                android:textStyle="bold"
+                android:text="SQUARE SPECIALIZED HOSPITAL"
+                android:textSize="17sp"
+                android:textColor="@color/black"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"/>
+
+            <TextView
+                android:id="@+id/location_hospital"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="15dp"
+                android:layout_marginTop="0dp"
+                android:gravity="center_vertical|start"
+                android:text="18/F, Bir Uttam Qazi Nuruzzaman Sarak West, Panthapath, Dhaka 1205"
+                android:textAllCaps="false"
+                android:textColor="@color/blue"
+                android:textSize="16sp"
+                android:textStyle="italic" />
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="30dp"
+                android:orientation="horizontal"
+                >
+
+                <TextView
+                    android:id="@+id/textPhone"
+                    android:layout_marginTop="3dp"
+                    android:layout_marginLeft="15dp"
+                    android:gravity="center_vertical|start"
+                    android:text="Phone :"
+                    android:textColor="@color/black"
+                    android:textSize="16sp"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"/>
+
+                <TextView
+                    android:id="@+id/hospitalPhone"
+                    android:layout_marginLeft="10dp"
+                    android:layout_marginTop="3dp"
+                    android:gravity="center_vertical|start"
+                    android:textStyle="italic"
+                    android:text="02-589987"
+                    android:textColor="@color/black"
+                    android:textSize="16sp"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"/>
+
+
+
+            </LinearLayout>
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="30dp"
+                android:orientation="horizontal"
+                >
+
+                <TextView
+                    android:id="@+id/textEmergencyUnit"
+                    android:layout_marginTop="3dp"
+                    android:layout_marginLeft="15dp"
+                    android:gravity="center_vertical|start"
+                    android:text="Emergency Unit :"
+                    android:textColor="@color/black"
+                    android:textSize="16sp"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"/>
+
+                <TextView
+                    android:id="@+id/hospitalEmergencyUnit"
+                    android:layout_marginLeft="10dp"
+                    android:layout_marginTop="3dp"
+                    android:gravity="center_vertical|start"
+                    android:textStyle="bold"
+                    android:text="Yes"
+                    android:textColor="@color/black"
+                    android:textSize="16sp"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"/>
+
+
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="30dp"
+                android:orientation="horizontal"
+                >
+
+                <TextView
+                    android:id="@+id/textHotline"
+                    android:layout_marginTop="3dp"
+                    android:layout_marginLeft="15dp"
+                    android:gravity="center_vertical|start"
+                    android:text="Hotline Ambulance :"
+                    android:textColor="@color/black"
+                    android:textSize="16sp"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"/>
+
+                <TextView
+                    android:id="@+id/hospitalHotlineAmbulance"
+                    android:layout_marginLeft="10dp"
+                    android:layout_marginTop="3dp"
+                    android:gravity="center_vertical|start"
+                    android:textStyle="bold"
+                    android:text="15672"
+                    android:textColor="@color/red"
+                    android:textSize="16sp"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"/>
+
+
+
+            </LinearLayout>
+            <TextView
+                android:id="@+id/textSpeciality"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:textSize="17sp"
+                android:text="Speciality :"
+                android:layout_marginLeft="15dp"
+                android:layout_marginTop="3dp"
+                android:textColor="@color/black"
+                />
+            <TextView
+                android:id="@+id/hospital_speciality"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:textSize="16sp"
+                android:text="One of the famous in Bangladesh"
+                android:layout_marginLeft="15dp"
+                android:textStyle="italic"
+                android:layout_marginTop="0dp"
+                android:textColor="@color/black"
+                />
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="30dp"
+                android:orientation="horizontal"
+                >
+
+                <TextView
+                    android:id="@+id/textCebin"
+                    android:layout_marginTop="3dp"
+                    android:layout_marginLeft="15dp"
+                    android:gravity="center_vertical|start"
+                    android:text="Cabin No :"
+                    android:textColor="@color/black"
+                    android:textSize="16sp"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"/>
+
+                <TextView
+                    android:id="@+id/hospitalCebin"
+                    android:layout_marginLeft="10dp"
+                    android:layout_marginTop="3dp"
+                    android:gravity="center_vertical|start"
+                    android:textStyle="bold"
+                    android:text="50"
+                    android:textColor="@color/black"
+                    android:textSize="16sp"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"/>
+
+
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="30dp"
+                android:orientation="horizontal"
+                >
+
+                <TextView
+                    android:id="@+id/textWard"
+                    android:layout_marginTop="3dp"
+                    android:layout_marginLeft="15dp"
+                    android:gravity="center_vertical|start"
+                    android:text="Ward No :"
+                    android:textColor="@color/black"
+                    android:textSize="16sp"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"/>
+
+                <TextView
+                    android:id="@+id/hospitalWard"
+                    android:layout_marginLeft="10dp"
+                    android:layout_marginTop="3dp"
+                    android:gravity="center_vertical|start"
+                    android:textStyle="bold"
+                    android:text="100"
+                    android:textColor="@color/black"
+                    android:textSize="16sp"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"/>
+
+
+
+            </LinearLayout>
+
+
+            <TextView
+                android:id="@+id/textOthers"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:textSize="17sp"
+                android:text="Others :"
+                android:layout_marginLeft="15dp"
+                android:layout_marginTop="3dp"
+                android:textColor="@color/black"
+                />
+            <TextView
+                android:id="@+id/hospitalOthers"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:textSize="16sp"
+                android:layout_marginBottom="20dp"
+                android:text=""
+                android:layout_marginLeft="15dp"
+                android:textStyle="italic"
+                android:layout_marginTop="0dp"
+                android:textColor="@color/black"
+                />
+
+
+
+
+
+
+
+
+        </LinearLayout>
+
+    </LinearLayout>
+
+
+
+
+</androidx.cardview.widget.CardView>

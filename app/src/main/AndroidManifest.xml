@@ -5,6 +5,7 @@
 
     <uses-permission android:name="android.permission.INTERNET" />
 
+
     <application
         android:allowBackup="true"
         android:icon="@mipmap/ic_launcher"
@@ -13,7 +14,8 @@
         android:supportsRtl="true"
         android:theme="@style/AppTheme"
         tools:node="replace">
-        <activity android:name=".healthTips.health_tips_show"></activity>
+        <activity android:name=".hospitalinfo.hospitalInfoVIew"/>
+        <activity android:name=".healthTips.health_tips_show" />
         <activity android:name=".healthTips.healthTips_splashScreen" />
         <activity android:name=".updateRecord.medicalReport.view_report" />
         <activity android:name=".updateRecord.medicalReport.add_report" />
@@ -62,10 +64,6 @@
         <activity android:name=".dashboard.UserDashboard" />
         <activity android:name=".walkthrough.OnBoarding" />
         <activity android:name=".mediNote.searchByTitle" />
-        <activity android:name=".teleDoctor.LoginActivity" />
-        <activity android:name=".teleDoctor.RegisterActivity" />
-        <activity android:name=".teleDoctor.MainActivity" />
-        <activity android:name=".teleDoctor.SettingsActivity" />
         <activity android:name=".splashScreen.SplashScreen">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />

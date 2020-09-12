@@ -16,7 +16,7 @@
 
     <LinearLayout
         android:background="@drawable/view_back_mediicine"
-        android:layout_margin="8dp"
+
         android:orientation="horizontal"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"

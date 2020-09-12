@@ -13,6 +13,7 @@ import android.widget.Toast;
 
 import com.example.medabinfinal.R;
 import com.example.medabinfinal.healthTips.healthTips_splashScreen;
+import com.example.medabinfinal.hospitalinfo.hospitalInfoVIew;
 import com.example.medabinfinal.mediNote.splashScreenMediNote;
 import com.example.medabinfinal.medicinePlanner.medicinePlannerDashboard;
 import com.example.medabinfinal.splashScreen.update_record_splash_screen;
@@ -84,6 +85,7 @@ public class UserDashboard extends AppCompatActivity {
 
     public void hospitalInfo(View v){
         Toast.makeText(this, "Going To Hospital Info", Toast.LENGTH_SHORT).show();
+        sendUserToHospitalInfo();
     }
 
     public void healthTips(View v){
@@ -112,6 +114,15 @@ public class UserDashboard extends AppCompatActivity {
         startActivity(intent);
         finish();
     }
+
+    public void sendUserToHospitalInfo()
+    {
+        Intent intent = new Intent(this, hospitalInfoVIew.class);
+        startActivity(intent);
+
+    }
+
+
 
 
 
