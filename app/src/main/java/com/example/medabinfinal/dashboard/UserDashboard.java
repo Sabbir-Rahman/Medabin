@@ -12,6 +12,7 @@ import android.view.View;
 import android.widget.Toast;
 
 import com.example.medabinfinal.R;
+import com.example.medabinfinal.giveFeedback.giveFeedbackMenu;
 import com.example.medabinfinal.healthTips.healthTips_splashScreen;
 import com.example.medabinfinal.hospitalinfo.hospitalInfoVIew;
 import com.example.medabinfinal.mediNote.splashScreenMediNote;
@@ -81,6 +82,7 @@ public class UserDashboard extends AppCompatActivity {
 
     public void giveFeedback(View v){
         Toast.makeText(this, "Going To Give Feedback", Toast.LENGTH_SHORT).show();
+        sendUserToFeedback();
     }
 
     public void hospitalInfo(View v){
@@ -119,7 +121,14 @@ public class UserDashboard extends AppCompatActivity {
     {
         Intent intent = new Intent(this, hospitalInfoVIew.class);
         startActivity(intent);
+        finish();
+    }
 
+    public void sendUserToFeedback()
+    {
+        Intent intent = new Intent(this, giveFeedbackMenu.class);
+        startActivity(intent);
+        finish();
     }
 
 

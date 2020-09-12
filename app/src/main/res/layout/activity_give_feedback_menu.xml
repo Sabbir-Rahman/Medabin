@@ -1,0 +1,59 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".giveFeedback.giveFeedbackMenu"
+    android:background="@drawable/login_back"
+    >
+
+    <ImageView
+        android:id="@+id/give_feedback_doctor"
+        android:layout_width="179dp"
+        android:layout_height="201dp"
+        android:onClick="sendUserToDoctorFeedback"
+        android:layout_marginStart="5dp"
+        android:layout_marginTop="50dp"
+        android:layout_marginEnd="20dp"
+        app:layout_constraintEnd_toStartOf="@+id/give_feedback_medicine"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:srcCompat="@drawable/give_feedback_doctor" />
+
+    <ImageView
+        android:id="@+id/give_feedback_medicine"
+        android:layout_width="162dp"
+        android:layout_height="187dp"
+        android:layout_marginStart="20dp"
+        android:layout_marginTop="53dp"
+        android:layout_marginEnd="10dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toEndOf="@+id/give_feedback_doctor"
+        app:layout_constraintTop_toTopOf="parent"
+        app:srcCompat="@drawable/give_feedback_medicine" />
+
+    <ImageView
+        android:id="@+id/give_feedback_hospital"
+        android:layout_width="169dp"
+        android:layout_height="160dp"
+        android:layout_marginStart="8dp"
+        android:layout_marginTop="20dp"
+        android:layout_marginEnd="20dp"
+        app:layout_constraintEnd_toStartOf="@+id/giveFeedbackPharmacy"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/give_feedback_doctor"
+        app:srcCompat="@drawable/give_feedback_hospital" />
+
+    <ImageView
+        android:id="@+id/giveFeedbackPharmacy"
+        android:layout_width="160dp"
+        android:layout_height="180dp"
+        android:layout_marginStart="20dp"
+        android:layout_marginTop="21dp"
+        android:layout_marginEnd="10dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toEndOf="@+id/give_feedback_hospital"
+        app:layout_constraintTop_toBottomOf="@+id/give_feedback_medicine"
+        app:srcCompat="@drawable/give_feedback_pharmacy" />
+</androidx.constraintlayout.widget.ConstraintLayout>
