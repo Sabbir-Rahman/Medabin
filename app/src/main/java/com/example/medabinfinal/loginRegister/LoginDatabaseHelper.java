@@ -7,7 +7,7 @@ import android.database.sqlite.SQLiteDatabase;
 import android.database.sqlite.SQLiteOpenHelper;
 
 public class LoginDatabaseHelper extends SQLiteOpenHelper {
-    public static final String DATABASE_NAME = "register.db";
+    public static final String DATABASE_NAME = "Register.db";
     public static final String TABLE_NAME = "registeruser";
     public static final String ID = "ID";
     public static final String USER_FULL_NAME = "Fullname";
@@ -22,7 +22,7 @@ public class LoginDatabaseHelper extends SQLiteOpenHelper {
     public static final String ADDRESS = "Address";
     public static final String EMERGENCY_CONTACT = "Emergency_contact";
     public static final String PASS_WORD = "Password";
-    public static final String EXTRA1 = "Extra1";
+    public static final String PET = "Pet_name";
 
     public LoginDatabaseHelper(Context context) {
         super(context, DATABASE_NAME, null, 1);
@@ -47,7 +47,7 @@ public class LoginDatabaseHelper extends SQLiteOpenHelper {
                 + ADDRESS + " TEXT, "
                 + EMERGENCY_CONTACT + " TEXT, "
                 + PASS_WORD + " TEXT, "
-                + EXTRA1 + " TEXT"
+                + PET + " TEXT"
                 + ");"
         );
 
@@ -59,7 +59,7 @@ public class LoginDatabaseHelper extends SQLiteOpenHelper {
         onCreate(dbRegister);
     }
 
-    public long addUser(String fullname, String user,String nationality,String age, String bloodgroup,String occupation,String gender, String phone,String email,String address, String emergencyContatc,String password) {
+    public long addUser(String fullname, String user,String nationality,String age, String bloodgroup,String occupation,String gender, String phone,String email,String address, String emergencyContatc,String password,String pet) {
         SQLiteDatabase db = this.getWritableDatabase();
         ContentValues contentValues = new ContentValues();
         contentValues.put("Fullname", fullname);
@@ -74,6 +74,7 @@ public class LoginDatabaseHelper extends SQLiteOpenHelper {
         contentValues.put("Address", address);
         contentValues.put("Emergency_contact", emergencyContatc);
         contentValues.put("Password", password);
+        contentValues.put(PET, pet);
         long res=db.insert("registeruser",null,contentValues);
         db.close();
         return res;
@@ -116,5 +117,23 @@ public class LoginDatabaseHelper extends SQLiteOpenHelper {
             return false;
 
     }
+
+    public boolean checkPet(String username,String pet){
+
+        String[] columns={ID};
+        SQLiteDatabase db=getReadableDatabase();
+        String selection = USER_NAME + "=?" + " and " + PET + "=?";
+        String[] selectionArgs={username,pet};
+        Cursor cursor=db.query(TABLE_NAME,columns,selection,selectionArgs,null,null,null);
+        int count = cursor.getCount();
+        cursor.close();
+        db.close();
+        if(count>0)
+            return true;
+        else
+            return false;
+
+    }
+
 
 }

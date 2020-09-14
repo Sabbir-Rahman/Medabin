@@ -28,7 +28,7 @@
             android:layout_height="match_parent"
             android:fontFamily="@font/carter_one"
             android:gravity="center|start"
-            android:text="Add Medicine Record"
+            android:text="Add Doctor"
             android:textColor="@color/white"
             android:textSize="24sp"
             android:textStyle="bold"

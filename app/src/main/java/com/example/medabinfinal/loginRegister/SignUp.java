@@ -29,6 +29,7 @@ public class SignUp extends AppCompatActivity {
     TextInputLayout mEmergencyContact;
     TextInputLayout mPassword;
     TextInputLayout mCnfPassword;
+    TextInputLayout petName;
     Button mSignup;
     TextView mDuplicate;
 
@@ -58,6 +59,7 @@ public class SignUp extends AppCompatActivity {
         mCnfPassword=findViewById(R.id.cnf_password);
         mSignup=findViewById(R.id.signButton);
         mDuplicate=findViewById(R.id.duplicate);
+        petName = findViewById(R.id.pet_name);
 
 
 
@@ -102,8 +104,10 @@ public class SignUp extends AppCompatActivity {
                 String emergency_contact=mEmergencyContact.getEditText().getText().toString().trim();
                 String pswd=mPassword.getEditText().getText().toString().trim();
                 String cnf_pswd=mCnfPassword.getEditText().getText().toString().trim();
+                String pet = petName.getEditText().getText().toString();
+
                 if(pswd.equals(cnf_pswd)){
-                    long value=db.addUser(name,user,nationality,age,blood_group,occupation,gender,phone,email,address,emergency_contact,pswd);
+                    long value=db.addUser(name,user,nationality,age,blood_group,occupation,gender,phone,email,address,emergency_contact,pswd,pet);
                     if(value>0){
                         Toast.makeText(SignUp.this,"You have registered",Toast.LENGTH_SHORT).show();
                         Intent moveToLogin=new Intent(SignUp.this,UserDashboard.class);

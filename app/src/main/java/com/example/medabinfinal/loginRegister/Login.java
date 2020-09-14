@@ -22,7 +22,7 @@ public class Login extends AppCompatActivity {
     TextInputLayout mUsername;
     TextInputLayout mPassword;
     Button mButtonLogin;
-    TextView mRegister;
+    TextView mRegister,forgetPass;
     LoginDatabaseHelper db;
 
     @Override
@@ -70,6 +70,13 @@ public class Login extends AppCompatActivity {
 
     public void signup(View view) {
         startActivity(new Intent(this, SignUp.class));
+        finish();
+    }
+
+    public void sendUserToForgetPassword(View v)
+    {
+        Intent intent = new Intent(this,ForgetPassword.class);
+        startActivity(intent);
         finish();
     }
 }
