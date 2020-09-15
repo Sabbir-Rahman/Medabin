@@ -5,14 +5,14 @@ import android.content.Context;
 import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
 import android.database.sqlite.SQLiteOpenHelper;
+import android.graphics.Bitmap;
 import android.util.Log;
 import android.widget.Toast;
 
 import androidx.annotation.Nullable;
 
 
-
-
+import java.io.ByteArrayOutputStream;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -28,8 +28,12 @@ public class DoctorRecordDatabase extends SQLiteOpenHelper {
     private static final String COL_CHAMBER = "Chamber_Location";
     private static final String COL_SYMPTOMS = "Patient_Symptoms";
     private static final String COL_FEES = "Consultation_Fees";
-    private static final String COL_COMMENST = "Comments";
+    private static final String COL_COMMENTS = "Comments";
     private static final String COL_VISIT = "Visit_Date";
+    private static final String COL_IMAGE = "Prescription_Image";
+
+    private ByteArrayOutputStream byteArrayOutputStream;
+    private byte[] imageInBytes;
 
     private Context context;
 
@@ -42,7 +46,7 @@ public class DoctorRecordDatabase extends SQLiteOpenHelper {
     public void onCreate(SQLiteDatabase db) {
         //create table
         String createTable = "CREATE TABLE "+ DATABASE_TABLE + " (" + COL_ID + " INTEGER PRIMARY KEY AUTOINCREMENT, " + COL_NAME + " TEXT, " + COl_SPECIALITY + " TEXT, " + COL_CHAMBER + " TEXT, "
-                + COL_SYMPTOMS + " TEXT, " + COL_FEES + " INTEGER, " + COL_COMMENST + " TEXT, " + COL_VISIT + " TEXT)";
+                + COL_SYMPTOMS + " TEXT, " + COL_FEES + " INTEGER, " + COL_COMMENTS + " TEXT, " + COL_VISIT + " TEXT, " + COL_IMAGE + " BLOB)";
 
         db.execSQL(createTable);
 
@@ -66,8 +70,17 @@ public class DoctorRecordDatabase extends SQLiteOpenHelper {
         contentValues.put(COL_CHAMBER,doctorModel.getChamberLocation());
         contentValues.put(COL_SYMPTOMS,doctorModel.getSymtomps());
         contentValues.put(COL_FEES,doctorModel.getConsultantFee());
-        contentValues.put(COL_COMMENST,doctorModel.getComments());
+        contentValues.put(COL_COMMENTS,doctorModel.getComments());
         contentValues.put(COL_VISIT,doctorModel.getVisitDate());
+
+        //image storing
+        Bitmap imageToStoreBitmap = doctorModel.getImage();
+        byteArrayOutputStream = new ByteArrayOutputStream();
+        imageToStoreBitmap.compress(Bitmap.CompressFormat.JPEG,100,byteArrayOutputStream);
+
+        imageInBytes = byteArrayOutputStream.toByteArray();
+        contentValues.put(COL_IMAGE,imageInBytes);
+
 
 
 

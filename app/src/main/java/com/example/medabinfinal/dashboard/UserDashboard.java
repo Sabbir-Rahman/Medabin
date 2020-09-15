@@ -12,6 +12,7 @@ import android.view.View;
 import android.widget.Toast;
 
 import com.example.medabinfinal.R;
+import com.example.medabinfinal.stayFit.stayFitMenu;
 import com.example.medabinfinal.giveFeedback.giveFeedbackMenu;
 import com.example.medabinfinal.healthTips.healthTips_splashScreen;
 import com.example.medabinfinal.hospitalinfo.hospitalInfoVIew;
@@ -70,8 +71,10 @@ public class UserDashboard extends AppCompatActivity {
         sendUserToMediplanner();
     }
 
-    public void teleDoctor(View v){
+    public void dietChart(View v){
+
         Toast.makeText(this, "Going To Tele Doctor", Toast.LENGTH_SHORT).show();
+        sendUserToDietChart();
 
     }
 
@@ -127,6 +130,13 @@ public class UserDashboard extends AppCompatActivity {
     public void sendUserToFeedback()
     {
         Intent intent = new Intent(this, giveFeedbackMenu.class);
+        startActivity(intent);
+        finish();
+    }
+
+    public void sendUserToDietChart()
+    {
+        Intent intent = new Intent(this, stayFitMenu.class);
         startActivity(intent);
         finish();
     }

@@ -93,10 +93,10 @@ public class doctor_record_add extends AppCompatActivity {
                     Integer fees = Integer.parseInt(consultationFee.getText().toString());
 
                     //adding data by model
-                    updateRecordDoctorModel doctorModel = new updateRecordDoctorModel(name,speciality,chamber,symptoms,fees,comments,date);
-                    DoctorRecordDatabase db = new DoctorRecordDatabase(doctor_record_add.this);
-
-                    db.addData(doctorModel);
+//                    updateRecordDoctorModel doctorModel = new updateRecordDoctorModel(name,speciality,chamber,symptoms,fees,comments,date);
+//                    DoctorRecordDatabase db = new DoctorRecordDatabase(doctor_record_add.this);
+//
+//                    db.addData(doctorModel);
                 }
 
             }

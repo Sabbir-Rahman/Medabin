@@ -13,10 +13,13 @@
         android:supportsRtl="true"
         android:theme="@style/AppTheme"
         tools:node="replace">
-        <activity android:name=".loginRegister.ForgetPassword"></activity>
+        <activity android:name=".stayFit.neededCalorieCalculator"></activity>
+        <activity android:name=".stayFit.CalorieChartView" />
+        <activity android:name=".stayFit.calorieBurnCalculation" />
+        <activity android:name=".stayFit.stayFitMenu" />
+        <activity android:name=".loginRegister.ForgetPassword" />
         <activity android:name=".updateRecord.doctorRecord.doctor_record_view" />
         <activity android:name=".updateRecord.doctorRecord.doctor_record_add" />
-        <activity android:name=".dietChart.dietChartMenu" />
         <activity android:name=".giveFeedback.pharmacy_feedback_view" />
         <activity android:name=".giveFeedback.pharmacy_feedback_add" />
         <activity android:name=".giveFeedback.hospital_feedback_view" />

@@ -223,7 +223,7 @@
             android:layout_height="match_parent"
             android:layout_margin="12dp"
             android:layout_weight="1"
-            android:onClick="teleDoctor"
+            android:onClick="dietChart"
             app:cardElevation="6dp">
 
             <TextView
@@ -233,7 +233,7 @@
                 android:layout_gravity="center_horizontal"
                 android:layout_marginTop="83dp"
                 android:fontFamily="@font/denk_one"
-                android:text="Tele Doctor"
+                android:text="Stay Fit"
                 android:gravity="center"
                 android:textColor="#8B0700"
                 android:textSize="18sp" />
@@ -244,7 +244,7 @@
                 android:layout_height="60dp"
                 android:layout_gravity="center_horizontal"
                 android:layout_marginTop="15dp"
-                app:srcCompat="@drawable/tele_doctor_menu" />
+                app:srcCompat="@drawable/nutrition" />
 
 
         </androidx.cardview.widget.CardView>

@@ -1,11 +1,14 @@
 package com.example.medabinfinal.updateRecord.doctorRecord.Database;
 
+import android.graphics.Bitmap;
+
 public class updateRecordDoctorModel {
 
     private long id;
     private String doctorName,speciality,chamberLocation,symtomps;
     private Integer consultantFee;
     private String comments,visitDate;
+    private Bitmap image;
 
     public long getId() {
         return id;
@@ -15,7 +18,21 @@ public class updateRecordDoctorModel {
         this.id = id;
     }
 
-    public updateRecordDoctorModel(long id, String doctorName, String speciality, String chamberLocation, String symtomps, Integer consultantFee, String comments, String visitDate) {
+    public updateRecordDoctorModel() {
+    }
+
+    public updateRecordDoctorModel(String doctorName, String speciality, String chamberLocation, String symtomps, Integer consultantFee, String comments, String visitDate, Bitmap image) {
+        this.doctorName = doctorName;
+        this.speciality = speciality;
+        this.chamberLocation = chamberLocation;
+        this.symtomps = symtomps;
+        this.consultantFee = consultantFee;
+        this.comments = comments;
+        this.visitDate = visitDate;
+        this.image = image;
+    }
+
+    public updateRecordDoctorModel(long id, String doctorName, String speciality, String chamberLocation, String symtomps, Integer consultantFee, String comments, String visitDate, Bitmap image) {
         this.id = id;
         this.doctorName = doctorName;
         this.speciality = speciality;
@@ -24,19 +41,7 @@ public class updateRecordDoctorModel {
         this.consultantFee = consultantFee;
         this.comments = comments;
         this.visitDate = visitDate;
-    }
-
-    public updateRecordDoctorModel() {
-    }
-
-    public updateRecordDoctorModel(String doctorName, String speciality, String chamberLocation, String symtomps, Integer consultantFee, String comments, String visitDate) {
-        this.doctorName = doctorName;
-        this.speciality = speciality;
-        this.chamberLocation = chamberLocation;
-        this.symtomps = symtomps;
-        this.consultantFee = consultantFee;
-        this.comments = comments;
-        this.visitDate = visitDate;
+        this.image = image;
     }
 
     public String getDoctorName() {
@@ -93,5 +98,13 @@ public class updateRecordDoctorModel {
 
     public void setVisitDate(String visitDate) {
         this.visitDate = visitDate;
+    }
+
+    public Bitmap getImage() {
+        return image;
+    }
+
+    public void setImage(Bitmap image) {
+        this.image = image;
     }
 }
