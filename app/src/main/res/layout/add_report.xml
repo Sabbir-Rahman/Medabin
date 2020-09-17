@@ -28,7 +28,7 @@
             android:layout_height="match_parent"
             android:fontFamily="@font/carter_one"
             android:gravity="center|start"
-            android:text="Add Doctor"
+            android:text="Add Report"
             android:textColor="@color/white"
             android:textSize="24sp"
             android:textStyle="bold"
@@ -111,13 +111,13 @@
                 android:layout_marginEnd="20dp"
                 android:backgroundTint="@color/dark_green"
                 android:ems="10"
-                android:hint="Consultation fee in tk"
+                android:hint="Test fee in tk"
                 android:inputType="number"
                 android:textColor="@color/dark_green"
                 />
 
             <EditText
-                android:id="@+id/medical_record_comments"
+                android:id="@+id/medical_report_comments"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginStart="20dp"
@@ -153,6 +153,7 @@
             <TextView
                 android:layout_width="match_parent"
                 android:layout_height="40dp"
+                android:layout_marginLeft="15dp"
                 android:text="Tap on image to choose report image"
                 android:textColor="@color/black"
                 android:textSize="18sp" />
@@ -161,15 +162,15 @@
                 android:id="@+id/choose_medical_report_image"
                 android:layout_width="match_parent"
                 android:layout_height="450dp"
-
+                android:onClick="chooseImageReport"
                 android:src="@drawable/ic_report"
-                android:scaleType="centerCrop"
-                />
+                android:scaleType="center"
+                tools:ignore="OnClick" />
 
 
 
             <Button
-                android:id="@+id/doctor_record_submit_button"
+                android:id="@+id/medical_report_submit_button"
                 android:layout_width="match_parent"
                 android:layout_height="60dp"
                 android:layout_marginTop="20dp"

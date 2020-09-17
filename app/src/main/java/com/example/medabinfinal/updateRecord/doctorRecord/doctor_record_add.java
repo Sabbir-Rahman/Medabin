@@ -58,7 +58,7 @@ public class doctor_record_add extends AppCompatActivity {
 
         doctorDatabase = new DoctorRecordDatabase(this);
 
-        //startdate picking
+        //testdate picking
         doctorVisitDate.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -101,8 +101,9 @@ public class doctor_record_add extends AppCompatActivity {
         });
     }
 
-    public void chooseImage(View v)
+    public void chooseImagePrescription(View v)
     {
+
         try {
             Intent intent = new Intent();
             intent.setType("image/*");
