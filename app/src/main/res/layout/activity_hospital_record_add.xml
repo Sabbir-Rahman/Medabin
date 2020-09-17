@@ -28,7 +28,7 @@
             android:layout_height="match_parent"
             android:fontFamily="@font/carter_one"
             android:gravity="center|start"
-            android:text="Add Report"
+            android:text="Add Hospital"
             android:textColor="@color/white"
             android:textSize="24sp"
             android:textStyle="bold"
@@ -50,98 +50,79 @@
             >
 
             <EditText
-                android:id="@+id/medical_report_report_name"
+                android:id="@+id/hospital_record_hospital_name"
                 android:layout_width="match_parent"
                 android:layout_height="50dp"
                 android:layout_marginStart="20dp"
                 android:layout_marginTop="20dp"
                 android:layout_marginEnd="20dp"
-                android:background="@drawable/box1"
-                android:paddingStart="10dp"
                 android:ems="10"
-                android:hint="Report Name"
+                android:paddingStart="10dp"
+                android:background="@drawable/box1"
+                android:hint="Hospital Name"
                 android:inputType="textPersonName"
                 android:textColor="@color/dark_green"
                 />
             <EditText
-                android:id="@+id/medical_report_prescribed_people_name"
+                android:id="@+id/hospital_record_admit_reason"
                 android:layout_width="match_parent"
                 android:layout_height="50dp"
+                android:paddingStart="10dp"
                 android:layout_marginStart="20dp"
                 android:layout_marginTop="20dp"
                 android:layout_marginEnd="20dp"
                 android:background="@drawable/box1"
-                android:paddingStart="10dp"
                 android:ems="10"
-                android:hint="Prescribed people Ex(Dr.Rahman,Self etc)"
+                android:hint="Admit reason Ex(fever,pain etc)"
                 android:inputType="textPersonName"
                 android:textColor="@color/dark_green"
                 />
 
             <EditText
-                android:id="@+id/medical_report_diagnostic_name"
+                android:id="@+id/hospital_record_admit_under"
                 android:layout_width="match_parent"
                 android:layout_height="50dp"
                 android:layout_marginStart="20dp"
                 android:layout_marginTop="20dp"
                 android:layout_marginEnd="20dp"
-                android:background="@drawable/box1"
-                android:paddingStart="10dp"
                 android:ems="10"
-                android:hint="Diagnostic name"
+                android:paddingStart="10dp"
+                android:background="@drawable/box1"
+                android:hint="Admit Under Ex(Dr.rahman)"
                 android:inputType="text"
                 android:textColor="@color/dark_green"
                 />
             <EditText
-                android:id="@+id/medical_report_details"
-                android:layout_width="match_parent"
-                android:layout_height="100dp"
-                android:layout_marginStart="20dp"
-                android:layout_marginTop="20dp"
-                android:layout_marginEnd="20dp"
-                android:background="@drawable/box1"
-                android:paddingStart="10dp"
-                android:ems="10"
-                android:hint="Symptomps (Stomach pain etc)"
-                android:inputType="textMultiLine"
-                android:textColor="@color/dark_green"
-                />
-            <EditText
-                android:id="@+id/medical_report_cost"
+                android:id="@+id/hospital_record_about_cabin_ward"
                 android:layout_width="match_parent"
                 android:layout_height="50dp"
                 android:layout_marginStart="20dp"
                 android:layout_marginTop="20dp"
                 android:layout_marginEnd="20dp"
                 android:background="@drawable/box1"
-                android:paddingStart="10dp"
                 android:ems="10"
-                android:hint="Test fee in tk"
+                android:paddingStart="10dp"
+                android:hint="Cabin or ward no"
+                android:inputType="textPersonName"
+                android:textColor="@color/dark_green"
+                />
+            <EditText
+                android:id="@+id/hospital_record_total_cost"
+                android:layout_width="match_parent"
+                android:layout_height="50dp"
+                android:layout_marginStart="20dp"
+                android:layout_marginTop="20dp"
+                android:layout_marginEnd="20dp"
+                android:background="@drawable/box1"
+                android:ems="10"
+                android:paddingStart="10dp"
+                android:hint="Hospital cost in tk"
                 android:inputType="number"
                 android:textColor="@color/dark_green"
                 />
 
             <EditText
-                android:id="@+id/medical_report_comments"
-                android:layout_width="match_parent"
-                android:layout_height="100dp"
-                android:layout_marginStart="20dp"
-                android:layout_marginTop="20dp"
-                android:layout_marginEnd="20dp"
-                android:background="@drawable/box1"
-                android:paddingStart="10dp"
-                android:ems="10"
-                android:hint="Comments"
-                android:inputType="textMultiLine"
-                android:textColor="@color/dark_green"
-                />
-
-
-
-
-
-            <EditText
-                android:id="@+id/medical_report_test_date"
+                android:id="@+id/hospital_record_admit_date"
                 android:layout_width="match_parent"
                 android:layout_height="50dp"
                 android:layout_marginStart="20dp"
@@ -149,35 +130,49 @@
                 android:layout_marginEnd="20dp"
                 android:layout_marginBottom="10dp"
                 android:background="@drawable/box1"
-                android:paddingStart="10dp"
                 android:ems="10"
+                android:paddingStart="10dp"
                 android:inputType="textNoSuggestions"
                 android:focusableInTouchMode="false"
-                android:hint="Test Date"
+                android:hint="Admit Date"
                 android:textColor="@color/dark_green"
                 />
 
-            <TextView
+            <EditText
+                android:id="@+id/hospital_record_release_date"
                 android:layout_width="match_parent"
-                android:layout_height="40dp"
-                android:layout_marginLeft="15dp"
-                android:text="Tap on image to choose report image"
-                android:textColor="@color/black"
-                android:textSize="18sp" />
+                android:layout_height="50dp"
+                android:layout_marginStart="20dp"
+                android:layout_marginTop="20dp"
+                android:layout_marginEnd="20dp"
+                android:layout_marginBottom="10dp"
+                android:background="@drawable/box1"
+                android:ems="10"
+                android:focusableInTouchMode="false"
+                android:hint="Release Date"
+                android:inputType="textNoSuggestions"
+                android:paddingStart="10dp"
+                android:textColor="@color/dark_green" />
 
-            <ImageView
-                android:id="@+id/choose_medical_report_image"
+            <EditText
+                android:id="@+id/hospital_record_comments"
                 android:layout_width="match_parent"
-                android:layout_height="450dp"
-                android:onClick="chooseImageReport"
-                android:src="@drawable/ic_report"
-                android:scaleType="center"
-                tools:ignore="OnClick" />
+                android:layout_height="100dp"
+                android:layout_marginStart="20dp"
+                android:layout_marginTop="20dp"
+                android:layout_marginEnd="20dp"
+                android:ems="10"
+                android:paddingStart="10dp"
+                android:background="@drawable/box1"
+                android:hint="Comments"
+                android:inputType="textMultiLine"
+                android:textColor="@color/dark_green"
+                />
 
 
 
             <Button
-                android:id="@+id/medical_report_submit_button"
+                android:id="@+id/hospital_record_submit_button"
                 android:layout_width="match_parent"
                 android:layout_height="60dp"
                 android:layout_marginTop="20dp"
