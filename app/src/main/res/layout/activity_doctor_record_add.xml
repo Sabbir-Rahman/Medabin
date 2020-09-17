@@ -150,7 +150,22 @@
                 android:textColor="@color/dark_green"
                 />
 
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="40dp"
+                android:textSize="18sp"
+                android:textColor="@color/black"
+                android:text="Tap on image to choose prescription image"
+                />
 
+            <ImageView
+                android:id="@+id/chooseImagePrescription"
+                android:layout_width="match_parent"
+                android:layout_height="450dp"
+                android:onClick="chooseImagePrescription"
+                android:src="@drawable/ic_prescription"
+                android:scaleType="centerCrop"
+                />
 
 
 
@@ -167,6 +182,9 @@
                 android:textColor="@color/blue"
                 android:textStyle="bold"
                 android:textSize="18sp" />
+
+
+
             <TextView
                 android:layout_width="match_parent"
                 android:layout_height="60dp"
