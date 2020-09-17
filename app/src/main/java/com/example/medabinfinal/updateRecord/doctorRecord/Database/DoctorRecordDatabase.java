@@ -5,12 +5,16 @@ import android.content.Context;
 import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
 import android.database.sqlite.SQLiteOpenHelper;
+import android.database.sqlite.SQLiteQueryBuilder;
 import android.graphics.Bitmap;
+import android.graphics.BitmapFactory;
 import android.util.Log;
 import android.widget.Toast;
 
 import androidx.annotation.Nullable;
 
+
+import com.example.medabinfinal.updateRecord.medicineRecord.Database.updateRecordMedicineModel;
 
 import java.io.ByteArrayOutputStream;
 import java.util.ArrayList;
@@ -19,7 +23,7 @@ import java.util.List;
 public class DoctorRecordDatabase extends SQLiteOpenHelper {
 
     private static final int DATABASE_VERSION = 1;
-    private static final String DATABASE_NAME = "doctor_record.db";
+    private static final String DATABASE_NAME = "Doctor_record.db";
     private static final String DATABASE_TABLE = "doctor_record_table";
 
     private static  String COL_ID = "Id";
@@ -76,9 +80,12 @@ public class DoctorRecordDatabase extends SQLiteOpenHelper {
         //image storing
         Bitmap imageToStoreBitmap = doctorModel.getImage();
         byteArrayOutputStream = new ByteArrayOutputStream();
-        imageToStoreBitmap.compress(Bitmap.CompressFormat.JPEG,100,byteArrayOutputStream);
+        imageToStoreBitmap.compress(Bitmap.CompressFormat.JPEG,30,byteArrayOutputStream);
 
         imageInBytes = byteArrayOutputStream.toByteArray();
+        long sizeOfImage = imageInBytes.length; //Image size
+
+        Toast.makeText(context, "Image Size"+sizeOfImage, Toast.LENGTH_SHORT).show();
         contentValues.put(COL_IMAGE,imageInBytes);
 
 
@@ -105,7 +112,7 @@ public class DoctorRecordDatabase extends SQLiteOpenHelper {
 //        String query = "SELECT * FROM "+DATABASE_TABLE;
 
         //edit query to show thw new record first
-        String query = "SELECT * FROM "+DATABASE_TABLE+" ORDER BY "+COL_NAME+" ASC";
+        String query = "SELECT * FROM "+DATABASE_TABLE+" ORDER BY "+COL_VISIT+" DESC";
 
         Cursor cursor = db.rawQuery(query,null);
 
@@ -122,6 +129,11 @@ public class DoctorRecordDatabase extends SQLiteOpenHelper {
                 doctorModel.setComments(cursor.getString(6));
                 doctorModel.setVisitDate(cursor.getString(7));
 
+                byte[] imageBytes = cursor.getBlob(8);
+
+                Bitmap bitmap = BitmapFactory.decodeByteArray(imageBytes,0,imageBytes.length);
+                doctorModel.setImage(bitmap);
+
 
 
                 //all notes list added
@@ -129,10 +141,137 @@ public class DoctorRecordDatabase extends SQLiteOpenHelper {
 
             }while (cursor.moveToNext());
         }
+        else
+        {
+            Toast.makeText(context, "No value in Database", Toast.LENGTH_SHORT).show();
+        }
         db.close();
         cursor.close();
         return allRecords;
     }
+
+    public List<updateRecordDoctorModel> searchByDoctorName(String name){
+
+        SQLiteDatabase db = getReadableDatabase();
+        SQLiteQueryBuilder queryBuilder = new SQLiteQueryBuilder();
+
+        String[] sqlSelect = {COL_ID,COL_NAME,COl_SPECIALITY,COL_CHAMBER,COL_SYMPTOMS,COL_FEES,COL_COMMENTS
+                ,COL_VISIT,COL_IMAGE};
+        String tableName = DATABASE_TABLE;
+
+        queryBuilder.setTables(tableName);
+
+        //select from title with like query
+
+        Cursor cursor = queryBuilder.query(db,sqlSelect,"Doctor_Name LIKE ?",new String[]{"%"+name+"%"},null,null,null);
+
+        List<updateRecordDoctorModel> allRecords = new ArrayList<>();
+
+        if (cursor.moveToFirst())
+        {
+            do{
+                updateRecordDoctorModel doctorModel = new updateRecordDoctorModel();
+
+                doctorModel.setId(cursor.getLong(0));
+                doctorModel.setDoctorName(cursor.getString(1));
+                doctorModel.setSpeciality(cursor.getString(2));
+                doctorModel.setChamberLocation(cursor.getString(3));
+                doctorModel.setSymtomps(cursor.getString(4));
+                doctorModel.setConsultantFee(cursor.getInt(5));
+                doctorModel.setComments(cursor.getString(6));
+                doctorModel.setVisitDate(cursor.getString(7));
+
+                byte[] imageBytes = cursor.getBlob(8);
+
+                Bitmap bitmap = BitmapFactory.decodeByteArray(imageBytes,0,imageBytes.length);
+                doctorModel.setImage(bitmap);
+
+
+
+                //all notes list added
+                allRecords.add(doctorModel);
+
+            }while (cursor.moveToNext());
+        }
+        else
+        {
+            Toast.makeText(context, "No value in Database", Toast.LENGTH_SHORT).show();
+        }
+        db.close();
+        cursor.close();
+        return allRecords;
+
+    }
+
+    public List<String> getDoctorNames(){
+
+
+        SQLiteDatabase db = getReadableDatabase();
+        SQLiteQueryBuilder queryBuilder = new SQLiteQueryBuilder();
+
+        String[] sqlSelect = {COL_NAME};
+        String tablename = DATABASE_TABLE;
+
+        queryBuilder.setTables(tablename);
+
+        Cursor cursor = queryBuilder.query(db,sqlSelect,null,null,null,null,null);
+
+        List<String> result = new ArrayList<>();
+
+        if (cursor.moveToFirst()){
+            do{
+
+                result.add(cursor.getString(cursor.getColumnIndex(COL_NAME)));
+
+            }while (cursor.moveToNext());
+        }
+        return result;
+
+
+    }
+
+    public Bitmap getPrescriptionImage(long id){
+        SQLiteDatabase db = getReadableDatabase();
+        SQLiteQueryBuilder queryBuilder = new SQLiteQueryBuilder();
+
+        String[] sqlSelect = {COL_ID,COL_NAME,COl_SPECIALITY,COL_CHAMBER,COL_SYMPTOMS,COL_FEES,COL_COMMENTS
+                ,COL_VISIT,COL_IMAGE};
+        String tableName = DATABASE_TABLE;
+
+        queryBuilder.setTables(tableName);
+
+        //select from title with like query
+
+        Cursor cursor = queryBuilder.query(db,sqlSelect,"Id LIKE ?",new String[]{String.valueOf(id)},null,null,null);
+
+        Bitmap bitmap = null;
+
+        if (cursor.moveToFirst())
+        {
+            do{
+                updateRecordDoctorModel doctorModel = new updateRecordDoctorModel();
+
+                byte[] imageBytes = cursor.getBlob(8);
+
+                bitmap = BitmapFactory.decodeByteArray(imageBytes,0,imageBytes.length);
+                doctorModel.setImage(bitmap);
+
+
+
+            }while (cursor.moveToNext());
+        }
+        else
+        {
+            Toast.makeText(context, "No value in Database", Toast.LENGTH_SHORT).show();
+        }
+        db.close();
+        cursor.close();
+
+        return bitmap;
+
+    }
+
+
 
 
 }

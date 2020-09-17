@@ -1,9 +1,208 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
+    android:orientation="vertical"
     android:layout_height="match_parent"
-    tools:context=".updateRecord.medicalReport.add_report">
+    tools:context=".updateRecord.doctorRecord.doctor_record_add"
+    android:background="@drawable/login_back"
+    >
 
-</androidx.constraintlayout.widget.ConstraintLayout>
+    <androidx.appcompat.widget.Toolbar
+        android:id="@+id/toolbar"
+        android:layout_width="match_parent"
+        android:layout_height="60dp"
+        android:background="@color/dark_green"
+        android:minHeight="?attr/actionBarSize"
+        android:theme="@style/ThemeOverlay.AppCompat.Dark.ActionBar"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:titleTextColor="@android:color/white"
+
+        >
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:fontFamily="@font/carter_one"
+            android:gravity="center|start"
+            android:text="Add Doctor"
+            android:textColor="@color/white"
+            android:textSize="24sp"
+            android:textStyle="bold"
+            tools:layout_editor_absoluteX="72dp"
+            tools:layout_editor_absoluteY="10dp" />
+
+
+    </androidx.appcompat.widget.Toolbar>
+
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="vertical"
+            >
+
+            <EditText
+                android:id="@+id/medical_report_report_name"
+                android:layout_width="match_parent"
+                android:layout_height="50dp"
+                android:layout_marginStart="20dp"
+                android:layout_marginTop="20dp"
+                android:layout_marginEnd="20dp"
+                android:backgroundTint="@color/dark_green"
+                android:ems="10"
+                android:hint="Report Name"
+                android:inputType="textPersonName"
+                android:textColor="@color/dark_green"
+                />
+            <EditText
+                android:id="@+id/medical_report_prescribed_people_name"
+                android:layout_width="match_parent"
+                android:layout_height="50dp"
+                android:layout_marginStart="20dp"
+                android:layout_marginTop="20dp"
+                android:layout_marginEnd="20dp"
+                android:backgroundTint="@color/dark_green"
+                android:ems="10"
+                android:hint="Prescribed people name Ex(Dr. Rahman,Self etc)"
+                android:inputType="textPersonName"
+                android:textColor="@color/dark_green"
+                />
+
+            <EditText
+                android:id="@+id/medical_report_diagnostic_name"
+                android:layout_width="match_parent"
+                android:layout_height="50dp"
+                android:layout_marginStart="20dp"
+                android:layout_marginTop="20dp"
+                android:layout_marginEnd="20dp"
+                android:backgroundTint="@color/dark_green"
+                android:ems="10"
+                android:hint="Diagnostic name"
+                android:inputType="text"
+                android:textColor="@color/dark_green"
+                />
+            <EditText
+                android:id="@+id/medical_report_details"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="20dp"
+                android:layout_marginTop="20dp"
+                android:layout_marginEnd="20dp"
+                android:backgroundTint="@color/dark_green"
+                android:ems="10"
+                android:hint="Symptomps (ex:Fever for two days,stomach pain etc)"
+                android:inputType="textPersonName"
+                android:textColor="@color/dark_green"
+                />
+            <EditText
+                android:id="@+id/medical_report_cost"
+                android:layout_width="match_parent"
+                android:layout_height="50dp"
+                android:layout_marginStart="20dp"
+                android:layout_marginTop="20dp"
+                android:layout_marginEnd="20dp"
+                android:backgroundTint="@color/dark_green"
+                android:ems="10"
+                android:hint="Consultation fee in tk"
+                android:inputType="number"
+                android:textColor="@color/dark_green"
+                />
+
+            <EditText
+                android:id="@+id/medical_record_comments"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="20dp"
+                android:layout_marginTop="20dp"
+                android:layout_marginEnd="20dp"
+                android:backgroundTint="@color/dark_green"
+                android:ems="10"
+                android:hint="Comments"
+                android:inputType="text"
+                android:textColor="@color/dark_green"
+                />
+
+
+
+
+
+            <EditText
+                android:id="@+id/medical_report_test_date"
+                android:layout_width="match_parent"
+                android:layout_height="50dp"
+                android:layout_marginStart="20dp"
+                android:layout_marginTop="20dp"
+                android:layout_marginEnd="20dp"
+                android:layout_marginBottom="10dp"
+                android:backgroundTint="@color/dark_green"
+                android:ems="10"
+                android:inputType="textNoSuggestions"
+                android:focusableInTouchMode="false"
+                android:hint="Test Date"
+                android:textColor="@color/dark_green"
+                />
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="40dp"
+                android:text="Tap on image to choose report image"
+                android:textColor="@color/black"
+                android:textSize="18sp" />
+
+            <ImageView
+                android:id="@+id/choose_medical_report_image"
+                android:layout_width="match_parent"
+                android:layout_height="450dp"
+
+                android:src="@drawable/ic_report"
+                android:scaleType="centerCrop"
+                />
+
+
+
+            <Button
+                android:id="@+id/doctor_record_submit_button"
+                android:layout_width="match_parent"
+                android:layout_height="60dp"
+                android:layout_marginTop="20dp"
+                android:layout_marginStart="40dp"
+                android:layout_marginEnd="40dp"
+                android:background="@drawable/button3"
+                android:fontFamily="@font/averia_libre_light"
+                android:text="Add Report"
+                android:textColor="@color/white"
+                android:textStyle="bold"
+                android:textSize="18sp" />
+
+
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="60dp"
+
+                />
+
+
+
+
+        </LinearLayout>
+
+
+    </ScrollView>
+
+
+
+
+
+
+
+
+</LinearLayout>

@@ -27,5 +27,5 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintTop_toTopOf="parent"
         android:onClick="enterDoctorRecordView"
-        app:srcCompat="@drawable/doctor_record_view" />
+        app:srcCompat="@drawable/doctor_record_view_menu" />
 </androidx.constraintlayout.widget.ConstraintLayout>

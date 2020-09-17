@@ -13,7 +13,8 @@
         android:supportsRtl="true"
         android:theme="@style/AppTheme"
         tools:node="replace">
-        <activity android:name=".stayFit.neededCalorieCalculator"></activity>
+        <activity android:name=".updateRecord.doctorRecord.showFullPrescriptionImage"></activity>
+        <activity android:name=".stayFit.neededCalorieCalculator" />
         <activity android:name=".stayFit.CalorieChartView" />
         <activity android:name=".stayFit.calorieBurnCalculation" />
         <activity android:name=".stayFit.stayFitMenu" />
