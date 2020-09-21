@@ -12,7 +12,7 @@ import com.example.medabinfinal.updateRecord.doctorRecord.doctor_record_dashboar
 import com.example.medabinfinal.updateRecord.hospitalRecord.hospital_record_dashboard;
 import com.example.medabinfinal.updateRecord.medicalReport.medical_report_dashboard;
 import com.example.medabinfinal.updateRecord.medicineRecord.update_record_medicine_record_menu;
-import com.example.medabinfinal.updateRecord.personalRecord.personal_record_dashboard;
+import com.example.medabinfinal.updateRecord.personalRecord.Dashboard.personal_record_dashboard;
 
 public class updaterecordDashboard extends AppCompatActivity {
 

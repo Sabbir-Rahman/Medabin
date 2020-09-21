@@ -1,9 +1,123 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".updateRecord.personalRecord.personal_record_dashboard">
+    android:fillViewport="true"
+    android:background="@drawable/personal_record_back"
+    tools:context=".updateRecord.personalRecord.Dashboard.personal_record_dashboard">
 
-</androidx.constraintlayout.widget.ConstraintLayout>
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+    <ImageView
+        android:id="@+id/personal_record_height"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="20dp"
+        android:layout_marginTop="20dp"
+        android:layout_marginEnd="20dp"
+        android:onClick="sendUserToHeightMenu"
+        app:layout_constraintEnd_toStartOf="@+id/personal_record_menu_weight"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:srcCompat="@drawable/personalr_record_height_menu" />
+
+        <ImageView
+            android:id="@+id/personal_record_menu_weight"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="20dp"
+            android:layout_marginTop="20dp"
+            android:layout_marginEnd="20dp"
+            android:onClick="sendUserToWeightMenu"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toEndOf="@+id/personal_record_height"
+            app:layout_constraintTop_toTopOf="parent"
+            app:srcCompat="@drawable/personal_record_weight_menu" />
+
+        <ImageView
+            android:id="@+id/personal_record_menu_bp"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="20dp"
+            android:layout_marginTop="20dp"
+            android:layout_marginEnd="20dp"
+            android:onClick="sendUserToBPMenu"
+            app:layout_constraintEnd_toStartOf="@+id/personal_record_menu_glucose"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/personal_record_height"
+            app:srcCompat="@drawable/personal_record_bp_menu"
+
+            />
+
+    <ImageView
+        android:id="@+id/personal_record_menu_glucose"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="20dp"
+        android:layout_marginTop="20dp"
+        android:layout_marginEnd="20dp"
+        android:onClick="sendUserToGlucoseMenu"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toEndOf="@+id/personal_record_menu_bp"
+        app:layout_constraintTop_toBottomOf="@+id/personal_record_menu_weight"
+        app:srcCompat="@drawable/personal_record_glucose_menu" />
+
+    <ImageView
+        android:id="@+id/personal_record_menu_food"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="20dp"
+        android:layout_marginTop="20dp"
+        android:layout_marginEnd="20dp"
+        android:onClick="sendUserToFoodMenu"
+        app:layout_constraintEnd_toStartOf="@+id/personal_record_menu_symptom"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/personal_record_menu_bp"
+        app:srcCompat="@drawable/personal_record_food_menu" />
+
+    <ImageView
+        android:id="@+id/personal_record_menu_symptom"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="20dp"
+        android:layout_marginTop="20dp"
+        android:layout_marginEnd="20dp"
+        android:onClick="sendUserToSymptomMenu"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toEndOf="@+id/personal_record_menu_food"
+        app:layout_constraintTop_toBottomOf="@+id/personal_record_menu_glucose"
+        app:srcCompat="@drawable/personal_record_common_symptom_menu" />
+
+        <ImageView
+            android:id="@+id/personal_record_menu_daily_routine"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="20dp"
+            android:layout_marginTop="20dp"
+            android:layout_marginEnd="20dp"
+            android:onClick="sendUserToDailyRoutine"
+            app:layout_constraintEnd_toStartOf="@+id/personal_record_menu_show_all_records"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/personal_record_menu_food"
+            app:srcCompat="@drawable/personal_record_daliy_routine_menu" />
+
+        <ImageView
+            android:id="@+id/personal_record_menu_show_all_records"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="20dp"
+            android:layout_marginTop="20dp"
+            android:layout_marginEnd="20dp"
+            android:onClick="sendUserToAllReports"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toEndOf="@+id/personal_record_menu_daily_routine"
+            app:layout_constraintTop_toBottomOf="@+id/personal_record_menu_symptom"
+            app:srcCompat="@drawable/personal_records_show_record_menu" />
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</ScrollView>

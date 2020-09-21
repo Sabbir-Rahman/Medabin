@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".updateRecord.personalRecord.CommonDisease.personal_record_symptom_menu">
+
+    <ImageView
+        android:id="@+id/imageSymptom_add"
+        android:layout_width="120dp"
+        android:layout_height="120dp"
+        android:layout_marginStart="30dp"
+        android:layout_marginTop="30dp"
+        android:layout_marginEnd="30dp"
+        android:onClick="sendUserToCommonDiseaseAdd"
+        app:layout_constraintEnd_toStartOf="@+id/imageSymptomView"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:srcCompat="@drawable/hospital_record_menu_add" />
+
+    <ImageView
+        android:id="@+id/imageSymptomView"
+        android:layout_width="120dp"
+        android:layout_height="120dp"
+        android:layout_marginStart="30dp"
+        android:layout_marginTop="30dp"
+        android:layout_marginEnd="30dp"
+        android:onClick="sendUserToCommonDiseaseView"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toEndOf="@+id/imageSymptom_add"
+        app:layout_constraintTop_toTopOf="parent"
+        app:srcCompat="@drawable/hospital_record_menu_view" />
+</androidx.constraintlayout.widget.ConstraintLayout>

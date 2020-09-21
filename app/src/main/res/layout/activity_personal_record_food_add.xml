@@ -1,0 +1,188 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:orientation="vertical"
+    android:layout_height="match_parent"
+    tools:context=".updateRecord.personalRecord.Food.personal_record_food_add"
+    android:background="@drawable/login_back"
+    >
+
+    <androidx.appcompat.widget.Toolbar
+        android:id="@+id/toolbar"
+        android:layout_width="match_parent"
+        android:layout_height="60dp"
+        android:background="@color/dark_green"
+        android:minHeight="?attr/actionBarSize"
+        android:theme="@style/ThemeOverlay.AppCompat.Dark.ActionBar"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:titleTextColor="@android:color/white"
+
+        >
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:fontFamily="@font/carter_one"
+            android:gravity="center|start"
+            android:text="Add Food Percentage"
+            android:textColor="@color/white"
+            android:textSize="22sp"
+            android:textStyle="bold"
+            tools:layout_editor_absoluteX="72dp"
+            tools:layout_editor_absoluteY="10dp" />
+
+
+    </androidx.appcompat.widget.Toolbar>
+
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="vertical"
+            >
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="20dp"
+                android:layout_marginTop="15dp"
+                android:layout_marginLeft="23dp"
+                android:text="Sum of all field must not cross 100"
+                />
+
+            <EditText
+                android:id="@+id/personal_record_food_carbohydret_percentage"
+                android:layout_width="match_parent"
+                android:layout_height="50dp"
+                android:layout_marginStart="20dp"
+                android:layout_marginTop="20dp"
+                android:layout_marginEnd="20dp"
+                android:background="@drawable/box1"
+                android:paddingStart="10dp"
+                android:ems="10"
+                android:hint="Carbohydret Percentage"
+                android:inputType="number"
+                android:textColor="@color/dark_green"
+                />
+            <EditText
+                android:id="@+id/personal_record_food_protein_percentage"
+                android:layout_width="match_parent"
+                android:layout_height="50dp"
+                android:layout_marginStart="20dp"
+                android:layout_marginTop="20dp"
+                android:layout_marginEnd="20dp"
+                android:background="@drawable/box1"
+                android:paddingStart="10dp"
+                android:ems="10"
+                android:hint="Protein Percentage"
+                android:inputType="number"
+                android:textColor="@color/dark_green"
+                />
+
+            <EditText
+                android:id="@+id/personal_record_food_fat_percentage"
+                android:layout_width="match_parent"
+                android:layout_height="50dp"
+                android:layout_marginStart="20dp"
+                android:layout_marginTop="20dp"
+                android:layout_marginEnd="20dp"
+                android:background="@drawable/box1"
+                android:paddingStart="10dp"
+                android:ems="10"
+                android:hint="Fat percentage"
+                android:inputType="number"
+                android:textColor="@color/dark_green"
+                />
+            <EditText
+                android:id="@+id/personal_record_food_vitamin_percentage"
+                android:layout_width="match_parent"
+                android:layout_height="50dp"
+                android:layout_marginStart="20dp"
+                android:layout_marginTop="20dp"
+                android:layout_marginEnd="20dp"
+                android:background="@drawable/box1"
+                android:paddingStart="10dp"
+                android:ems="10"
+                android:hint="Vitamin Percentage"
+                android:inputType="number"
+                android:textColor="@color/dark_green"
+                />
+            <EditText
+                android:id="@+id/personal_record_food_mineral_percentage"
+                android:layout_width="match_parent"
+                android:layout_height="50dp"
+                android:layout_marginStart="20dp"
+                android:layout_marginTop="20dp"
+                android:layout_marginEnd="20dp"
+                android:background="@drawable/box1"
+                android:paddingStart="10dp"
+                android:ems="10"
+                android:hint="Mineral Percentage"
+                android:inputType="number"
+                android:textColor="@color/dark_green"
+                />
+
+            <EditText
+                android:id="@+id/personal_record_food_water_percentage"
+                android:layout_width="match_parent"
+                android:layout_height="50dp"
+                android:layout_marginStart="20dp"
+                android:layout_marginTop="20dp"
+                android:layout_marginEnd="20dp"
+                android:background="@drawable/box1"
+                android:paddingStart="10dp"
+                android:ems="10"
+                android:hint="Water Percentage"
+                android:inputType="number"
+                android:textColor="@color/dark_green"
+                />
+
+
+
+
+
+
+            <Button
+                android:id="@+id/personal_record_food_submit_button"
+                android:layout_width="150dp"
+                android:layout_marginTop="30dp"
+                android:layout_height="wrap_content"
+                android:text="ADD RECORD"
+                android:textColor="@color/white"
+                android:textSize="18sp"
+                android:textStyle="bold"
+                android:layout_gravity="center"
+                android:background="@drawable/button4"
+                />
+
+
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="60dp"
+
+                />
+
+
+
+
+        </LinearLayout>
+
+
+    </ScrollView>
+
+
+
+
+
+
+
+
+</LinearLayout>

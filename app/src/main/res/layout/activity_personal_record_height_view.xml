@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@drawable/green_back_2">
+
+
+    <com.mancj.materialsearchbar.MaterialSearchBar
+        android:layout_margin="8dp"
+        android:id="@+id/search_bar_personal_record_height_date"
+        android:layout_alignParentTop="true"
+        app:mt_speechMode="false"
+        app:mt_hint="Search"
+        app:mt_placeholder="Search Here by Date"
+        app:mt_hintColor="@color/black"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+
+
+
+        />
+
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/recycler_view_personal_record_height"
+        android:layout_below="@+id/search_bar_personal_record_height_date"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"/>
+
+
+
+
+</RelativeLayout>
+
+
+
