@@ -61,7 +61,7 @@ public class personal_record_common_disease_add extends AppCompatActivity {
             if(fever.isChecked())
                 feverDatabase = yes;
             if(stomachPain.isChecked())
-                stomachPainDatabse = no;
+                stomachPainDatabse = yes;
             if(bodyPain.isChecked())
                 bodyPainDatabse = yes;
             if(headPain.isChecked())

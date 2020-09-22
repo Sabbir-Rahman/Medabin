@@ -32,6 +32,7 @@ public class PersonalRecordDatabase extends SQLiteOpenHelper {
     private static final String COL_TIME = "Time";
     private static final String COl_FEET = "Feet";
     private static final String COl_INCH = "Inch";
+    private static final String COl_HEIGHT_FEET_INCH = "Height";
 
 
     private static final String COL_BP_HIGH = "Bp_High";
@@ -75,7 +76,7 @@ public class PersonalRecordDatabase extends SQLiteOpenHelper {
     public void onCreate(SQLiteDatabase db) {
 
         //create table height
-        String createTableHeight = "CREATE TABLE "+ DATABASE_TABLE_HEIGHT + " (" + COL_ID + " INTEGER PRIMARY KEY AUTOINCREMENT, " + COL_DATE + " TEXT, " + COl_FEET + " INTEGER, " + COl_INCH + " INTEGER)";
+        String createTableHeight = "CREATE TABLE "+ DATABASE_TABLE_HEIGHT + " (" + COL_ID + " INTEGER PRIMARY KEY AUTOINCREMENT, " + COL_DATE + " TEXT, " + COl_FEET + " INTEGER, " + COl_INCH + " INTEGER, " + COl_HEIGHT_FEET_INCH + " FLOAT)";
 
         //create table weight
         String createTableWeight = "CREATE TABLE "+ DATABASE_TABLE_WEIGHT + " (" + COL_ID + " INTEGER PRIMARY KEY AUTOINCREMENT, " + COL_DATE + " TEXT, " + COL_WEIGHT + " INTEGER)";
@@ -131,6 +132,7 @@ public class PersonalRecordDatabase extends SQLiteOpenHelper {
         contentValues.put(COL_DATE,heightModel.getDate());
         contentValues.put(COl_FEET,heightModel.getFeet());
         contentValues.put(COl_INCH,heightModel.getInch());
+        contentValues.put(COl_HEIGHT_FEET_INCH,heightModel.getFeetInch());
 
         long ID = db.insert(DATABASE_TABLE_HEIGHT,null,contentValues);
 
@@ -231,6 +233,34 @@ public class PersonalRecordDatabase extends SQLiteOpenHelper {
 
         String[] sqlSelect = {COL_DATE};
         String tablename = DATABASE_TABLE_HEIGHT;
+
+        queryBuilder.setTables(tablename);
+
+        Cursor cursor = queryBuilder.query(db,sqlSelect,null,null,null,null,null);
+
+        List<String> result = new ArrayList<>();
+
+        if (cursor.moveToFirst()){
+            do{
+
+                result.add(cursor.getString(cursor.getColumnIndex(COL_DATE)));
+
+            }while (cursor.moveToNext());
+        }
+        return result;
+
+
+
+
+    }
+
+    public List<String> getWeightDates()
+    {
+        SQLiteDatabase db = getReadableDatabase();
+        SQLiteQueryBuilder queryBuilder = new SQLiteQueryBuilder();
+
+        String[] sqlSelect = {COL_DATE};
+        String tablename = DATABASE_TABLE_WEIGHT;
 
         queryBuilder.setTables(tablename);
 
@@ -828,6 +858,125 @@ public class PersonalRecordDatabase extends SQLiteOpenHelper {
         return ID;
     }
 
+
+    public List<DiceaseModel> getAllSymptomes(){
+
+        SQLiteDatabase db = this.getReadableDatabase();
+        List<DiceaseModel> allRecords = new ArrayList<>();
+
+        //select from database
+
+        String query = "SELECT * FROM "+DATABASE_TABLE_DISEASE+" ORDER BY "+COL_DATE+" DESC";
+
+        Cursor cursor = db.rawQuery(query,null);
+
+        if(cursor.moveToFirst()){
+            do{
+                DiceaseModel diceaseModel = new DiceaseModel();
+
+                diceaseModel.setId(cursor.getLong(0));
+                diceaseModel.setDate(cursor.getString(1));
+                diceaseModel.setTime(cursor.getString(2));
+                diceaseModel.setFeelFever(cursor.getString(3));
+                diceaseModel.setFeelStomachPain(cursor.getString(4));
+                diceaseModel.setFeelBodyPain(cursor.getString(5));
+                diceaseModel.setFeelHeadPain(cursor.getString(6));
+
+
+                allRecords.add(diceaseModel);
+            }while (cursor.moveToNext());
+        }
+        else
+        {
+            Toast.makeText(context, "No value in database", Toast.LENGTH_SHORT).show();
+        }
+
+        db.close();
+        cursor.close();
+        return allRecords;
+
+
+
+    }
+
+
+    public List<DiceaseModel> searchByTimeSymptoms(String time)
+    {
+        SQLiteDatabase db = getReadableDatabase();
+        SQLiteQueryBuilder queryBuilder = new SQLiteQueryBuilder();
+
+        String[] sqlSelect = {COL_ID,COL_DATE,COL_TIME,COL_FEVER,COL_STOMACH_PAIN,COL_BODY_PAIN,COL_HEAD_PAIN};
+        String tableName = DATABASE_TABLE_DISEASE;
+
+        queryBuilder.setTables(tableName);
+
+        //select from title with like query
+
+        Cursor cursor = queryBuilder.query(db,sqlSelect,"Time LIKE ?",new String[]{"%"+time+"%"},null,null,null);
+
+        List<DiceaseModel> allRecords = new ArrayList<>();
+
+        if (cursor.moveToFirst())
+        {
+            do{
+                DiceaseModel diceaseModel = new DiceaseModel();
+
+                diceaseModel.setId(cursor.getLong(0));
+                diceaseModel.setDate(cursor.getString(1));
+                diceaseModel.setTime(cursor.getString(2));
+                diceaseModel.setFeelFever(cursor.getString(3));
+                diceaseModel.setFeelStomachPain(cursor.getString(4));
+                diceaseModel.setFeelBodyPain(cursor.getString(5));
+                diceaseModel.setFeelHeadPain(cursor.getString(6));
+
+
+                allRecords.add(diceaseModel);
+
+            }while (cursor.moveToNext());
+        }
+        else
+        {
+            Toast.makeText(context, "No value in Database", Toast.LENGTH_SHORT).show();
+        }
+        db.close();
+        cursor.close();
+        return allRecords;
+
+
+
+
+    }
+
+    public List<String> getAllTimeSymptoms()
+    {
+        SQLiteDatabase db = getReadableDatabase();
+        SQLiteQueryBuilder queryBuilder = new SQLiteQueryBuilder();
+
+        String[] sqlSelect = {COL_TIME};
+        String tablename = DATABASE_TABLE_DISEASE;
+
+        queryBuilder.setTables(tablename);
+
+        Cursor cursor = queryBuilder.query(db,sqlSelect,null,null,null,null,null);
+
+        List<String> result = new ArrayList<>();
+
+        if (cursor.moveToFirst()){
+            do{
+
+                result.add(cursor.getString(cursor.getColumnIndex(COL_TIME)));
+
+            }while (cursor.moveToNext());
+        }
+        return result;
+
+
+
+
+    }
+
+
+
     public long addDataDailyTime(DailyTimeModel dailyTimeModel)
     {
         SQLiteDatabase db = this.getWritableDatabase();
@@ -852,4 +1001,128 @@ public class PersonalRecordDatabase extends SQLiteOpenHelper {
 
         return ID;
     }
+
+    public List<DailyTimeModel> getAllDailyRoutines(){
+
+        SQLiteDatabase db = this.getReadableDatabase();
+        List<DailyTimeModel> allRecords = new ArrayList<>();
+
+        //select from database
+
+        String query = "SELECT * FROM "+DATABASE_TABLE_DAILY_TIME+" ORDER BY "+COL_DATE+" DESC";
+
+        Cursor cursor = db.rawQuery(query,null);
+
+        if(cursor.moveToFirst()){
+            do{
+
+                DailyTimeModel dailyTimeModel = new DailyTimeModel();
+
+                dailyTimeModel.setId(cursor.getLong(0));
+                dailyTimeModel.setDate(cursor.getString(1));
+                dailyTimeModel.setSleepTime(cursor.getInt(2));
+                dailyTimeModel.setReadTime(cursor.getInt(3));
+                dailyTimeModel.setWorkingTime(cursor.getInt(4));
+                dailyTimeModel.setExerciseTime(cursor.getInt(5));
+                dailyTimeModel.setOthers(cursor.getInt(6));
+                dailyTimeModel.setUnknown(cursor.getInt(7));
+
+                allRecords.add(dailyTimeModel);
+
+
+            }while (cursor.moveToNext());
+        }
+        else
+        {
+            Toast.makeText(context, "No value in database", Toast.LENGTH_SHORT).show();
+        }
+
+        db.close();
+        cursor.close();
+        return allRecords;
+
+
+
+    }
+
+    public List<DailyTimeModel> searchDailyRoutineByDate(String date)
+    {
+        SQLiteDatabase db = getReadableDatabase();
+        SQLiteQueryBuilder queryBuilder = new SQLiteQueryBuilder();
+
+        String[] sqlSelect = {COL_ID,COL_DATE,COL_SLEEP_TIME,COL_READ_TIME,COL_WORK_TIME,COL_EXERCISE_TIME,COL_OTHERS_TIME};
+        String tableName = DATABASE_TABLE_DAILY_TIME;
+
+        queryBuilder.setTables(tableName);
+
+        //select from title with like query
+
+        Cursor cursor = queryBuilder.query(db,sqlSelect,"Date_dd_mm_yyyy LIKE ?",new String[]{"%"+date+"%"},null,null,null);
+
+        List<DailyTimeModel> allRecords = new ArrayList<>();
+
+        if (cursor.moveToFirst())
+        {
+            do{
+
+                DailyTimeModel dailyTimeModel = new DailyTimeModel();
+
+                dailyTimeModel.setId(cursor.getLong(0));
+                dailyTimeModel.setDate(cursor.getString(1));
+                dailyTimeModel.setSleepTime(cursor.getInt(2));
+                dailyTimeModel.setReadTime(cursor.getInt(3));
+                dailyTimeModel.setWorkingTime(cursor.getInt(4));
+                dailyTimeModel.setExerciseTime(cursor.getInt(5));
+                dailyTimeModel.setOthers(cursor.getInt(6));
+                dailyTimeModel.setUnknown(cursor.getInt(7));
+
+                allRecords.add(dailyTimeModel);
+
+
+            }while (cursor.moveToNext());
+        }
+        else
+        {
+            Toast.makeText(context, "No value in Database", Toast.LENGTH_SHORT).show();
+        }
+        db.close();
+        cursor.close();
+        return allRecords;
+
+
+
+
+    }
+
+
+    public List<String> getAllDatesDailyRoutine()
+    {
+        SQLiteDatabase db = getReadableDatabase();
+        SQLiteQueryBuilder queryBuilder = new SQLiteQueryBuilder();
+
+        String[] sqlSelect = {COL_DATE};
+        String tablename = DATABASE_TABLE_DAILY_TIME;
+
+        queryBuilder.setTables(tablename);
+
+        Cursor cursor = queryBuilder.query(db,sqlSelect,null,null,null,null,null);
+
+        List<String> result = new ArrayList<>();
+
+        if (cursor.moveToFirst()){
+            do{
+
+                result.add(cursor.getString(cursor.getColumnIndex(COL_DATE)));
+
+            }while (cursor.moveToNext());
+        }
+        return result;
+
+
+
+
+    }
+
+
+
 }

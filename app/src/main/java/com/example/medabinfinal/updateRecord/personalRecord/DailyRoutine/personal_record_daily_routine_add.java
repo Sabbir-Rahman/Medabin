@@ -46,7 +46,7 @@ public class personal_record_daily_routine_add extends AppCompatActivity {
 
     private void addData()
     {
-        SimpleDateFormat sdfDate = new SimpleDateFormat("dd/mm/yyyy");
+        SimpleDateFormat sdfDate = new SimpleDateFormat("dd/MM/yyyy");
         String currrentDate = sdfDate.format(new Date());
 
         try {

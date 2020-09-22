@@ -1,0 +1,212 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<androidx.cardview.widget.CardView
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    app:layout_constraintBottom_toBottomOf="parent"
+    app:layout_constraintEnd_toEndOf="parent"
+    app:layout_constraintStart_toStartOf="parent"
+    app:layout_constraintTop_toTopOf="parent"
+    android:elevation="10dp"
+    android:background="#999E99"
+    android:padding="5dp"
+    android:layout_margin="8dp"
+    >
+
+    <LinearLayout
+        android:background="@drawable/login_back"
+        android:layout_margin="8dp"
+        android:orientation="horizontal"
+        android:layout_width="match_parent"
+        android:layout_height="180dp">
+
+
+        <ImageView
+            android:layout_marginTop="1dp"
+            android:layout_width="90dp"
+            android:layout_marginLeft="10dp"
+            android:layout_height="90dp"
+            android:layout_gravity="center"
+            android:layout_marginEnd="10dp"
+            android:src="@drawable/personal_record_common_symptom_menu"
+            />
+
+        <LinearLayout
+            android:orientation="vertical"
+            android:layout_weight="9"
+            android:layout_width="0dp"
+            android:layout_height="match_parent">
+
+
+            <LinearLayout
+                android:layout_marginTop="0dp"
+                android:layout_width="match_parent"
+                android:layout_height="30dp"
+                android:orientation="horizontal"
+                >
+
+
+
+                <TextView
+                    android:id="@+id/text_fever"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="20dp"
+                    android:layout_marginTop="2dp"
+                    android:text=" Fever pain: "
+                    android:textStyle="bold"
+                    android:textColor="@color/dark_green"
+                    android:textSize="18sp"
+                    />
+
+                <TextView
+                    android:id="@+id/symptoms_view_fever"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="2dp"
+                    android:layout_marginTop="2dp"
+                    android:text="Yes"
+                    android:textStyle="bold"
+                    android:textColor="@color/brown"
+                    android:textSize="20sp"
+                    />
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_marginTop="0dp"
+                android:layout_width="match_parent"
+                android:layout_height="30dp"
+                android:orientation="horizontal"
+                >
+
+                <TextView
+                    android:id="@+id/text_stomach"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="20dp"
+                    android:layout_marginTop="2dp"
+                    android:text=" Stomach Pain: "
+                    android:textColor="@color/dark_green"
+                    android:textStyle="bold"
+                    android:textSize="18sp"
+                    />
+
+                <TextView
+                    android:id="@+id/symptoms_view_stomach"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="2dp"
+                    android:layout_marginTop="2dp"
+                    android:text="No"
+                    android:textStyle="bold"
+                    android:textColor="@color/brown"
+                    android:textSize="20sp"
+                    />
+            </LinearLayout>
+            <LinearLayout
+                android:layout_marginTop="0dp"
+                android:layout_width="match_parent"
+                android:layout_height="30dp"
+                android:orientation="horizontal"
+                >
+
+                <TextView
+                    android:id="@+id/text_body"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="20dp"
+                    android:layout_marginTop="2dp"
+                    android:text=" Body pain: "
+                    android:textStyle="bold"
+                    android:textColor="@color/dark_green"
+                    android:textSize="18sp"
+                    />
+
+                <TextView
+                    android:id="@+id/Symptoms_view_body_pain"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="2dp"
+                    android:layout_marginTop="2dp"
+                    android:text="Yes"
+                    android:textStyle="bold"
+                    android:textColor="@color/brown"
+                    android:textSize="20sp"
+                    />
+
+            </LinearLayout>
+            <LinearLayout
+                android:layout_marginTop="0dp"
+                android:layout_width="match_parent"
+                android:layout_height="30dp"
+                android:orientation="horizontal"
+                >
+
+                <TextView
+                    android:id="@+id/text_head"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="20dp"
+                    android:layout_marginTop="2dp"
+                    android:text=" Head Pain: "
+                    android:textColor="@color/dark_green"
+                    android:textStyle="bold"
+                    android:textSize="18sp"
+                    />
+
+                <TextView
+                    android:id="@+id/Symptoms_view_head"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="2dp"
+                    android:layout_marginTop="2dp"
+                    android:text="Yes"
+                    android:textStyle="bold"
+                    android:textColor="@color/brown"
+                    android:textSize="20sp"
+                    />
+
+
+            </LinearLayout>
+
+
+
+            <TextView
+                android:id="@+id/Symptoms_textDate"
+                android:layout_marginTop="1dp"
+                android:layout_marginLeft="26dp"
+                android:gravity="center_vertical|start"
+                android:textAllCaps="false"
+                android:textStyle="italic"
+                android:text="dd/mm/yy"
+                android:textColor="@color/blue"
+                android:textSize="18sp"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"/>
+
+
+            <TextView
+                android:id="@+id/Symptoms_textTime"
+                android:layout_marginTop="1dp"
+                android:layout_marginLeft="26dp"
+                android:gravity="center_vertical|start"
+                android:textAllCaps="false"
+                android:textStyle="normal"
+                android:text="hh:mm:ss"
+                android:textColor="@color/red"
+                android:textSize="18sp"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"/>
+
+
+        </LinearLayout>
+
+    </LinearLayout>
+
+
+
+
+</androidx.cardview.widget.CardView>

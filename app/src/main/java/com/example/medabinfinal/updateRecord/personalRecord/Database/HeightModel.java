@@ -4,6 +4,7 @@ public class HeightModel {
     private long id;
     private String date;
     private int feet,inch;
+    private float feetInch;
 
     public HeightModel(long id, String date, int feet, int inch) {
         this.id = id;
@@ -19,6 +20,21 @@ public class HeightModel {
     }
 
     public HeightModel() {
+    }
+
+    public HeightModel(String date, int feet, int inch, float feetInch) {
+        this.date = date;
+        this.feet = feet;
+        this.inch = inch;
+        this.feetInch = feetInch;
+    }
+
+    public float getFeetInch() {
+        return feetInch;
+    }
+
+    public void setFeetInch(float feetInch) {
+        this.feetInch = feetInch;
     }
 
     public long getId() {

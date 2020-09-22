@@ -49,13 +49,24 @@ public class personal_record_height_add extends AppCompatActivity {
         SimpleDateFormat sdf = new SimpleDateFormat("dd/MM/YYYY");
         String currentDate = sdf.format(new Date());
 
+        float feetInchDatabase;
         try
         {
             //put data
             int feetDatabase = Integer.parseInt(feet.getText().toString());
             int inchDatabase = Integer.parseInt(inch.getText().toString());
 
-            HeightModel heightModel = new HeightModel(currentDate,feetDatabase,inchDatabase);
+            if(inchDatabase<11)
+            {
+                feetInchDatabase = feetDatabase + inchDatabase*.1f;
+            }
+            else
+            {
+                feetInchDatabase = feetDatabase+inchDatabase*.01f;
+            }
+
+
+            HeightModel heightModel = new HeightModel(currentDate,feetDatabase,inchDatabase,feetInchDatabase);
             PersonalRecordDatabase db = new PersonalRecordDatabase(this);
 
             db.addDataHeight(heightModel);
