@@ -4,16 +4,25 @@
     package="com.example.medabinfinal">
 
     <uses-permission android:name="android.permission.INTERNET" />
+    <uses-permission android:name="android.permission.FOREGROUND_SERVICE" />
 
     <application
-        android:allowBackup="true"
+        android:name=".medicineReminder.App"
+        android:allowBackup="false"
         android:icon="@mipmap/ic_launcher"
         android:label="Medabin"
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme"
         tools:node="replace">
-        <activity android:name=".updateRecord.personalRecord.DailyRoutine.personal_record_daily_routine_view"></activity>
+        <activity android:name=".medicineReminder.alarmReceiveActivity"></activity>
+
+        <service android:name=".medicineReminder.AlarmService" />
+
+        <activity android:name=".medicineReminder.medicineReminderView" />
+        <activity android:name=".medicineReminder.medicineReminderMenu" />
+        <activity android:name=".medicineReminder.medicineReminderAdd" />
+        <activity android:name=".updateRecord.personalRecord.DailyRoutine.personal_record_daily_routine_view" />
         <activity android:name=".updateRecord.personalRecord.DailyRoutine.personal_record_daily_routine_add" />
         <activity android:name=".updateRecord.personalRecord.CommonDisease.personal_record_common_disease_view" />
         <activity android:name=".updateRecord.personalRecord.CommonDisease.personal_record_common_disease_add" />

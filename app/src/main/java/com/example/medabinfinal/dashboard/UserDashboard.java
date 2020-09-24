@@ -3,15 +3,20 @@ package com.example.medabinfinal.dashboard;
 import androidx.appcompat.app.ActionBarDrawerToggle;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.widget.Toolbar;
+import androidx.core.app.ActivityCompat;
 import androidx.core.view.GravityCompat;
 import androidx.drawerlayout.widget.DrawerLayout;
 
+import android.Manifest;
 import android.content.Intent;
+import android.content.pm.PackageManager;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Toast;
 
 import com.example.medabinfinal.R;
+import com.example.medabinfinal.medicineReminder.AlarmService;
+import com.example.medabinfinal.medicineReminder.medicineReminderMenu;
 import com.example.medabinfinal.stayFit.stayFitMenu;
 import com.example.medabinfinal.giveFeedback.giveFeedbackMenu;
 import com.example.medabinfinal.healthTips.healthTips_splashScreen;
@@ -46,6 +51,13 @@ public class UserDashboard extends AppCompatActivity {
         ActionBarDrawerToggle toggle = new ActionBarDrawerToggle(this,drawerLayout,toolbar,R.string.navigation_drawer_open,R.string.navigation_drawer_close);
         drawerLayout.addDrawerListener(toggle);
         toggle.syncState();
+
+        //permission
+        ActivityCompat.requestPermissions(this,new String[]{Manifest.permission.FOREGROUND_SERVICE}, PackageManager.PERMISSION_GRANTED);
+
+        //call service intent
+        final Intent intent = new Intent(this, AlarmService.class);
+        ServiceCaller(intent);
     }
 
     @Override
@@ -64,6 +76,7 @@ public class UserDashboard extends AppCompatActivity {
 
     public void remindMe(View v){
         Toast.makeText(this, "Going To Remind Me", Toast.LENGTH_SHORT).show();
+        sendUserToMedicineReminder();
     }
 
     public void medicineplanning(View v){
@@ -117,30 +130,43 @@ public class UserDashboard extends AppCompatActivity {
     {
         Intent intent = new Intent(this, healthTips_splashScreen.class);
         startActivity(intent);
-        finish();
+
     }
 
     public void sendUserToHospitalInfo()
     {
         Intent intent = new Intent(this, hospitalInfoVIew.class);
         startActivity(intent);
-        finish();
+
     }
 
     public void sendUserToFeedback()
     {
         Intent intent = new Intent(this, giveFeedbackMenu.class);
         startActivity(intent);
-        finish();
+
     }
 
     public void sendUserToDietChart()
     {
         Intent intent = new Intent(this, stayFitMenu.class);
         startActivity(intent);
-        finish();
+
     }
 
+    public void sendUserToMedicineReminder()
+    {
+        Intent intent = new Intent(this, medicineReminderMenu.class);
+        startActivity(intent);
+    }
+
+    private void ServiceCaller(Intent intent){
+
+        stopService(intent);
+
+        startService(intent);
+
+    }
 
 
 

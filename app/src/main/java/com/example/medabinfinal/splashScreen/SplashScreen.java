@@ -1,9 +1,12 @@
 package com.example.medabinfinal.splashScreen;
 
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.core.app.ActivityCompat;
 
+import android.Manifest;
 import android.content.Intent;
 import android.content.SharedPreferences;
+import android.content.pm.PackageManager;
 import android.os.Bundle;
 import android.os.Handler;
 import android.view.WindowManager;
@@ -14,6 +17,7 @@ import android.widget.TextView;
 
 import com.example.medabinfinal.R;
 import com.example.medabinfinal.dashboard.UserDashboard;
+import com.example.medabinfinal.medicineReminder.AlarmService;
 import com.example.medabinfinal.walkthrough.OnBoarding;
 import com.example.medabinfinal.walkthrough.SliderAdapter;
 
@@ -52,6 +56,13 @@ public class SplashScreen extends AppCompatActivity {
         backgroundImage.setAnimation(sideAnim);
         slogan.setAnimation(bottomAnim);
 
+        //permission
+        ActivityCompat.requestPermissions(this,new String[]{Manifest.permission.FOREGROUND_SERVICE}, PackageManager.PERMISSION_GRANTED);
+
+        //call service intent
+        //final Intent intent = new Intent(this, AlarmService.class);
+        //ServiceCaller(intent);
+
 
         new Handler().postDelayed(new Runnable() {
             @Override
@@ -85,6 +96,14 @@ public class SplashScreen extends AppCompatActivity {
             }
         },SPLASH_TIMER);
 
+
+    }
+
+    private void ServiceCaller(Intent intent){
+
+        stopService(intent);
+
+        startService(intent);
 
     }
 }

@@ -1,9 +1,37 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".updateRecord.personalRecord.CommonDisease.personal_record_common_disease_view">
+    android:background="@drawable/green_back_2">
 
-</androidx.constraintlayout.widget.ConstraintLayout>
+
+    <com.mancj.materialsearchbar.MaterialSearchBar
+        android:layout_margin="8dp"
+        android:id="@+id/search_bar_personal_record_symptoms_time"
+        android:layout_alignParentTop="true"
+        app:mt_speechMode="false"
+        app:mt_hint="Search"
+        app:mt_placeholder="Search Here by Time"
+        app:mt_hintColor="@color/black"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+
+
+
+        />
+
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/recycler_view_personal_record_symptoms"
+        android:layout_below="@+id/search_bar_personal_record_symptoms_time"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"/>
+
+
+
+
+</RelativeLayout>
+
+
+
