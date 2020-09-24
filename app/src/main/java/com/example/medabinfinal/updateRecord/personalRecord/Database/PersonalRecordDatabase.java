@@ -110,17 +110,17 @@ public class PersonalRecordDatabase extends SQLiteOpenHelper {
 
     @Override
     public void onUpgrade(SQLiteDatabase db, int oldVersion, int newVersion) {
-        if(oldVersion >= newVersion)
-            return;
-        db.execSQL("DROP TABLE IF EXISTS " + DATABASE_TABLE_HEIGHT);
-        db.execSQL("DROP TABLE IF EXISTS " + DATABASE_TABLE_WEIGHT);
-        db.execSQL("DROP TABLE IF EXISTS " + DATABASE_TABLE_BP);
-        db.execSQL("DROP TABLE IF EXISTS " + DATABASE_TABLE_GLUCOSE);
-        db.execSQL("DROP TABLE IF EXISTS " + DATABASE_TABLE_FOOD);
-        db.execSQL("DROP TABLE IF EXISTS " + DATABASE_TABLE_DISEASE);
-        db.execSQL("DROP TABLE IF EXISTS " + DATABASE_TABLE_DAILY_TIME);
+        if(oldVersion >= newVersion) {
+            db.execSQL("DROP TABLE IF EXISTS " + DATABASE_TABLE_HEIGHT);
+            db.execSQL("DROP TABLE IF EXISTS " + DATABASE_TABLE_WEIGHT);
+            db.execSQL("DROP TABLE IF EXISTS " + DATABASE_TABLE_BP);
+            db.execSQL("DROP TABLE IF EXISTS " + DATABASE_TABLE_GLUCOSE);
+            db.execSQL("DROP TABLE IF EXISTS " + DATABASE_TABLE_FOOD);
+            db.execSQL("DROP TABLE IF EXISTS " + DATABASE_TABLE_DISEASE);
+            db.execSQL("DROP TABLE IF EXISTS " + DATABASE_TABLE_DAILY_TIME);
 
-        onCreate(db);
+            onCreate(db);
+        }
 
     }
 
