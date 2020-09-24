@@ -1,9 +1,11 @@
 package com.example.medabinfinal.medicineReminder;
 
+import androidx.annotation.RequiresApi;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.app.TimePickerDialog;
 import android.content.Intent;
+import android.os.Build;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
@@ -19,39 +21,69 @@ import com.example.medabinfinal.medicineReminder.Database.AlarmModel;
 
 import java.util.Calendar;
 
-public class medicineReminderAdd extends AppCompatActivity {
+public class alarmEditActivity extends AppCompatActivity {
 
     private EditText name,count,time1,time2,time3;
     private int time1Hour,time1minute,time2Hour,time2minute,time3Hour,time3minute;
     private String time1Databse,time2Databse,time3Databse,amPm1,amPm2,amPm3;
     private int time1HourDatabse,time1MinuteDatabse,time2HourDatabse,time2MinuteDatabse,time3HourDatabse,time3MinuteDatabse;
-    private Button submit;
+    private Button update;
     private Switch isTaken;
-
-
-    AlarmDatabase db;
+    int id;
+    Long idLong;
+    int remain;
     AlarmService alarmService;
 
+    AlarmDatabase db;
+
+
+    @RequiresApi(api = Build.VERSION_CODES.N)
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_medicine_reminder_add);
+        setContentView(R.layout.activity_alarm_edit);
 
-        name = findViewById(R.id.reminder_medicine_name);
-        count = findViewById(R.id.reminderMedicineCount);
-        time1 = findViewById(R.id.remindTime1);
-        time2 = findViewById(R.id.remindTime2);
-        time3 = findViewById(R.id.remindTime3);
-        isTaken = findViewById(R.id.switchMedicineReminder);
-        submit = findViewById(R.id.submitMedicineReminderRecord);
+        idLong = getIntent().getLongExtra("IDEDIT",0);;
+
+
+        id = Integer.parseInt(idLong.toString());
+
+        System.out.println("id checked"+id);
+//        Toast.makeText(this, Math.toIntExact(idLong), Toast.LENGTH_SHORT).show();
+
+        name = findViewById(R.id.reminder_edit_medicine_name);
+        count = findViewById(R.id.reminder_edit_MedicineCount);
+        time1 = findViewById(R.id.remindTime1Edit);
+        time2 = findViewById(R.id.remindTime2Edit);
+        time3 = findViewById(R.id.remindTime3Edit);
+        isTaken = findViewById(R.id.switchMedicineReminderEdit);
+        update = findViewById(R.id.submitMedicineReminderRecordEdit);
         db = new AlarmDatabase(this);
 
-        submit.setOnClickListener(new View.OnClickListener() {
+        name.setText(db.getOneMedicneName(id));
+        count.setText(String.valueOf(db.getOneMedicineCount(id)));
+        time1.setText(db.getOneMedicneTime1(id));
+        time2.setText(db.getOneMedicneTime2(id));
+        time3.setText(db.getOneMedicneTime3(id));
+
+
+        if(db.getOneAlarmIsOne(id).equals("Yes"))
+        {
+            isTaken.setChecked(true);
+        }
+        else {
+            isTaken.setChecked(false);
+        }
+
+        update.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                addData();
+                updateData();
             }
         });
+
+
+
 
         time1.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -63,7 +95,7 @@ public class medicineReminderAdd extends AppCompatActivity {
 
 
 
-                TimePickerDialog timePickerDialog = new TimePickerDialog(medicineReminderAdd.this, new TimePickerDialog.OnTimeSetListener() {
+                TimePickerDialog timePickerDialog = new TimePickerDialog(alarmEditActivity.this, new TimePickerDialog.OnTimeSetListener() {
                     @Override
                     public void onTimeSet(TimePicker view, int hourOfDay, int minute) {
                         time1Hour = hourOfDay;
@@ -95,7 +127,7 @@ public class medicineReminderAdd extends AppCompatActivity {
 
 
                         time1.setText(time);
-                        Toast.makeText(medicineReminderAdd.this, "time :"+time1Hour+":"+time1minute, Toast.LENGTH_SHORT).show();
+                        Toast.makeText(alarmEditActivity.this, "time :"+time1Hour+":"+time1minute, Toast.LENGTH_SHORT).show();
 
                         time1Databse=time;
                         time1HourDatabse = time1Hour;
@@ -118,7 +150,7 @@ public class medicineReminderAdd extends AppCompatActivity {
 
 
 
-                TimePickerDialog timePickerDialog = new TimePickerDialog(medicineReminderAdd.this, new TimePickerDialog.OnTimeSetListener() {
+                TimePickerDialog timePickerDialog = new TimePickerDialog(alarmEditActivity.this, new TimePickerDialog.OnTimeSetListener() {
                     @Override
                     public void onTimeSet(TimePicker view, int hourOfDay, int minute) {
                         time2Hour = hourOfDay;
@@ -150,7 +182,7 @@ public class medicineReminderAdd extends AppCompatActivity {
 
 
                         time2.setText(time);
-                        Toast.makeText(medicineReminderAdd.this, "time :"+time2Hour+":"+time2minute, Toast.LENGTH_SHORT).show();
+                        Toast.makeText(alarmEditActivity.this, "time :"+time2Hour+":"+time2minute, Toast.LENGTH_SHORT).show();
 
 
                         time2Databse=time;
@@ -174,7 +206,7 @@ public class medicineReminderAdd extends AppCompatActivity {
 
 
 
-                TimePickerDialog timePickerDialog = new TimePickerDialog(medicineReminderAdd.this, new TimePickerDialog.OnTimeSetListener() {
+                TimePickerDialog timePickerDialog = new TimePickerDialog(alarmEditActivity.this, new TimePickerDialog.OnTimeSetListener() {
                     @Override
                     public void onTimeSet(TimePicker view, int hourOfDay, int minute) {
                         time3Hour = hourOfDay;
@@ -206,7 +238,7 @@ public class medicineReminderAdd extends AppCompatActivity {
 
 
                         time3.setText(time);
-                        Toast.makeText(medicineReminderAdd.this, "time :"+time3Hour+":"+time3minute, Toast.LENGTH_SHORT).show();
+                        Toast.makeText(alarmEditActivity.this, "time :"+time3Hour+":"+time3minute, Toast.LENGTH_SHORT).show();
 
 
                         time3Databse=time;
@@ -223,10 +255,10 @@ public class medicineReminderAdd extends AppCompatActivity {
 
 
 
-
     }
 
-    private void addData()
+
+    private void updateData()
     {
         try
         {
@@ -241,7 +273,7 @@ public class medicineReminderAdd extends AppCompatActivity {
                 isAlarm = "No";
             }
             Integer countMedicineDatabase = Integer.parseInt(count.getText().toString());
-            Integer remain = countMedicineDatabase;
+            Integer remain = db.getOneMedicineRemain(id);
 
 
             if(time1.getText().toString().matches(""))
@@ -262,12 +294,10 @@ public class medicineReminderAdd extends AppCompatActivity {
             AlarmDatabase db = new AlarmDatabase(this);
 
 
-            db.addData(alarmModel);
-
-            alarmService.stopForegroundservice();
-            alarmService.stopSelf();
+            db.editAlarm(alarmModel,id);
             alarmService.stopForegroundservice();
             sendUserToDashboard();
+
 
 
 
@@ -288,5 +318,7 @@ public class medicineReminderAdd extends AppCompatActivity {
         startActivity(intent);
         finish();
     }
+
+
 
 }

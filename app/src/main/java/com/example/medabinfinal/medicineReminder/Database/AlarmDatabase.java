@@ -6,12 +6,15 @@ import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
 import android.database.sqlite.SQLiteOpenHelper;
 import android.database.sqlite.SQLiteQueryBuilder;
+import android.graphics.Bitmap;
+import android.graphics.BitmapFactory;
 import android.util.Log;
 import android.widget.Toast;
 
 import androidx.annotation.Nullable;
 
 import com.example.medabinfinal.mediNote.Database.NoteModel;
+import com.example.medabinfinal.updateRecord.medicalReport.Database.MedicalReportModel;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -51,8 +54,8 @@ public class AlarmDatabase extends SQLiteOpenHelper {
     public void onCreate(SQLiteDatabase db) {
 
         //create table
-        String createTable = "CREATE TABLE "+ TABLE_NAME + " (" + COL_ID + " INTEGER PRIMARY KEY AUTOINCREMENT, " + COL_MEDICINE_NAME + " TEXT, " + COL_COUNT + " INTEGER, " + COL_REMAIN + " INTEGER, " + COL_TIME_1 + " TEXT, " + IS_TAKEN + " TEXT, "
-                + COL_TIME_2 + " TEXT, " + COL_TIME_3 + " TEXT, " + COL_TIME_1_HOUR + " INTEGER, " + COL_TIME_1_MINUTE + " INTEGER, " + COL_TIME_2_HOUR + " INTEGER, " + COL_TIME_2_MINUTE + " INTEGER, "
+        String createTable = "CREATE TABLE "+ TABLE_NAME + " (" + COL_ID + " INTEGER PRIMARY KEY AUTOINCREMENT, " + COL_MEDICINE_NAME + " TEXT, " + COL_COUNT + " INTEGER, " + COL_REMAIN + " INTEGER, " + COL_TIME_1 + " TEXT, "
+                + COL_TIME_2 + " TEXT, " + COL_TIME_3 + " TEXT, " + IS_TAKEN + " TEXT, " + COL_TIME_1_HOUR + " INTEGER, " + COL_TIME_1_MINUTE + " INTEGER, " + COL_TIME_2_HOUR + " INTEGER, " + COL_TIME_2_MINUTE + " INTEGER, "
                 + COL_TIME_3_HOUR + " INTEGER, " + COL_TIME_3_MINUTE + " INTEGER)";
 
         db.execSQL(createTable);
@@ -752,6 +755,7 @@ public class AlarmDatabase extends SQLiteOpenHelper {
         contentValues.put(COL_TIME_3_HOUR,alarmModel.getTime3_hour());
         contentValues.put(COL_TIME_3_MINUTE,alarmModel.getTime3_minute());
 
+        Toast.makeText(context, "Data updated", Toast.LENGTH_SHORT).show();
 
         return db.update(TABLE_NAME,contentValues,COL_ID+"=?",new String[]{String.valueOf(id)});
 
@@ -854,6 +858,137 @@ public class AlarmDatabase extends SQLiteOpenHelper {
 
 
     }
+
+    public List<AlarmModel> getAllReminders(){
+        SQLiteDatabase db = this.getReadableDatabase();
+        List<AlarmModel> allRecords = new ArrayList<>();
+
+        //select *from databaseName
+
+//        String query = "SELECT * FROM "+DATABASE_TABLE;
+
+        //edit query to show thw new record first
+        String query = "SELECT * FROM "+TABLE_NAME+" ORDER BY "+COL_MEDICINE_NAME+" ASC";
+
+        Cursor cursor = db.rawQuery(query,null);
+
+        if(cursor.moveToFirst()){
+            do{
+                AlarmModel alarmModel = new AlarmModel();
+
+                alarmModel.setId(cursor.getLong(0));
+                alarmModel.setMedicineName(cursor.getString(1));
+                alarmModel.setCount(cursor.getInt(2));
+                alarmModel.setRemain(cursor.getInt(3));
+                alarmModel.setTime1(cursor.getString(4));
+                alarmModel.setTime2(cursor.getString(5));
+                alarmModel.setTime3(cursor.getString(6));
+                alarmModel.setIsAlarm(cursor.getString(7));
+                alarmModel.setTime1_hour(cursor.getInt(8));
+                alarmModel.setTime1_minute(cursor.getInt(9));
+                alarmModel.setTime2_hour(cursor.getInt(10));
+                alarmModel.setTime2_minute(cursor.getInt(11));
+                alarmModel.setTime3_hour(cursor.getInt(12));
+                alarmModel.setTime3_minute(cursor.getInt(13));
+
+
+
+
+                //all notes list added
+                allRecords.add(alarmModel);
+
+            }while (cursor.moveToNext());
+        }
+        else
+        {
+            Toast.makeText(context, "No value in Database", Toast.LENGTH_SHORT).show();
+        }
+        db.close();
+        cursor.close();
+        return allRecords;
+    }
+
+    public List<AlarmModel> searchAlarmByMedicineName(String name){
+
+        SQLiteDatabase db = getReadableDatabase();
+        SQLiteQueryBuilder queryBuilder = new SQLiteQueryBuilder();
+
+        String[] sqlSelect = {COL_ID,COL_MEDICINE_NAME,COL_COUNT,COL_REMAIN,COL_TIME_1,COL_TIME_2,COL_TIME_3
+                                ,IS_TAKEN,COL_TIME_1_HOUR,COL_TIME_1_MINUTE,COL_TIME_2_HOUR,COL_TIME_2_MINUTE,COL_TIME_3_HOUR,COL_TIME_3_MINUTE};
+        String tableName = TABLE_NAME;
+
+        queryBuilder.setTables(tableName);
+
+        //select from title with like query
+
+        Cursor cursor = queryBuilder.query(db,sqlSelect,"Medicine_name LIKE ?",new String[]{"%"+name+"%"},null,null,null);
+
+        List<AlarmModel> allRecords = new ArrayList<>();
+
+        if (cursor.moveToFirst())
+        {
+            do{
+
+                AlarmModel alarmModel = new AlarmModel();
+
+                alarmModel.setId(cursor.getLong(0));
+                alarmModel.setMedicineName(cursor.getString(1));
+                alarmModel.setCount(cursor.getInt(2));
+                alarmModel.setRemain(cursor.getInt(3));
+                alarmModel.setTime1(cursor.getString(4));
+                alarmModel.setTime2(cursor.getString(5));
+                alarmModel.setTime3(cursor.getString(6));
+                alarmModel.setIsAlarm(cursor.getString(7));
+                alarmModel.setTime1_hour(cursor.getInt(8));
+                alarmModel.setTime1_minute(cursor.getInt(9));
+                alarmModel.setTime2_hour(cursor.getInt(10));
+                alarmModel.setTime2_minute(cursor.getInt(11));
+                alarmModel.setTime3_hour(cursor.getInt(12));
+                alarmModel.setTime3_minute(cursor.getInt(13));
+
+                allRecords.add(alarmModel);
+
+
+            }while (cursor.moveToNext());
+        }
+        else
+        {
+            Toast.makeText(context, "No value in Database", Toast.LENGTH_SHORT).show();
+        }
+        db.close();
+        cursor.close();
+        return allRecords;
+
+    }
+
+    public List<String> getMedicineNames(){
+
+
+        SQLiteDatabase db = getReadableDatabase();
+        SQLiteQueryBuilder queryBuilder = new SQLiteQueryBuilder();
+
+        String[] sqlSelect = {COL_MEDICINE_NAME};
+        String tablename = TABLE_NAME;
+
+        queryBuilder.setTables(tablename);
+
+        Cursor cursor = queryBuilder.query(db,sqlSelect,null,null,null,null,null);
+
+        List<String> result = new ArrayList<>();
+
+        if (cursor.moveToFirst()){
+            do{
+
+                result.add(cursor.getString(cursor.getColumnIndex(COL_MEDICINE_NAME)));
+
+            }while (cursor.moveToNext());
+        }
+        return result;
+
+
+    }
+
+
 
 
 

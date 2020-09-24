@@ -123,11 +123,11 @@ public class AlarmService extends Service {
                     System.out.println("database time i ->"+i+"minutes 1->"+alarmMinute1[i]+"minutes 2->"+alarmMinute2[i]+" mintes 3->"+alarmMinute3[i]+" is alarm "+isAlarm[i]);
 
                     if((Calendar.getInstance().get(Calendar.HOUR_OF_DAY) == alarmHour1[i] &&
-                            Calendar.getInstance().getTime().getMinutes() == alarmMinute1[i])||
+                            Calendar.getInstance().getTime().getMinutes() == alarmMinute1[i] &&isAlarm[i])||
                             (Calendar.getInstance().get(Calendar.HOUR_OF_DAY) == alarmHour2[i] &&
-                                    Calendar.getInstance().getTime().getMinutes() == alarmMinute2[i])||
+                                    Calendar.getInstance().getTime().getMinutes() == alarmMinute2[i] && isAlarm[i])||
                             (Calendar.getInstance().get(Calendar.HOUR_OF_DAY) == alarmHour3[i] &&
-                                    Calendar.getInstance().getTime().getMinutes() == alarmMinute3[i])){
+                                    Calendar.getInstance().getTime().getMinutes() == alarmMinute3[i]) && isAlarm[i]){
 
 
                         ringtone.play();
@@ -153,9 +153,18 @@ public class AlarmService extends Service {
         return super.onStartCommand(intent, flags, startId);
     }
 
+
+    public void stopForegroundservice()
+    {
+        stopForeground(true);
+        stopSelf();
+    }
+
     public void onDestroy(){
         ringtone.stop();
         timer.cancel();
+
+
         super.onDestroy();
     }
 
@@ -165,7 +174,7 @@ public class AlarmService extends Service {
         System.out.println("id"+id);
 
         String idTest = String.valueOf(id);
-       
+
 
         System.out.println("it test "+idTest);
 

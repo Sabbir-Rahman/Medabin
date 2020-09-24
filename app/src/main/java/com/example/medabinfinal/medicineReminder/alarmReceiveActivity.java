@@ -21,7 +21,7 @@ public class alarmReceiveActivity extends AppCompatActivity {
     String nameDatabase,time1Database,time2Database,time3Database,isActive;
     int countDatbase,remainDatbase,time1HourDatabase,time2HourDatabase,time3HourDatabase,time1MinuteDatabase,time2MinuteDatabase,time3MinuteDtabase;
     String medicineIdText;
-    int medicineId;
+
     int id;
     TextView medicineNameTaken,noticeText;
     Button yes,later,no;
@@ -40,7 +40,7 @@ public class alarmReceiveActivity extends AppCompatActivity {
         medicineName = getIntent().getStringExtra("medicineName");
         id = getIntent().getIntExtra("Id",0);
         //medicineIdText = getIntent().getStringExtra("Id");
-        medicineId = db.getAlarmId(medicineName);
+        //medicineId = db.getAlarmId(medicineName);
         System.out.println("id medicine"+db.getAlarmId(medicineName));
         nameDatabase = db.getOneMedicneName(id);
         countDatbase = db.getOneMedicineCount(id);
@@ -106,12 +106,6 @@ public class alarmReceiveActivity extends AppCompatActivity {
         Toast.makeText(this, "Medicine name: "+medicineName+"Medicine id : "+id, Toast.LENGTH_SHORT).show();
     }
 
-    public void recieveData(int id)
-    {
-
-
-
-    }
 
 
     private void editData()
@@ -122,7 +116,7 @@ public class alarmReceiveActivity extends AppCompatActivity {
         AlarmModel alarmModel = new AlarmModel(nameDatabase,countUpdate,remainUpdate,time1Database,time2Database,time3Database,isActive,time1HourDatabase,time1MinuteDatabase,time2HourDatabase,time2MinuteDatabase,time3HourDatabase,time3MinuteDtabase);
         AlarmDatabase db = new AlarmDatabase(this);
 
-        db.editAlarm(alarmModel,medicineId);
+        db.editAlarm(alarmModel,id);
 
     }
 }

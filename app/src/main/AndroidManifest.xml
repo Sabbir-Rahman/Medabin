@@ -15,7 +15,8 @@
         android:supportsRtl="true"
         android:theme="@style/AppTheme"
         tools:node="replace">
-        <activity android:name=".medicineReminder.alarmReceiveActivity"></activity>
+        <activity android:name=".medicineReminder.alarmEditActivity"></activity>
+        <activity android:name=".medicineReminder.alarmReceiveActivity" />
 
         <service android:name=".medicineReminder.AlarmService" />
 

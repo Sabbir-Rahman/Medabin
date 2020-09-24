@@ -26,7 +26,7 @@
             android:layout_height="match_parent"
             android:fontFamily="@font/carter_one"
             android:gravity="center|start"
-            android:text="Add Reminder"
+            android:text="Edit Reminder"
             android:textColor="@color/white"
             android:textSize="24sp"
             android:textStyle="bold"
@@ -38,7 +38,7 @@
 
 
     <EditText
-        android:id="@+id/reminder_medicine_name"
+        android:id="@+id/reminder_edit_medicine_name"
         android:layout_width="match_parent"
         android:layout_height="40dp"
         android:layout_marginStart="20dp"
@@ -53,7 +53,7 @@
         app:layout_constraintTop_toBottomOf="@+id/toolbar" />
 
     <EditText
-        android:id="@+id/reminderMedicineCount"
+        android:id="@+id/reminder_edit_MedicineCount"
         android:layout_width="match_parent"
         android:layout_height="40dp"
         android:layout_marginStart="20dp"
@@ -66,11 +66,11 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/reminder_medicine_name" />
+        app:layout_constraintTop_toBottomOf="@+id/reminder_edit_medicine_name" />
 
 
     <EditText
-        android:id="@+id/remindTime1"
+        android:id="@+id/remindTime1Edit"
         android:layout_width="match_parent"
         android:layout_height="40dp"
         android:layout_marginStart="20dp"
@@ -83,10 +83,10 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="1.0"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/reminderMedicineCount" />
+        app:layout_constraintTop_toBottomOf="@+id/reminder_edit_MedicineCount" />
 
     <EditText
-        android:id="@+id/remindTime2"
+        android:id="@+id/remindTime2Edit"
         android:layout_width="match_parent"
         android:layout_height="40dp"
         android:layout_marginStart="20dp"
@@ -99,11 +99,11 @@
         app:layout_constraintHorizontal_bias="1.0"
         android:focusableInTouchMode="false"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/remindTime1" />
+        app:layout_constraintTop_toBottomOf="@+id/remindTime1Edit" />
 
 
     <EditText
-        android:id="@+id/remindTime3"
+        android:id="@+id/remindTime3Edit"
         android:layout_width="match_parent"
         android:layout_height="40dp"
         android:layout_marginStart="20dp"
@@ -116,10 +116,10 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="1.0"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/remindTime2" />
+        app:layout_constraintTop_toBottomOf="@+id/remindTime2Edit" />
 
     <Button
-        android:id="@+id/submitMedicineReminderRecord"
+        android:id="@+id/submitMedicineReminderRecordEdit"
         android:layout_width="150dp"
         android:layout_height="50dp"
         android:layout_marginStart="40dp"
@@ -133,10 +133,10 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.497"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/switchMedicineReminder" />
+        app:layout_constraintTop_toBottomOf="@+id/switchMedicineReminderEdit" />
 
     <Switch
-        android:id="@+id/switchMedicineReminder"
+        android:id="@+id/switchMedicineReminderEdit"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginStart="20dp"
@@ -145,7 +145,7 @@
         android:text="Currently want alarm for this medicine?"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/remindTime3" />
+        app:layout_constraintTop_toBottomOf="@+id/remindTime3Edit" />
 
 
 </androidx.constraintlayout.widget.ConstraintLayout>

@@ -1,6 +1,237 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout
-    xmlns:android="http://schemas.android.com/apk/res/android" android:layout_width="match_parent"
-    android:layout_height="match_parent">
 
-</androidx.constraintlayout.widget.ConstraintLayout>
+<androidx.cardview.widget.CardView
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    app:layout_constraintBottom_toBottomOf="parent"
+    app:layout_constraintEnd_toEndOf="parent"
+    app:layout_constraintStart_toStartOf="parent"
+    app:layout_constraintTop_toTopOf="parent"
+    android:elevation="10dp"
+    android:background="#999E99"
+    android:padding="5dp"
+    android:layout_margin="8dp"
+    >
+
+    <LinearLayout
+        android:background="@drawable/green_back_2"
+        android:layout_margin="8dp"
+        android:orientation="horizontal"
+        android:layout_width="match_parent"
+        android:layout_height="190dp">
+
+
+
+        <LinearLayout
+            android:orientation="vertical"
+            android:layout_weight="9"
+            android:layout_width="0dp"
+            android:layout_height="match_parent">
+
+            <LinearLayout
+                android:layout_marginTop="0dp"
+                android:layout_width="match_parent"
+                android:layout_height="30dp"
+                android:orientation="horizontal"
+                >
+
+                <TextView
+                    android:id="@+id/medicine_reminder_view_medicine_name"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="20dp"
+                    android:layout_marginTop="2dp"
+                    android:text="Sleep Time "
+                    android:textStyle="bold"
+                    android:textColor="@color/brown"
+                    android:textSize="20sp"
+                    />
+
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_marginTop="0dp"
+                android:layout_width="match_parent"
+                android:layout_height="30dp"
+                android:orientation="horizontal"
+                >
+
+                <TextView
+                    android:id="@+id/text_time1"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="20dp"
+                    android:layout_marginTop="2dp"
+                    android:text=" Time 1 :"
+                    android:textColor="@color/dark_green"
+                    android:textStyle="bold"
+                    android:textSize="18sp"
+                    />
+
+                <TextView
+                    android:id="@+id/medicine_reminder_view_medicine_time1"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="2dp"
+                    android:layout_marginTop="2dp"
+                    android:text="5"
+                    android:textStyle="bold"
+                    android:textColor="@color/blue"
+                    android:textSize="20sp"
+                    />
+
+
+            </LinearLayout>
+            <LinearLayout
+                android:layout_marginTop="0dp"
+                android:layout_width="match_parent"
+                android:layout_height="30dp"
+                android:orientation="horizontal"
+                >
+
+                <TextView
+                    android:id="@+id/text_time2"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="20dp"
+                    android:layout_marginTop="2dp"
+                    android:text=" Time 2: "
+                    android:textStyle="bold"
+                    android:textColor="@color/dark_green"
+                    android:textSize="18sp"
+                    />
+
+                <TextView
+                    android:id="@+id/medicine_reminder_view_medicine_time2"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="2dp"
+                    android:layout_marginTop="2dp"
+                    android:text="5"
+                    android:textStyle="bold"
+                    android:textColor="@color/blue"
+                    android:textSize="20sp"
+                    />
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_marginTop="0dp"
+                android:layout_width="match_parent"
+                android:layout_height="30dp"
+                android:orientation="horizontal"
+                >
+
+                <TextView
+                    android:id="@+id/text_time3"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="20dp"
+                    android:layout_marginTop="2dp"
+                    android:text=" Time 3: "
+                    android:textStyle="bold"
+                    android:textColor="@color/dark_green"
+                    android:textSize="18sp"
+                    />
+
+                <TextView
+                    android:id="@+id/medicine_reminder_view_medicine_time_3"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="2dp"
+                    android:layout_marginTop="2dp"
+                    android:text="5"
+                    android:textStyle="bold"
+                    android:textColor="@color/blue"
+                    android:textSize="20sp"
+                    />
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_marginTop="0dp"
+                android:layout_width="match_parent"
+                android:layout_height="30dp"
+                android:orientation="horizontal"
+                >
+
+                <TextView
+                    android:id="@+id/txt_remain"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="20dp"
+                    android:layout_marginTop="2dp"
+                    android:text=" Medicine Remain: "
+                    android:textStyle="bold"
+                    android:textColor="@color/dark_green"
+                    android:textSize="18sp"
+                    />
+
+                <TextView
+                    android:id="@+id/medicine_reminder_view_medicine_remain"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="2dp"
+                    android:layout_marginTop="2dp"
+                    android:text="5"
+                    android:textStyle="bold"
+                    android:textColor="@color/blue"
+                    android:textSize="20sp"
+                    />
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_marginTop="0dp"
+                android:layout_width="match_parent"
+                android:layout_height="30dp"
+                android:orientation="horizontal"
+                >
+
+                <TextView
+                    android:id="@+id/text_currently_taken"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="20dp"
+                    android:layout_marginTop="2dp"
+                    android:text=" Currently active "
+                    android:textStyle="bold"
+                    android:textColor="@color/dark_green"
+                    android:textSize="18sp"
+                    />
+
+                <TextView
+                    android:id="@+id/medicine_reminder_view_medicine_current_status"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="2dp"
+                    android:layout_marginTop="2dp"
+                    android:text="5"
+                    android:textStyle="bold"
+                    android:textColor="@color/brown"
+                    android:textSize="20sp"
+                    />
+
+
+            </LinearLayout>
+
+        </LinearLayout>
+        <ImageView
+            android:layout_marginTop="1dp"
+            android:layout_width="120dp"
+            android:layout_marginLeft="10dp"
+            android:layout_height="120dp"
+            android:layout_marginBottom="10dp"
+            android:layout_gravity="center"
+            android:layout_marginEnd="10dp"
+            android:src="@drawable/ic_alarm_clock"
+            />
+    </LinearLayout>
+
+
+
+
+</androidx.cardview.widget.CardView>
