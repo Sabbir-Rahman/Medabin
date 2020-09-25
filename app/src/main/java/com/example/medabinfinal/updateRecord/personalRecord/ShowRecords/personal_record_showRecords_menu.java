@@ -14,7 +14,9 @@ import com.example.medabinfinal.updateRecord.personalRecord.Database.PersonalRec
 import com.github.mikephil.charting.animation.Easing;
 import com.github.mikephil.charting.charts.LineChart;
 import com.github.mikephil.charting.components.AxisBase;
+import com.github.mikephil.charting.components.LimitLine;
 import com.github.mikephil.charting.components.XAxis;
+import com.github.mikephil.charting.components.YAxis;
 import com.github.mikephil.charting.data.Entry;
 import com.github.mikephil.charting.data.LineData;
 import com.github.mikephil.charting.data.LineDataSet;
@@ -78,12 +80,16 @@ public class personal_record_showRecords_menu extends AppCompatActivity implemen
 
     PersonalRecordDatabase db;
     SQLiteDatabase sqLiteDatabase;
-    LineChart lineChartWeight,lineChartHeight;
+    LineChart lineChartWeight,lineChartHeight,lineChartBp;
     LineDataSet lineDataSetWeight = new LineDataSet(null,null);
     LineDataSet lineDataSetHeight = new LineDataSet(null,null);
+    LineDataSet lineDataSetBpHigh = new LineDataSet(null,null);
+    LineDataSet lineDataSetBpLow = new LineDataSet(null,null);
     ArrayList<ILineDataSet> datasetWeight = new ArrayList<>();
     ArrayList<ILineDataSet> datasetHeight = new ArrayList<>();
-    LineData lineDataWeight,lineDataHeight;
+    ArrayList<ILineDataSet> datasetBp = new ArrayList<>();
+
+    LineData lineDataWeight,lineDataHeight,lineDataBp;
 
 
 
@@ -99,6 +105,7 @@ public class personal_record_showRecords_menu extends AppCompatActivity implemen
         //weight chart
         lineChartWeight = findViewById(R.id.linechartWeight);
         lineChartHeight = findViewById(R.id.linechartHeight);
+        lineChartBp = findViewById(R.id.linechartBp);
 
 
         lineChartWeight.setOnChartGestureListener(this);
@@ -192,9 +199,109 @@ public class personal_record_showRecords_menu extends AppCompatActivity implemen
         xAxisHeight.setValueFormatter(new ClaimsXAxisValueFormatterHeight(valuesHeight));
         xAxisHeight.setGranularity(1f);
 
+        createBpChart();
 
 
     }
+
+
+    public void createBpChart()
+    {
+        //weight chart
+
+        lineChartBp.setOnChartGestureListener(this);
+        lineChartBp.setOnChartValueSelectedListener(this);
+
+        lineChartBp.setDragEnabled(true);
+        lineChartBp.setScaleEnabled(true);
+        lineChartBp.setPinchZoom(true);
+
+        //two values
+        lineDataSetBpHigh.setValues(getDataValueBPHigh());
+        lineDataSetBpLow.setValues(getDataValueBpLow());
+
+        lineDataSetBpHigh.setLabel("Bp High");
+        lineDataSetBpLow.setLabel("Bp Low");
+        datasetBp.clear();
+        datasetBp.add(lineDataSetBpHigh);
+        datasetBp.add(lineDataSetBpLow);
+
+        lineDataBp = new LineData(datasetBp);
+
+        lineChartBp.clear();
+        lineChartBp.setData(lineDataBp);
+        lineChartBp.animateXY(2000,2000, Easing.EaseInExpo,Easing.EaseInExpo);
+        lineChartBp.setViewPortOffsets(100, 160, 100, 60);
+
+        lineChartBp.invalidate();
+
+
+        lineDataSetBpHigh.setLineWidth(4);
+        lineDataSetBpHigh.setFillAlpha(80);
+        lineDataSetBpHigh.setDrawFilled(true);
+        lineDataSetBpHigh.setFillColor(Color.BLUE);
+        lineDataSetBpHigh.setColor(Color.GREEN);
+
+        lineDataSetBpLow.setLineWidth(4);
+        lineDataSetBpLow.setFillAlpha(80);
+        lineDataSetBpLow.setDrawFilled(true);
+        lineDataSetBpLow.setFillColor(Color.YELLOW);
+        lineDataSetBpLow.setColor(Color.BLACK);
+
+        LimitLine upper_limit = new LimitLine(120f, "Good High Value");
+        upper_limit.setLineWidth(2f);
+        upper_limit.enableDashedLine(10f, 10f, 0f);
+        upper_limit.setLabelPosition(LimitLine.LimitLabelPosition.RIGHT_TOP);
+        upper_limit.setTextSize(10f);
+        upper_limit.setLineColor(Color.BLUE);
+
+        LimitLine lower_limit = new LimitLine(80f, "Good low value");
+        lower_limit.setLineWidth(2f);
+        lower_limit.enableDashedLine(10f, 10f, 0f);
+        lower_limit.setLabelPosition(LimitLine.LimitLabelPosition.RIGHT_BOTTOM);
+        lower_limit.setTextSize(10f);
+
+        YAxis leftAxis = lineChartBp.getAxisLeft();
+        leftAxis.removeAllLimitLines();
+        leftAxis.addLimitLine(upper_limit);
+        leftAxis.addLimitLine(lower_limit);
+        leftAxis.setAxisMaximum(180f);
+        leftAxis.setAxisMinimum(20f);
+        leftAxis.enableGridDashedLine(10f, 10f, 0);
+        leftAxis.setDrawLimitLinesBehindData(true);
+
+        lineChartBp.getAxisRight().setEnabled(false);
+
+
+
+//
+        List<String> bpDateList = new ArrayList<>();
+        bpDateList = db.getBpDates();
+        List<String> bpTimeList = new ArrayList<>();
+        bpTimeList = db.getBpTimes();
+        String[] valuesDate = new String[bpDateList.size()] ;
+        String[] valuesTime = new String[bpTimeList.size()] ;
+
+
+        for (int i =0;i<bpDateList.size();i++)
+        {
+            valuesDate[i]= bpDateList.get(i);
+            valuesTime[i]= bpTimeList.get(i);
+
+        }
+
+
+
+        XAxis xAxisBp = lineChartBp.getXAxis();
+        xAxisBp.setValueFormatter(new ClaimsXAxisValueFormatterBp(valuesDate,valuesTime));
+        xAxisBp.setLabelRotationAngle(-45);
+        xAxisBp.setGranularity(1f);
+
+
+    }
+
+
+
 
 
     private ArrayList<Entry> getDataValueWeight()
@@ -203,6 +310,42 @@ public class personal_record_showRecords_menu extends AppCompatActivity implemen
         String[] columns = {COL_ID,COL_WEIGHT};
 
         Cursor cursor = sqLiteDatabase.query(DATABASE_TABLE_WEIGHT,columns,null,null,null,null,COL_DATE);
+
+        for(int i = 0; i<cursor.getCount();i++)
+        {
+            cursor.moveToNext();
+            dataValue.add(new Entry(cursor.getFloat(0),cursor.getFloat(1)));
+
+        }
+
+        return dataValue;
+
+    }
+
+    private ArrayList<Entry> getDataValueBPHigh()
+    {
+        ArrayList<Entry> dataValue = new ArrayList<>();
+        String[] columns = {COL_ID,COL_BP_HIGH};
+
+        Cursor cursor = sqLiteDatabase.query(DATABASE_TABLE_BP,columns,null,null,null,null,COL_DATE);
+
+        for(int i = 0; i<cursor.getCount();i++)
+        {
+            cursor.moveToNext();
+            dataValue.add(new Entry(cursor.getFloat(0),cursor.getFloat(1)));
+
+        }
+
+        return dataValue;
+
+    }
+
+    private ArrayList<Entry> getDataValueBpLow()
+    {
+        ArrayList<Entry> dataValue = new ArrayList<>();
+        String[] columns = {COL_ID,COL_BP_LOW};
+
+        Cursor cursor = sqLiteDatabase.query(DATABASE_TABLE_BP,columns,null,null,null,null,COL_DATE);
 
         for(int i = 0; i<cursor.getCount();i++)
         {
@@ -348,6 +491,42 @@ Depends on the position number on the X axis, we need to display the label, Here
             count++;
             System.out.println( "count check"+count+" value check "+value);
             return mValue[(int)value-1];
+
+        }
+    }
+
+    public class ClaimsXAxisValueFormatterBp extends ValueFormatter {
+
+
+        PersonalRecordDatabase db;
+
+        private String[] mValueDate;
+        private String[] mValueTime;
+
+        int count =0;
+
+        public ClaimsXAxisValueFormatterBp(String[] valuesDate,String[] valuesTime) {
+
+            this.mValueDate = valuesDate;
+            this.mValueTime = valuesTime;
+        }
+
+        int i = -1 ;
+
+        @Override
+        public String getAxisLabel(float value, AxisBase axis) {
+
+            db = new PersonalRecordDatabase(getBaseContext());
+
+
+/*
+Depends on the position number on the X axis, we need to display the label, Here, this is the logic to convert the float value to integer so that I can get the value from array based on that integer and can convert it to the required value here, month and date as value. This is required for my data to show properly, you can customize according to your needs.
+*/
+
+
+            count++;
+            System.out.println( "count check"+count+" value check "+value);
+            return mValueDate[(int)value-1]+"\n"+mValueTime[(int)value-1];
 
         }
     }

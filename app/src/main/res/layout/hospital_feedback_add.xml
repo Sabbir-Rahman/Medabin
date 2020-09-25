@@ -14,7 +14,7 @@
         android:layout_height="wrap_content"
         android:layout_marginStart="20dp"
         android:layout_marginTop="30dp"
-        android:text="Enter hospital name you want to give feedback"
+        android:text="Enter hospital name you want to give feedback\nyou can also put half star"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
         android:textSize="16sp"
@@ -22,7 +22,7 @@
         />
 
     <EditText
-        android:id="@+id/feedback_pharmacy_name"
+        android:id="@+id/feedback_hospital_name"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:layout_marginStart="15dp"
@@ -45,9 +45,9 @@
         android:textColor="@color/green"
         android:textStyle="bold"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/feedback_pharmacy_name" />
+        app:layout_constraintTop_toBottomOf="@+id/feedback_hospital_name" />
     <RatingBar
-        android:id="@+id/pharmacy_feedback_service"
+        android:id="@+id/hospital_feedback_service"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:layout_marginStart="20dp"
@@ -66,9 +66,9 @@
         android:textColor="@color/green"
         android:textStyle="bold"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/pharmacy_feedback_service" />
+        app:layout_constraintTop_toBottomOf="@+id/hospital_feedback_service" />
     <RatingBar
-        android:id="@+id/feedback_pharmacy_pricing"
+        android:id="@+id/feedback_hospital_expense"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:layout_marginStart="20dp"
@@ -87,9 +87,9 @@
         android:textStyle="bold"
         android:textColor="@color/green"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/feedback_pharmacy_pricing" />
+        app:layout_constraintTop_toBottomOf="@+id/feedback_hospital_expense" />
     <RatingBar
-        android:id="@+id/medicine_feedback_organised"
+        android:id="@+id/feedback_hospital_infrastructure"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:layout_marginStart="20dp"
@@ -108,9 +108,9 @@
         android:textStyle="bold"
         android:textColor="@color/green"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/medicine_feedback_organised" />
+        app:layout_constraintTop_toBottomOf="@+id/feedback_hospital_infrastructure" />
     <RatingBar
-        android:id="@+id/pharmacy_feedback_medicine_availability"
+        android:id="@+id/feedback_hospital_testing_quality"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:layout_marginStart="20dp"
@@ -118,5 +118,19 @@
         android:numStars="5"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/textPharmacyMedicineAvailability" />
+
+    <Button
+        android:id="@+id/hospital_feedback_submit"
+        android:layout_width="150dp"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="20dp"
+        android:layout_marginTop="20dp"
+        android:layout_marginEnd="20dp"
+        android:text="Submit"
+        android:background="@drawable/button1"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/feedback_hospital_testing_quality" />
+
 
 </androidx.constraintlayout.widget.ConstraintLayout>
