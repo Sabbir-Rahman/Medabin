@@ -1,12 +1,12 @@
 package com.example.medabinfinal.giveFeedback.Database;
 
-public class ratingMedicineModel {
+public class RatingMedicineModel {
 
     private int id;
     private String name;
     private float price,packaging,effectiveness,side,total;
 
-    public ratingMedicineModel(String name, float price, float packaging, float effectiveness, float side, float total) {
+    public RatingMedicineModel(String name, float price, float packaging, float effectiveness, float side, float total) {
         this.name = name;
         this.price = price;
         this.packaging = packaging;
@@ -15,7 +15,7 @@ public class ratingMedicineModel {
         this.total = total;
     }
 
-    public ratingMedicineModel() {
+    public RatingMedicineModel() {
     }
 
     public int getId() {

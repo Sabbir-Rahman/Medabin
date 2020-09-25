@@ -22,6 +22,30 @@ public class giveFeedbackMenu extends AppCompatActivity {
         Toast.makeText(this, "Going to Doctor Feedback", Toast.LENGTH_SHORT).show();
         Intent intent = new Intent(this,doctor_feedback_add.class);
         startActivity(intent);
-        finish();
+
+    }
+
+    public void sendUserToHospitalFeedback(View v)
+    {
+        Toast.makeText(this, "Going to Hospital Feedback", Toast.LENGTH_SHORT).show();
+        Intent intent = new Intent(this,hospital_feedback_add.class);
+        startActivity(intent);
+
+    }
+
+    public void sendUserToMedicineFeedback(View v)
+    {
+        Toast.makeText(this, "Going to Medicine Feedback", Toast.LENGTH_SHORT).show();
+        Intent intent = new Intent(this,medicine_feedback_add.class);
+        startActivity(intent);
+
+    }
+
+    public void sendUserToPharmacyFeedback(View v)
+    {
+        Toast.makeText(this, "Going to Pharmacy Feedback", Toast.LENGTH_SHORT).show();
+        Intent intent = new Intent(this,pharmacy_feedback_add.class);
+        startActivity(intent);
+
     }
 }

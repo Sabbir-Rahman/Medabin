@@ -254,6 +254,34 @@ public class PersonalRecordDatabase extends SQLiteOpenHelper {
 
     }
 
+    public List<String> getGlucoseDates()
+    {
+        SQLiteDatabase db = getReadableDatabase();
+        SQLiteQueryBuilder queryBuilder = new SQLiteQueryBuilder();
+
+        String[] sqlSelect = {COL_DATE};
+        String tablename = DATABASE_TABLE_GLUCOSE;
+
+        queryBuilder.setTables(tablename);
+
+        Cursor cursor = queryBuilder.query(db,sqlSelect,null,null,null,null,null);
+
+        List<String> result = new ArrayList<>();
+
+        if (cursor.moveToFirst()){
+            do{
+
+                result.add(cursor.getString(cursor.getColumnIndex(COL_DATE)));
+
+            }while (cursor.moveToNext());
+        }
+        return result;
+
+
+
+
+    }
+
     public List<String> getWeightDates()
     {
         SQLiteDatabase db = getReadableDatabase();
@@ -272,6 +300,470 @@ public class PersonalRecordDatabase extends SQLiteOpenHelper {
             do{
 
                 result.add(cursor.getString(cursor.getColumnIndex(COL_DATE)));
+
+            }while (cursor.moveToNext());
+        }
+        return result;
+
+
+
+
+    }
+
+    public int getLastProtein()
+    {
+        SQLiteDatabase db = getReadableDatabase();
+        SQLiteQueryBuilder queryBuilder = new SQLiteQueryBuilder();
+
+        String[] sqlSelect = {COL_PROTEIN};
+        String tablename = DATABASE_TABLE_FOOD;
+
+        queryBuilder.setTables(tablename);
+
+        Cursor cursor = queryBuilder.query(db,sqlSelect,null,null,null,null,null);
+
+        int result = 0;
+
+        if (cursor.moveToLast()){
+
+
+                result = cursor.getInt(cursor.getColumnIndex(COL_PROTEIN));
+
+            }
+        return result;
+
+
+
+
+    }
+    public int getLastFat()
+    {
+        SQLiteDatabase db = getReadableDatabase();
+        SQLiteQueryBuilder queryBuilder = new SQLiteQueryBuilder();
+
+        String[] sqlSelect = {COL_FAT};
+        String tablename = DATABASE_TABLE_FOOD;
+
+        queryBuilder.setTables(tablename);
+
+        Cursor cursor = queryBuilder.query(db,sqlSelect,null,null,null,null,null);
+
+        int result = 0;
+
+        if (cursor.moveToLast()){
+
+
+            result = cursor.getInt(cursor.getColumnIndex(COL_FAT));
+
+        }
+        return result;
+
+
+
+
+    }
+
+
+
+    public int getLastVitamin()
+    {
+        SQLiteDatabase db = getReadableDatabase();
+        SQLiteQueryBuilder queryBuilder = new SQLiteQueryBuilder();
+
+        String[] sqlSelect = {COL_VITAMIN};
+        String tablename = DATABASE_TABLE_FOOD;
+
+        queryBuilder.setTables(tablename);
+
+        Cursor cursor = queryBuilder.query(db,sqlSelect,null,null,null,null,null);
+
+        int result = 0;
+
+        if (cursor.moveToLast()){
+
+
+            result = cursor.getInt(cursor.getColumnIndex(COL_VITAMIN));
+
+        }
+        return result;
+
+
+
+
+    }
+
+    public int getLastWater()
+    {
+        SQLiteDatabase db = getReadableDatabase();
+        SQLiteQueryBuilder queryBuilder = new SQLiteQueryBuilder();
+
+        String[] sqlSelect = {COL_WATER};
+        String tablename = DATABASE_TABLE_FOOD;
+
+        queryBuilder.setTables(tablename);
+
+        Cursor cursor = queryBuilder.query(db,sqlSelect,null,null,null,null,null);
+
+        int result = 0;
+
+        if (cursor.moveToLast()){
+
+
+            result = cursor.getInt(cursor.getColumnIndex(COL_WATER));
+
+        }
+        return result;
+
+
+
+
+    }
+
+    public int getLastMineral()
+    {
+        SQLiteDatabase db = getReadableDatabase();
+        SQLiteQueryBuilder queryBuilder = new SQLiteQueryBuilder();
+
+        String[] sqlSelect = {COL_MINERAL};
+        String tablename = DATABASE_TABLE_FOOD;
+
+        queryBuilder.setTables(tablename);
+
+        Cursor cursor = queryBuilder.query(db,sqlSelect,null,null,null,null,null);
+
+        int result = 0;
+
+        if (cursor.moveToLast()){
+
+
+            result = cursor.getInt(cursor.getColumnIndex(COL_MINERAL));
+
+        }
+        return result;
+
+
+
+
+    }
+
+    public int getLastUnknown()
+    {
+        SQLiteDatabase db = getReadableDatabase();
+        SQLiteQueryBuilder queryBuilder = new SQLiteQueryBuilder();
+
+        String[] sqlSelect = {COL_UNKNOWN_FOOD_TYPE};
+        String tablename = DATABASE_TABLE_FOOD;
+
+        queryBuilder.setTables(tablename);
+
+        Cursor cursor = queryBuilder.query(db,sqlSelect,null,null,null,null,null);
+
+        int result = 0;
+
+        if (cursor.moveToLast()){
+
+
+            result = cursor.getInt(cursor.getColumnIndex(COL_UNKNOWN_FOOD_TYPE));
+
+        }
+        return result;
+
+
+
+
+    }
+
+    public int getLastCarbohydrate()
+    {
+        SQLiteDatabase db = getReadableDatabase();
+        SQLiteQueryBuilder queryBuilder = new SQLiteQueryBuilder();
+
+        String[] sqlSelect = {COL_CARBOHYDRATE};
+        String tablename = DATABASE_TABLE_FOOD;
+
+        queryBuilder.setTables(tablename);
+
+        Cursor cursor = queryBuilder.query(db,sqlSelect,null,null,null,null,null);
+
+        int result = 0;
+
+        if (cursor.moveToLast()){
+
+
+            result = cursor.getInt(cursor.getColumnIndex(COL_CARBOHYDRATE));
+
+        }
+        return result;
+
+
+
+
+    }
+
+    public int getLastDailyTimeReadTime()
+    {
+        SQLiteDatabase db = getReadableDatabase();
+        SQLiteQueryBuilder queryBuilder = new SQLiteQueryBuilder();
+
+        String[] sqlSelect = {COL_READ_TIME};
+        String tablename = DATABASE_TABLE_DAILY_TIME;
+
+        queryBuilder.setTables(tablename);
+
+        Cursor cursor = queryBuilder.query(db,sqlSelect,null,null,null,null,null);
+
+        int result = 0;
+
+        if (cursor.moveToLast()){
+
+
+            result = cursor.getInt(cursor.getColumnIndex(COL_READ_TIME));
+
+        }
+        return result;
+
+
+
+
+    }
+
+    public int getLastDailyTimeSleepTime()
+    {
+        SQLiteDatabase db = getReadableDatabase();
+        SQLiteQueryBuilder queryBuilder = new SQLiteQueryBuilder();
+
+        String[] sqlSelect = {COL_SLEEP_TIME};
+        String tablename = DATABASE_TABLE_DAILY_TIME;
+
+        queryBuilder.setTables(tablename);
+
+        Cursor cursor = queryBuilder.query(db,sqlSelect,null,null,null,null,null);
+
+        int result = 0;
+
+        if (cursor.moveToLast()){
+
+
+            result = cursor.getInt(cursor.getColumnIndex(COL_SLEEP_TIME));
+
+        }
+        return result;
+
+
+
+
+    }
+
+    public int getLastDailyTimeWorkingTime()
+    {
+        SQLiteDatabase db = getReadableDatabase();
+        SQLiteQueryBuilder queryBuilder = new SQLiteQueryBuilder();
+
+        String[] sqlSelect = {COL_WORK_TIME};
+        String tablename = DATABASE_TABLE_DAILY_TIME;
+
+        queryBuilder.setTables(tablename);
+
+        Cursor cursor = queryBuilder.query(db,sqlSelect,null,null,null,null,null);
+
+        int result = 0;
+
+        if (cursor.moveToLast()){
+
+
+            result = cursor.getInt(cursor.getColumnIndex(COL_WORK_TIME));
+
+        }
+        return result;
+
+
+
+
+    }
+
+    public int getLastDailyTimeExerciseTime()
+    {
+        SQLiteDatabase db = getReadableDatabase();
+        SQLiteQueryBuilder queryBuilder = new SQLiteQueryBuilder();
+
+        String[] sqlSelect = {COL_EXERCISE_TIME};
+        String tablename = DATABASE_TABLE_DAILY_TIME;
+
+        queryBuilder.setTables(tablename);
+
+        Cursor cursor = queryBuilder.query(db,sqlSelect,null,null,null,null,null);
+
+        int result = 0;
+
+        if (cursor.moveToLast()){
+
+
+            result = cursor.getInt(cursor.getColumnIndex(COL_EXERCISE_TIME));
+
+        }
+        return result;
+
+
+
+
+    }
+
+    public int getLastDailyTimeOthersTime()
+    {
+        SQLiteDatabase db = getReadableDatabase();
+        SQLiteQueryBuilder queryBuilder = new SQLiteQueryBuilder();
+
+        String[] sqlSelect = {COL_OTHERS_TIME};
+        String tablename = DATABASE_TABLE_DAILY_TIME;
+
+        queryBuilder.setTables(tablename);
+
+        Cursor cursor = queryBuilder.query(db,sqlSelect,null,null,null,null,null);
+
+        int result = 0;
+
+        if (cursor.moveToLast()){
+
+
+            result = cursor.getInt(cursor.getColumnIndex(COL_OTHERS_TIME));
+
+        }
+        return result;
+
+
+
+
+    }
+
+    public int getLastDailyTimeUnknownTime()
+    {
+        SQLiteDatabase db = getReadableDatabase();
+        SQLiteQueryBuilder queryBuilder = new SQLiteQueryBuilder();
+
+        String[] sqlSelect = {COL_UNKNOWN_TIME};
+        String tablename = DATABASE_TABLE_DAILY_TIME;
+
+        queryBuilder.setTables(tablename);
+
+        Cursor cursor = queryBuilder.query(db,sqlSelect,null,null,null,null,null);
+
+        int result = 0;
+
+        if (cursor.moveToLast()){
+
+
+            result = cursor.getInt(cursor.getColumnIndex(COL_UNKNOWN_TIME));
+
+        }
+        return result;
+
+
+
+
+    }
+
+    public String getLastFooddate()
+    {
+        SQLiteDatabase db = getReadableDatabase();
+        SQLiteQueryBuilder queryBuilder = new SQLiteQueryBuilder();
+
+        String[] sqlSelect = {COL_DATE};
+        String tablename = DATABASE_TABLE_FOOD;
+
+        queryBuilder.setTables(tablename);
+
+        Cursor cursor = queryBuilder.query(db,sqlSelect,null,null,null,null,null);
+
+        String result = null;
+
+        if (cursor.moveToLast()){
+
+
+            result = cursor.getString(cursor.getColumnIndex(COL_DATE));
+
+        }
+        return result;
+
+
+
+
+    }
+
+    public String getLastDailyTimeDate()
+    {
+        SQLiteDatabase db = getReadableDatabase();
+        SQLiteQueryBuilder queryBuilder = new SQLiteQueryBuilder();
+
+        String[] sqlSelect = {COL_DATE};
+        String tablename = DATABASE_TABLE_DAILY_TIME;
+
+        queryBuilder.setTables(tablename);
+
+        Cursor cursor = queryBuilder.query(db,sqlSelect,null,null,null,null,null);
+
+        String result = null;
+
+        if (cursor.moveToLast()){
+
+
+            result = cursor.getString(cursor.getColumnIndex(COL_DATE));
+
+        }
+        return result;
+
+
+
+
+    }
+
+
+
+    public List<String> getBpDates()
+    {
+        SQLiteDatabase db = getReadableDatabase();
+        SQLiteQueryBuilder queryBuilder = new SQLiteQueryBuilder();
+
+        String[] sqlSelect = {COL_DATE};
+        String tablename = DATABASE_TABLE_BP;
+
+        queryBuilder.setTables(tablename);
+
+        Cursor cursor = queryBuilder.query(db,sqlSelect,null,null,null,null,null);
+
+        List<String> result = new ArrayList<>();
+
+        if (cursor.moveToFirst()){
+            do{
+
+                result.add(cursor.getString(cursor.getColumnIndex(COL_DATE)));
+
+            }while (cursor.moveToNext());
+        }
+        return result;
+
+
+
+
+    }
+
+    public List<String> getBpTimes()
+    {
+        SQLiteDatabase db = getReadableDatabase();
+        SQLiteQueryBuilder queryBuilder = new SQLiteQueryBuilder();
+
+        String[] sqlSelect = {COL_TIME};
+        String tablename = DATABASE_TABLE_BP;
+
+        queryBuilder.setTables(tablename);
+
+        Cursor cursor = queryBuilder.query(db,sqlSelect,null,null,null,null,null);
+
+        List<String> result = new ArrayList<>();
+
+        if (cursor.moveToFirst()){
+            do{
+
+                result.add(cursor.getString(cursor.getColumnIndex(COL_TIME)));
 
             }while (cursor.moveToNext());
         }

@@ -1,15 +1,15 @@
 package com.example.medabinfinal.giveFeedback.Database;
 
-public class ratingPharmacyModel {
+public class RatingPharmacyModel {
 
     private int id;
     private String name;
     private float service,pricing,wellOrganised,medicineAvailability,total;
 
-    public ratingPharmacyModel() {
+    public RatingPharmacyModel() {
     }
 
-    public ratingPharmacyModel(String name, float service, float pricing, float wellOrganised, float medicineAvailability, float total) {
+    public RatingPharmacyModel(String name, float service, float pricing, float wellOrganised, float medicineAvailability, float total) {
         this.name = name;
         this.service = service;
         this.pricing = pricing;

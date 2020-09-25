@@ -2,18 +2,15 @@ package com.example.medabinfinal.giveFeedback.Database;
 
 import android.content.ContentValues;
 import android.content.Context;
-import android.content.Intent;
 import android.database.sqlite.SQLiteDatabase;
 import android.database.sqlite.SQLiteOpenHelper;
 import android.widget.Toast;
 
 import androidx.annotation.Nullable;
 
-import com.example.medabinfinal.updateRecord.personalRecord.Database.HeightModel;
-
 public class giveFeedbackDatabase extends SQLiteOpenHelper {
 
-    public static final String DATABASE_NAME = "Feedback_database";
+    public static final String DATABASE_NAME = "Feedback_database.db";
     public static final int DATABASE_VERSION = 1 ;
     public static final String DATABASE_TABLE_DOCTOR = "doctor_feedback";
     public static final String DATABASE_TABLE_HOSPITAL = "hospital_feedback";
@@ -26,7 +23,7 @@ public class giveFeedbackDatabase extends SQLiteOpenHelper {
     public static final String COL_BEHAVIOUR = "Behaviour";
     public static final String COL_PRESCRIPTION = "Prescription";
     public static final String COL_DIAGNOSIS = "Diagnosis_ability";
-    public static final String COL_TOTAL = "Diagnosis_ability";
+    public static final String COL_TOTAL = "Total";
 
 
     public static final String COL_EXPENSE = "Hospital_expense";
@@ -57,6 +54,7 @@ public class giveFeedbackDatabase extends SQLiteOpenHelper {
 
     public giveFeedbackDatabase(@Nullable Context context) {
         super(context, DATABASE_NAME, null, DATABASE_VERSION);
+        this.context = context;
     }
 
     @Override
@@ -97,7 +95,7 @@ public class giveFeedbackDatabase extends SQLiteOpenHelper {
 
     }
 
-    public long addDataDoctor(ratingDoctorModel ratingDoctorModel)
+    public long addDataDoctor(RatingDoctorModel ratingDoctorModel)
     {
         SQLiteDatabase db = this.getWritableDatabase();
         ContentValues contentValues = new ContentValues();
@@ -121,17 +119,17 @@ public class giveFeedbackDatabase extends SQLiteOpenHelper {
         return ID;
     }
 
-    public long addDataHospital(ratingHopsitalModel ratingHopsitalModel)
+    public long addDataHospital(RatingHospitalModel ratingHospitalModel)
     {
         SQLiteDatabase db = this.getWritableDatabase();
         ContentValues contentValues = new ContentValues();
 
-        contentValues.put(COL_NAME,ratingHopsitalModel.getName());
-        contentValues.put(COL_SERVICE_HOSPITAL,ratingHopsitalModel.getService());
-        contentValues.put(COL_EXPENSE,ratingHopsitalModel.getExpense());
-        contentValues.put(COL_INFRASTRUCTURE,ratingHopsitalModel.getInfrastructure());
-        contentValues.put(COL_TESTING_QUALITY,ratingHopsitalModel.getTestingQuality());
-        contentValues.put(COL_TOTAL,ratingHopsitalModel.getTotal());
+        contentValues.put(COL_NAME, ratingHospitalModel.getName());
+        contentValues.put(COL_SERVICE_HOSPITAL, ratingHospitalModel.getService());
+        contentValues.put(COL_EXPENSE, ratingHospitalModel.getExpense());
+        contentValues.put(COL_INFRASTRUCTURE, ratingHospitalModel.getInfrastructure());
+        contentValues.put(COL_TESTING_QUALITY, ratingHospitalModel.getTestingQuality());
+        contentValues.put(COL_TOTAL, ratingHospitalModel.getTotal());
 
         long ID = db.insert(DATABASE_TABLE_HOSPITAL,null,contentValues);
 
@@ -145,7 +143,7 @@ public class giveFeedbackDatabase extends SQLiteOpenHelper {
         return ID;
     }
 
-    public long addDataMedicine(ratingMedicineModel ratingMedicineModel)
+    public long addDataMedicine(RatingMedicineModel ratingMedicineModel)
     {
         SQLiteDatabase db = this.getWritableDatabase();
         ContentValues contentValues = new ContentValues();
@@ -169,7 +167,7 @@ public class giveFeedbackDatabase extends SQLiteOpenHelper {
         return ID;
     }
 
-    public long addDataPharmacy(ratingPharmacyModel pharmacyModel)
+    public long addDataPharmacy(RatingPharmacyModel pharmacyModel)
     {
         SQLiteDatabase db = this.getWritableDatabase();
         ContentValues contentValues = new ContentValues();

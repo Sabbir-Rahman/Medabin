@@ -2,8 +2,6 @@ package com.example.medabinfinal.giveFeedback;
 
 import androidx.appcompat.app.AppCompatActivity;
 
-import android.content.Intent;
-import android.os.Build;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
@@ -13,7 +11,7 @@ import android.widget.Toast;
 
 import com.example.medabinfinal.R;
 import com.example.medabinfinal.giveFeedback.Database.giveFeedbackDatabase;
-import com.example.medabinfinal.giveFeedback.Database.ratingDoctorModel;
+import com.example.medabinfinal.giveFeedback.Database.RatingDoctorModel;
 
 public class doctor_feedback_add extends AppCompatActivity {
 
@@ -62,22 +60,23 @@ public class doctor_feedback_add extends AppCompatActivity {
             feeDatabase = fee.getRating();
             prescriptionDatabase = prescription.getRating();
             diagnosisDatabase = diagnosis.getRating();
-            total = behaviourDatabase + feeDatabase +prescriptionDatabase + diagnosisDatabase;
+            total = behaviourDatabase + feeDatabase + prescriptionDatabase + diagnosisDatabase;
 
             giveFeedbackDatabase db = new giveFeedbackDatabase(this);
 
-            ratingDoctorModel ratingDoctorModel;
+            RatingDoctorModel ratingDoctorModel;
 
-            ratingDoctorModel = new ratingDoctorModel(nameDatabase,behaviourDatabase,feeDatabase,
-                                        prescriptionDatabase,diagnosisDatabase,total);
+            ratingDoctorModel = new RatingDoctorModel(nameDatabase, behaviourDatabase, feeDatabase,
+                    prescriptionDatabase, diagnosisDatabase, total);
+
 
             db.addDataDoctor(ratingDoctorModel);
-            db.addDataDoctor(ratingDoctorModel);
-
         }
         catch (Exception e)
         {
-            Toast.makeText(this, "Some error happened", Toast.LENGTH_SHORT).show();
+            Toast.makeText(this, "Something error happen please recheck all the value is properly given", Toast.LENGTH_SHORT).show();
         }
+
+
     }
 }

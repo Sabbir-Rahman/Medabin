@@ -38,6 +38,30 @@
         app:layout_constraintTop_toBottomOf="@+id/textView16">
 
     </com.github.mikephil.charting.charts.LineChart>
+        <TextView
+            android:id="@+id/textView05"
+            android:layout_width="0dp"
+            android:layout_height="40dp"
+            android:layout_marginStart="16dp"
+            android:layout_marginTop="20dp"
+            android:fontFamily="@font/aladin"
+            android:text="Food consumption"
+            android:textColor="#BA3535"
+            android:textSize="22sp"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/linechartHeight" />
+
+        <com.github.mikephil.charting.charts.PieChart
+            android:id="@+id/piechartFood"
+            android:layout_width="match_parent"
+            android:layout_height="400dp"
+            android:layout_marginStart="10dp"
+            android:layout_marginTop="10dp"
+            android:layout_marginEnd="10dp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.0"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/textView05" />
 
 
     <TextView
@@ -51,7 +75,7 @@
         android:textColor="#BA3535"
         android:textSize="22sp"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/linechartHeight" />
+        app:layout_constraintTop_toBottomOf="@+id/piechartFood" />
 
     <com.github.mikephil.charting.charts.LineChart
         android:id="@+id/linechartWeight"
@@ -90,7 +114,59 @@
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/textView17" />
 
+        <TextView
+            android:id="@+id/textView18"
+            android:layout_width="0dp"
+            android:layout_height="40dp"
+            android:layout_marginStart="16dp"
+            android:layout_marginTop="20dp"
+            android:fontFamily="@font/aladin"
+            android:text="Glucose vs day analysis"
+            android:textColor="#BA3535"
+            android:textSize="22sp"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/linechartBp" />
 
-    </androidx.constraintlayout.widget.ConstraintLayout>
+        <com.github.mikephil.charting.charts.LineChart
+            android:id="@+id/linechartGlucose"
+            android:layout_width="match_parent"
+            android:layout_height="400dp"
+            android:layout_marginStart="10dp"
+            android:layout_marginTop="10dp"
+            android:layout_marginEnd="10dp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.0"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/textView18" />
+
+    <TextView
+        android:id="@+id/textView06"
+        android:layout_width="0dp"
+        android:layout_height="40dp"
+        android:layout_marginStart="16dp"
+        android:layout_marginTop="20dp"
+        android:fontFamily="@font/aladin"
+        android:text="Food consumption"
+        android:textColor="#BA3535"
+        android:textSize="22sp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/linechartGlucose" />
+
+    <com.github.mikephil.charting.charts.PieChart
+        android:id="@+id/piechartTime"
+        android:layout_width="match_parent"
+        android:layout_height="400dp"
+        android:layout_marginStart="10dp"
+        android:layout_marginTop="10dp"
+        android:layout_marginEnd="10dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/textView06" />
+
+
+
+
+</androidx.constraintlayout.widget.ConstraintLayout>
 
 </ScrollView>
