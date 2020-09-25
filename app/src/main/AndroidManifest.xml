@@ -9,7 +9,7 @@
     <application
         android:name=".medicineReminder.App"
         android:allowBackup="false"
-        android:icon="@mipmap/ic_launcher"
+        android:icon="@drawable/heart_beat"
         android:label="Medabin"
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
