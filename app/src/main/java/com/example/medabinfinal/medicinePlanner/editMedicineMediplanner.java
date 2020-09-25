@@ -52,8 +52,8 @@ public class editMedicineMediplanner extends AppCompatActivity {
 
     public void retreiveData(View v)
     {
-        if(edit_id.getText().toString()!=null)
-        {
+
+        try {
             //calling the single function from database to retrive info
             editMedicineName.setText(dataBasehelper.getSingleMedicineName(edit_id.getText().toString()));
             editMedicineCompany.setText(dataBasehelper.getSingleMedicineCompany(edit_id.getText().toString()));
@@ -63,8 +63,11 @@ public class editMedicineMediplanner extends AppCompatActivity {
             sw_active.setChecked(dataBasehelper.getSingleMedicineIsActive(edit_id.getText().toString()));
 
         }
-        else
+        catch (Exception e)
+        {
             Toast.makeText(this, "Please enter id first", Toast.LENGTH_SHORT).show();
+        }
+
     }
 
     private void ShowMedicineOnlistView(MediplannerDatabaseHelper dataBasehelper2) {

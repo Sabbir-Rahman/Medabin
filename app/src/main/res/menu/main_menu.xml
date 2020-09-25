@@ -2,17 +2,22 @@
 <menu xmlns:android="http://schemas.android.com/apk/res/android">
     <group android:checkableBehavior="single">
         <item
-            android:id="@+id/nav_home"
-            android:icon="@drawable/home_icon"
-            android:title="Home" />
+            android:id="@+id/nav_note"
+            android:icon="@drawable/notepad"
+            android:title="Medinote" />
         <item
-            android:id="@+id/nav_record"
-            android:icon="@drawable/home_icon"
-            android:title="Record" />
+            android:id="@+id/nav_reminder"
+            android:icon="@drawable/reminder_menu"
+            android:title="Medicine Reminder" />
         <item
-            android:id="@+id/nav_general"
-            android:icon="@drawable/home_icon"
-            android:title="General" />
+            android:id="@+id/nav_personal_record"
+            android:icon="@drawable/record_database"
+            android:title="Personal Record" />
+        <item
+            android:id="@+id/nav_show_plan"
+            android:icon="@drawable/ic_medicine"
+            android:title="Plan Medicine" />
+
 
     </group>
 
@@ -20,31 +25,35 @@
 
         <item
             android:id="@+id/nav_medicine_rank"
-            android:icon="@drawable/home_icon"
+            android:icon="@drawable/rank"
             android:title="Medicine Rank" />
         <item
             android:id="@+id/nav_hospital_rank"
-            android:icon="@drawable/home_icon"
+            android:icon="@drawable/rank"
             android:title="Hospital Rank" />
         <item
             android:id="@+id/nav_dr_rank"
-            android:icon="@drawable/home_icon"
+            android:icon="@drawable/rank"
             android:title="Dr Rank" />
 
+        <item
+            android:id="@+id/nav_pharma_rank"
+            android:icon="@drawable/rank"
+            android:title="Pharmacy Rank" />
 
     </group>
 
-        <item android:title="Profile">
+        <item android:title="Important record">
             <menu>
                 <group android:checkableBehavior="single">
                 <item
-                    android:id="@+id/nav_fitness"
-                    android:icon="@drawable/home_icon"
-                    android:title="Fitness" />
+                    android:id="@+id/nav_medicine_record"
+                    android:icon="@drawable/medicine_record_menu"
+                    android:title="Medicine Record" />
                 <item
-                    android:id="@+id/nav_settings"
-                    android:icon="@drawable/home_icon"
-                    android:title="Settings" />
+                    android:id="@+id/nav_report"
+                    android:icon="@drawable/medical_report"
+                    android:title="Report Record" />
                 </group>
 
             </menu>
@@ -52,16 +61,16 @@
         </item>
     
     <item
-        android:title="Communicate">
+        android:title="Info">
         <menu>
             <item
-                android:id="@+id/nav_share"
+                android:id="@+id/nav_hospital_info"
                 android:icon="@drawable/home_icon"
-                android:title="Share" />
+                android:title="Hospital Info" />
             <item
-                android:id="@+id/nav_rate"
+                android:id="@+id/nav_tips"
                 android:icon="@drawable/home_icon"
-                android:title="Rate Us" />
+                android:title="Health Tips" />
 
         </menu>
 

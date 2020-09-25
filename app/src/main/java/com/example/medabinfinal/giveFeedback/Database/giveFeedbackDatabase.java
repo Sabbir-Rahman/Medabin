@@ -2,11 +2,18 @@ package com.example.medabinfinal.giveFeedback.Database;
 
 import android.content.ContentValues;
 import android.content.Context;
+import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
 import android.database.sqlite.SQLiteOpenHelper;
+import android.database.sqlite.SQLiteQueryBuilder;
 import android.widget.Toast;
 
 import androidx.annotation.Nullable;
+
+import com.example.medabinfinal.updateRecord.personalRecord.Database.HeightModel;
+
+import java.util.ArrayList;
+import java.util.List;
 
 public class giveFeedbackDatabase extends SQLiteOpenHelper {
 
@@ -142,6 +149,470 @@ public class giveFeedbackDatabase extends SQLiteOpenHelper {
 
         return ID;
     }
+
+
+    public List<RatingDoctorModel> getAllDoctorsRating(){
+
+        SQLiteDatabase db = this.getReadableDatabase();
+        List<RatingDoctorModel> allRecords = new ArrayList<>();
+
+        //select from database
+
+        String query = "SELECT * FROM "+DATABASE_TABLE_DOCTOR+" ORDER BY "+COL_TOTAL+" DESC";
+
+        Cursor cursor = db.rawQuery(query,null);
+
+        if(cursor.moveToFirst()){
+            do{
+                RatingDoctorModel ratingDoctorModel = new RatingDoctorModel();
+
+                ratingDoctorModel.setId(cursor.getInt(0));
+                ratingDoctorModel.setName(cursor.getString(1));
+                ratingDoctorModel.setBehaviour(cursor.getFloat(2));
+                ratingDoctorModel.setFee(cursor.getFloat(3));
+                ratingDoctorModel.setPrescription(cursor.getFloat(4));
+                ratingDoctorModel.setDiagnosis(cursor.getFloat(5));
+                ratingDoctorModel.setTotal(cursor.getFloat(6));
+
+                allRecords.add(ratingDoctorModel);
+            }while (cursor.moveToNext());
+        }
+        else
+        {
+            Toast.makeText(context, "No value in database", Toast.LENGTH_SHORT).show();
+        }
+
+        db.close();
+        cursor.close();
+        return allRecords;
+
+
+
+    }
+
+    public List<RatingDoctorModel> searchDoctorRatingByName(String name)
+    {
+        SQLiteDatabase db = getReadableDatabase();
+        SQLiteQueryBuilder queryBuilder = new SQLiteQueryBuilder();
+
+        String[] sqlSelect = {COL_ID,COL_NAME,COL_BEHAVIOUR,COL_FEES,COL_PRESCRIPTION,COL_DIAGNOSIS,COL_TOTAL};
+        String tableName = DATABASE_TABLE_DOCTOR;
+
+        queryBuilder.setTables(tableName);
+
+        //select from title with like query
+
+        Cursor cursor = queryBuilder.query(db,sqlSelect,"Name LIKE ?",new String[]{"%"+name+"%"},null,null,null);
+
+        List<RatingDoctorModel> allRecords = new ArrayList<>();
+
+        if (cursor.moveToFirst())
+        {
+            do{
+                RatingDoctorModel ratingDoctorModel = new RatingDoctorModel();
+
+                ratingDoctorModel.setId(cursor.getInt(0));
+                ratingDoctorModel.setName(cursor.getString(1));
+                ratingDoctorModel.setBehaviour(cursor.getFloat(2));
+                ratingDoctorModel.setFee(cursor.getFloat(3));
+                ratingDoctorModel.setPrescription(cursor.getFloat(4));
+                ratingDoctorModel.setDiagnosis(cursor.getFloat(5));
+                ratingDoctorModel.setTotal(cursor.getFloat(6));
+
+                allRecords.add(ratingDoctorModel);
+
+            }while (cursor.moveToNext());
+        }
+        else
+        {
+            Toast.makeText(context, "No value in Database", Toast.LENGTH_SHORT).show();
+        }
+        db.close();
+        cursor.close();
+        return allRecords;
+
+
+
+
+    }
+
+    public List<String> getDoctorRatingsNames()
+    {
+        SQLiteDatabase db = getReadableDatabase();
+        SQLiteQueryBuilder queryBuilder = new SQLiteQueryBuilder();
+
+        String[] sqlSelect = {COL_NAME};
+        String tablename = DATABASE_TABLE_DOCTOR;
+
+        queryBuilder.setTables(tablename);
+
+        Cursor cursor = queryBuilder.query(db,sqlSelect,null,null,null,null,null);
+
+        List<String> result = new ArrayList<>();
+
+        if (cursor.moveToFirst()){
+            do{
+
+                result.add(cursor.getString(cursor.getColumnIndex(COL_NAME)));
+
+            }while (cursor.moveToNext());
+        }
+        return result;
+
+
+
+
+    }
+
+
+
+    public List<RatingHospitalModel> getAllHospitalsRating(){
+
+        SQLiteDatabase db = this.getReadableDatabase();
+        List<RatingHospitalModel> allRecords = new ArrayList<>();
+
+        //select from database
+
+        String query = "SELECT * FROM "+DATABASE_TABLE_HOSPITAL+" ORDER BY "+COL_TOTAL+" DESC";
+
+        Cursor cursor = db.rawQuery(query,null);
+
+        if(cursor.moveToFirst()){
+            do{
+                RatingHospitalModel ratingHospitalModel = new RatingHospitalModel();
+
+                ratingHospitalModel.setId(cursor.getInt(0));
+                ratingHospitalModel.setName(cursor.getString(1));
+                ratingHospitalModel.setService(cursor.getFloat(2));
+                ratingHospitalModel.setExpense(cursor.getFloat(3));
+                ratingHospitalModel.setInfrastructure(cursor.getFloat(4));
+                ratingHospitalModel.setTestingQuality(cursor.getFloat(5));
+                ratingHospitalModel.setTotal(cursor.getFloat(6));
+
+                allRecords.add(ratingHospitalModel);
+            }while (cursor.moveToNext());
+        }
+        else
+        {
+            Toast.makeText(context, "No value in database", Toast.LENGTH_SHORT).show();
+        }
+
+        db.close();
+        cursor.close();
+        return allRecords;
+
+
+
+    }
+
+    public List<RatingHospitalModel> searchHospitalRatingByName(String name)
+    {
+        SQLiteDatabase db = getReadableDatabase();
+        SQLiteQueryBuilder queryBuilder = new SQLiteQueryBuilder();
+
+        String[] sqlSelect = {COL_ID,COL_NAME,COL_SERVICE_HOSPITAL,COL_EXPENSE,COL_INFRASTRUCTURE,COL_TESTING_QUALITY,COL_TOTAL};
+        String tableName = DATABASE_TABLE_HOSPITAL;
+
+        queryBuilder.setTables(tableName);
+
+        //select from title with like query
+
+        Cursor cursor = queryBuilder.query(db,sqlSelect,"Name LIKE ?",new String[]{"%"+name+"%"},null,null,null);
+
+        List<RatingHospitalModel> allRecords = new ArrayList<>();
+
+        if (cursor.moveToFirst())
+        {
+            do{
+                RatingHospitalModel ratingHospitalModel = new RatingHospitalModel();
+
+                ratingHospitalModel.setId(cursor.getInt(0));
+                ratingHospitalModel.setName(cursor.getString(1));
+                ratingHospitalModel.setService(cursor.getFloat(2));
+                ratingHospitalModel.setExpense(cursor.getFloat(3));
+                ratingHospitalModel.setInfrastructure(cursor.getFloat(4));
+                ratingHospitalModel.setTestingQuality(cursor.getFloat(5));
+                ratingHospitalModel.setTotal(cursor.getFloat(6));
+
+                allRecords.add(ratingHospitalModel);
+
+            }while (cursor.moveToNext());
+        }
+        else
+        {
+            Toast.makeText(context, "No value in Database", Toast.LENGTH_SHORT).show();
+        }
+        db.close();
+        cursor.close();
+        return allRecords;
+
+
+
+
+    }
+
+    public List<String> getHospitalRatingsNames()
+    {
+        SQLiteDatabase db = getReadableDatabase();
+        SQLiteQueryBuilder queryBuilder = new SQLiteQueryBuilder();
+
+        String[] sqlSelect = {COL_NAME};
+        String tablename = DATABASE_TABLE_HOSPITAL;
+
+        queryBuilder.setTables(tablename);
+
+        Cursor cursor = queryBuilder.query(db,sqlSelect,null,null,null,null,null);
+
+        List<String> result = new ArrayList<>();
+
+        if (cursor.moveToFirst()){
+            do{
+
+                result.add(cursor.getString(cursor.getColumnIndex(COL_NAME)));
+
+            }while (cursor.moveToNext());
+        }
+        return result;
+
+
+
+
+    }
+
+
+    public List<RatingMedicineModel> getAllMedicineRating(){
+
+        SQLiteDatabase db = this.getReadableDatabase();
+        List<RatingMedicineModel> allRecords = new ArrayList<>();
+
+        //select from database
+
+        String query = "SELECT * FROM "+DATABASE_TABLE_MEDICINE+" ORDER BY "+COL_TOTAL+" DESC";
+
+        Cursor cursor = db.rawQuery(query,null);
+
+        if(cursor.moveToFirst()){
+            do{
+                RatingMedicineModel ratingMedicineModel = new RatingMedicineModel();
+
+                ratingMedicineModel.setId(cursor.getInt(0));
+                ratingMedicineModel.setName(cursor.getString(1));
+                ratingMedicineModel.setPrice(cursor.getFloat(2));
+                ratingMedicineModel.setPackaging(cursor.getFloat(3));
+                ratingMedicineModel.setEffectiveness(cursor.getFloat(4));
+                ratingMedicineModel.setTotal(cursor.getFloat(5));
+                ratingMedicineModel.setTotal(cursor.getFloat(6));
+
+                allRecords.add(ratingMedicineModel);
+            }while (cursor.moveToNext());
+        }
+        else
+        {
+            Toast.makeText(context, "No value in database", Toast.LENGTH_SHORT).show();
+        }
+
+        db.close();
+        cursor.close();
+        return allRecords;
+
+
+
+    }
+
+    public List<RatingMedicineModel> searchMedicineRatingByName(String name)
+    {
+        SQLiteDatabase db = getReadableDatabase();
+        SQLiteQueryBuilder queryBuilder = new SQLiteQueryBuilder();
+
+        String[] sqlSelect = {COL_ID,COL_NAME,COL_PRICE_MEDICINE,COL_PACKAGING,COL_EFFECTIVENESS,COL_SIDE_EFFECTS,COL_TOTAL};
+        String tableName = DATABASE_TABLE_MEDICINE;
+
+        queryBuilder.setTables(tableName);
+
+        //select from title with like query
+
+        Cursor cursor = queryBuilder.query(db,sqlSelect,"Name LIKE ?",new String[]{"%"+name+"%"},null,null,null);
+
+        List<RatingMedicineModel> allRecords = new ArrayList<>();
+
+        if (cursor.moveToFirst())
+        {
+            do{
+                RatingMedicineModel ratingMedicineModel = new RatingMedicineModel();
+
+                ratingMedicineModel.setId(cursor.getInt(0));
+                ratingMedicineModel.setName(cursor.getString(1));
+                ratingMedicineModel.setPrice(cursor.getFloat(2));
+                ratingMedicineModel.setPackaging(cursor.getFloat(3));
+                ratingMedicineModel.setEffectiveness(cursor.getFloat(4));
+                ratingMedicineModel.setTotal(cursor.getFloat(5));
+                ratingMedicineModel.setTotal(cursor.getFloat(6));
+
+                allRecords.add(ratingMedicineModel);
+
+
+            }while (cursor.moveToNext());
+        }
+        else
+        {
+            Toast.makeText(context, "No value in Database", Toast.LENGTH_SHORT).show();
+        }
+        db.close();
+        cursor.close();
+        return allRecords;
+
+
+
+
+    }
+
+    public List<String> getMedicineRatingsNames()
+    {
+        SQLiteDatabase db = getReadableDatabase();
+        SQLiteQueryBuilder queryBuilder = new SQLiteQueryBuilder();
+
+        String[] sqlSelect = {COL_NAME};
+        String tablename = DATABASE_TABLE_MEDICINE;
+
+        queryBuilder.setTables(tablename);
+
+        Cursor cursor = queryBuilder.query(db,sqlSelect,null,null,null,null,null);
+
+        List<String> result = new ArrayList<>();
+
+        if (cursor.moveToFirst()){
+            do{
+
+                result.add(cursor.getString(cursor.getColumnIndex(COL_NAME)));
+
+            }while (cursor.moveToNext());
+        }
+        return result;
+
+
+
+
+    }
+
+
+
+    public List<RatingPharmacyModel> getAllpharmacyRating(){
+
+        SQLiteDatabase db = this.getReadableDatabase();
+        List<RatingPharmacyModel> allRecords = new ArrayList<>();
+
+        //select from database
+
+        String query = "SELECT * FROM "+DATABASE_TABLE_PHARMACY+" ORDER BY "+COL_TOTAL+" DESC";
+
+        Cursor cursor = db.rawQuery(query,null);
+
+        if(cursor.moveToFirst()){
+            do{
+                RatingPharmacyModel ratingPharmacyModel = new RatingPharmacyModel();
+
+                ratingPharmacyModel.setId(cursor.getInt(0));
+                ratingPharmacyModel.setName(cursor.getString(1));
+                ratingPharmacyModel.setService(cursor.getFloat(2));
+                ratingPharmacyModel.setPricing(cursor.getFloat(3));
+                ratingPharmacyModel.setWellOrganised(cursor.getFloat(4));
+                ratingPharmacyModel.setMedicineAvailability(cursor.getFloat(5));
+                ratingPharmacyModel.setTotal(cursor.getFloat(6));
+
+                allRecords.add(ratingPharmacyModel);
+            }while (cursor.moveToNext());
+        }
+        else
+        {
+            Toast.makeText(context, "No value in database", Toast.LENGTH_SHORT).show();
+        }
+
+        db.close();
+        cursor.close();
+        return allRecords;
+
+
+
+    }
+
+    public List<RatingPharmacyModel> searchPharmacyRatingByName(String name)
+    {
+        SQLiteDatabase db = getReadableDatabase();
+        SQLiteQueryBuilder queryBuilder = new SQLiteQueryBuilder();
+
+        String[] sqlSelect = {COL_ID,COL_NAME,COL_SERVICE_PHARMACY,COL_PRICE_PHARMACY,COL_WELL_ORGANISED,COL_MEDICINE_AVAILABILITY,COL_TOTAL};
+        String tableName = DATABASE_TABLE_PHARMACY;
+
+        queryBuilder.setTables(tableName);
+
+        //select from title with like query
+
+        Cursor cursor = queryBuilder.query(db,sqlSelect,"Name LIKE ?",new String[]{"%"+name+"%"},null,null,null);
+
+        List<RatingPharmacyModel> allRecords = new ArrayList<>();
+
+        if (cursor.moveToFirst())
+        {
+            do{
+                RatingPharmacyModel ratingPharmacyModel = new RatingPharmacyModel();
+
+                ratingPharmacyModel.setId(cursor.getInt(0));
+                ratingPharmacyModel.setName(cursor.getString(1));
+                ratingPharmacyModel.setService(cursor.getFloat(2));
+                ratingPharmacyModel.setPricing(cursor.getFloat(3));
+                ratingPharmacyModel.setWellOrganised(cursor.getFloat(4));
+                ratingPharmacyModel.setMedicineAvailability(cursor.getFloat(5));
+                ratingPharmacyModel.setTotal(cursor.getFloat(6));
+
+                allRecords.add(ratingPharmacyModel);
+
+            }while (cursor.moveToNext());
+        }
+        else
+        {
+            Toast.makeText(context, "No value in Database", Toast.LENGTH_SHORT).show();
+        }
+        db.close();
+        cursor.close();
+        return allRecords;
+
+
+
+
+    }
+
+    public List<String> getPharmacyRatingNames()
+    {
+        SQLiteDatabase db = getReadableDatabase();
+        SQLiteQueryBuilder queryBuilder = new SQLiteQueryBuilder();
+
+        String[] sqlSelect = {COL_NAME};
+        String tablename = DATABASE_TABLE_PHARMACY;
+
+        queryBuilder.setTables(tablename);
+
+        Cursor cursor = queryBuilder.query(db,sqlSelect,null,null,null,null,null);
+
+        List<String> result = new ArrayList<>();
+
+        if (cursor.moveToFirst()){
+            do{
+
+                result.add(cursor.getString(cursor.getColumnIndex(COL_NAME)));
+
+            }while (cursor.moveToNext());
+        }
+        return result;
+
+
+
+
+    }
+
+
+
+
+
 
     public long addDataMedicine(RatingMedicineModel ratingMedicineModel)
     {

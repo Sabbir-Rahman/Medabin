@@ -8,400 +8,653 @@
     tools:context=".stayFit.calorieBurnCalculation"
     android:background="@drawable/green_back"
     >
-<androidx.constraintlayout.widget.ConstraintLayout
-    android:layout_width="match_parent"
-    android:layout_height="match_parent">
-    <TextView
-        android:id="@+id/textInstruction"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="20dp"
-        android:layout_marginTop="30dp"
-        android:textColor="@color/black"
-        android:textSize="18sp"
-        android:textStyle="bold"
-        android:text="Enter your food consumtion in gram"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
-
-    <LinearLayout
-        android:id="@+id/linearLayoutMeat"
-        android:layout_width="0dp"
-        android:layout_height="70dp"
-        android:layout_marginStart="20dp"
-        android:layout_marginTop="10dp"
-        android:layout_marginEnd="20dp"
-        android:background="@drawable/border1"
-        android:orientation="horizontal"
-        android:padding="10dp"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/textInstruction">
-
-        <EditText
-            android:id="@+id/edit_text_meat_consume_gram"
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        tools:ignore="MissingClass">
+        <TextView
+            android:id="@+id/textInstruction"
             android:layout_width="wrap_content"
-            android:layout_height="45dp"
+            android:layout_height="wrap_content"
             android:layout_marginStart="20dp"
-            android:layout_marginTop="1dp"
-            android:hint="Meat"
-            android:inputType="numberDecimal"
-            android:textSize="20sp" />
+            android:layout_marginTop="30dp"
+            android:textColor="@color/black"
+            android:textSize="18sp"
+            android:textStyle="bold"
+            android:text="Enter your food consumtion in gram \n if empty put 0"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <LinearLayout
+            android:id="@+id/linearLayoutMeat"
+            android:layout_width="0dp"
+            android:layout_height="70dp"
+            android:layout_marginStart="20dp"
+            android:layout_marginTop="10dp"
+            android:layout_marginEnd="20dp"
+            android:background="@drawable/border1"
+            android:orientation="horizontal"
+            android:padding="10dp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/textInstruction">
+
+            <EditText
+                android:id="@+id/edit_text_meat_consume_gram"
+                android:layout_width="wrap_content"
+                android:layout_height="45dp"
+                android:layout_marginStart="20dp"
+                android:layout_marginTop="1dp"
+                android:hint="Meat"
+                android:inputType="numberDecimal"
+                android:textSize="20sp" />
+
+            <TextView
+                android:textColor="@color/black"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="15dp"
+                android:text=" gm Meat "
+                android:textSize="20sp"
+                android:textStyle="bold" />
+
+            <ImageView
+
+                android:layout_width="65dp"
+                android:layout_height="wrap_content"
+                android:src="@drawable/meat" />
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:id="@+id/linearLayoutRice"
+            android:layout_width="0dp"
+            android:layout_height="70dp"
+            android:layout_marginStart="20dp"
+            android:layout_marginTop="10dp"
+            android:layout_marginEnd="20dp"
+            android:background="@drawable/border1"
+            android:orientation="horizontal"
+            android:padding="10dp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/linearLayoutMeat">
+
+            <EditText
+                android:id="@+id/edit_text_rice_consume_gram"
+                android:layout_width="wrap_content"
+                android:layout_height="45dp"
+                android:layout_marginStart="20dp"
+                android:layout_marginTop="1dp"
+                android:hint="Rice  "
+                android:inputType="numberDecimal"
+                android:textSize="20sp" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="15dp"
+                android:text=" gm Rice "
+                android:textColor="@color/black"
+                android:textSize="20sp"
+                android:textStyle="bold" />
+
+            <ImageView
+
+                android:layout_width="65dp"
+                android:layout_height="wrap_content"
+                android:src="@drawable/rice" />
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:id="@+id/linearLayoutFish"
+            android:layout_width="0dp"
+            android:layout_height="70dp"
+            android:layout_marginStart="20dp"
+            android:layout_marginTop="10dp"
+            android:layout_marginEnd="20dp"
+            android:background="@drawable/border1"
+            android:orientation="horizontal"
+            android:padding="10dp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/linearLayoutRice">
+
+            <EditText
+                android:id="@+id/edit_text_fish_consume_gram"
+                android:layout_width="wrap_content"
+                android:layout_height="45dp"
+                android:layout_marginStart="20dp"
+                android:layout_marginTop="1dp"
+                android:hint="Fish   "
+                android:inputType="numberDecimal"
+                android:textSize="20sp" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="15dp"
+                android:text=" gm Fish "
+                android:textColor="@color/black"
+                android:textSize="20sp"
+                android:textStyle="bold" />
+
+            <ImageView
+
+                android:layout_width="65dp"
+                android:layout_height="wrap_content"
+                android:src="@drawable/fish" />
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:id="@+id/linearLayoutVegetables"
+            android:layout_width="0dp"
+            android:layout_height="70dp"
+            android:layout_marginStart="20dp"
+            android:layout_marginTop="10dp"
+            android:layout_marginEnd="20dp"
+            android:background="@drawable/border1"
+            android:orientation="horizontal"
+            android:padding="10dp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/linearLayoutFish">
+
+            <EditText
+                android:id="@+id/edit_text_vegetable_consume_gram"
+                android:layout_width="wrap_content"
+                android:layout_height="45dp"
+                android:layout_marginStart="20dp"
+                android:hint="Veg   "
+                android:inputType="numberDecimal"
+                android:textSize="20sp" />
+
+            <TextView
+                android:textColor="@color/black"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="15dp"
+                android:text=" gm Veg "
+                android:textSize="20sp"
+                android:textStyle="bold" />
+
+            <ImageView
+
+                android:layout_width="65dp"
+                android:layout_height="wrap_content"
+                android:src="@drawable/vegetable" />
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:id="@+id/linearLayoutOil"
+            android:layout_width="0dp"
+            android:layout_height="70dp"
+            android:layout_marginStart="20dp"
+            android:layout_marginTop="10dp"
+            android:layout_marginEnd="20dp"
+            android:background="@drawable/border1"
+            android:orientation="horizontal"
+            android:padding="10dp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/linearLayoutVegetables">
+
+            <EditText
+                android:id="@+id/edit_text_oil_consume_gram"
+                android:layout_width="wrap_content"
+                android:layout_height="45dp"
+                android:layout_marginStart="20dp"
+
+                android:hint="Oil    "
+                android:inputType="numberDecimal"
+                android:textSize="20sp" />
+
+            <TextView
+                android:id="@+id/text_times"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="15dp"
+                android:text=" ml Oil "
+                android:textColor="@color/black"
+                android:textSize="20sp"
+                android:textStyle="bold" />
+
+            <ImageView
+
+                android:layout_width="65dp"
+                android:layout_height="wrap_content"
+                android:src="@drawable/oil_bottle" />
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:id="@+id/linearLayoutLentil"
+            android:layout_width="0dp"
+            android:layout_height="70dp"
+            android:layout_marginStart="20dp"
+            android:layout_marginTop="10dp"
+            android:layout_marginEnd="20dp"
+            android:background="@drawable/border1"
+            android:orientation="horizontal"
+            android:padding="10dp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/linearLayoutOil">
+
+            <EditText
+                android:id="@+id/edit_text_lentil_consume_gram"
+                android:layout_width="wrap_content"
+                android:layout_height="45dp"
+                android:layout_marginStart="20dp"
+                android:gravity="center_vertical"
+                android:hint="Lentil  "
+                android:inputType="numberDecimal"
+                android:textSize="20sp" />
+
+            <TextView
+
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="15dp"
+                android:text=" gm Lentil "
+                android:textColor="@color/black"
+                android:textSize="20sp"
+                android:textStyle="bold" />
+
+            <ImageView
+
+                android:layout_width="65dp"
+                android:layout_height="wrap_content"
+                android:src="@drawable/lentil" />
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:id="@+id/linearLayoutBread"
+            android:layout_width="0dp"
+            android:layout_height="70dp"
+            android:layout_marginStart="20dp"
+            android:layout_marginTop="10dp"
+            android:layout_marginEnd="20dp"
+            android:background="@drawable/border1"
+            android:orientation="horizontal"
+            android:padding="10dp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/linearLayoutLentil">
+
+            <EditText
+                android:id="@+id/edit_text_bread_consume_gram"
+                android:layout_width="wrap_content"
+                android:layout_height="45dp"
+                android:gravity="center_vertical"
+                android:layout_marginStart="20dp"
+                android:hint="Bread    "
+                android:inputType="numberDecimal"
+                android:textSize="20sp" />
+
+            <TextView
+
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="15dp"
+                android:text=" gm bread "
+                android:textColor="@color/black"
+                android:textSize="20sp"
+                android:textStyle="bold" />
+
+            <ImageView
+
+                android:layout_width="65dp"
+                android:layout_height="wrap_content"
+                android:src="@drawable/bread" />
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:id="@+id/linearLayoutFruits"
+            android:layout_width="0dp"
+            android:layout_height="70dp"
+            android:layout_marginStart="20dp"
+            android:layout_marginTop="10dp"
+            android:layout_marginEnd="20dp"
+            android:background="@drawable/border1"
+            android:orientation="horizontal"
+            android:padding="10dp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/linearLayoutBread">
+
+            <EditText
+                android:id="@+id/edit_text_fruit_consume_gram"
+                android:layout_width="wrap_content"
+                android:layout_height="45dp"
+                android:layout_marginStart="20dp"
+                android:gravity="center_vertical"
+                android:hint="Fruit    "
+                android:inputType="numberDecimal"
+                android:textSize="20sp" />
+
+            <TextView
+
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="15dp"
+                android:text=" gm fruit "
+                android:textColor="@color/black"
+                android:textSize="20sp"
+                android:textStyle="bold" />
+
+            <ImageView
+
+                android:layout_width="65dp"
+                android:layout_height="wrap_content"
+                android:src="@drawable/fruit" />
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:id="@+id/linearLayoutCake"
+            android:layout_width="0dp"
+            android:layout_height="70dp"
+            android:layout_marginStart="20dp"
+            android:layout_marginTop="10dp"
+            android:layout_marginEnd="20dp"
+            android:background="@drawable/border1"
+            android:orientation="horizontal"
+            android:padding="10dp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/linearLayoutFruits">
+
+            <EditText
+                android:id="@+id/edit_text_cake_consume_gram"
+                android:layout_width="wrap_content"
+                android:layout_height="45dp"
+                android:layout_marginStart="20dp"
+                android:gravity="center_vertical"
+                android:hint="cake    "
+                android:inputType="numberDecimal"
+                android:textSize="20sp" />
+
+            <TextView
+
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="15dp"
+                android:text=" gm cake "
+                android:textColor="@color/black"
+                android:textSize="20sp"
+                android:textStyle="bold" />
+
+            <ImageView
+
+                android:layout_width="65dp"
+                android:layout_height="wrap_content"
+                android:src="@drawable/cake" />
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:id="@+id/linearLayoutMilk"
+            android:layout_width="0dp"
+            android:layout_height="70dp"
+            android:layout_marginStart="20dp"
+            android:layout_marginTop="10dp"
+            android:layout_marginEnd="20dp"
+            android:background="@drawable/border1"
+            android:orientation="horizontal"
+            android:padding="10dp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/linearLayoutCake">
+
+            <EditText
+                android:id="@+id/edit_text_milk_consume_gram"
+                android:layout_width="wrap_content"
+                android:layout_height="45dp"
+                android:layout_marginStart="20dp"
+                android:gravity="center_vertical"
+                android:hint="milk    "
+                android:inputType="numberDecimal"
+                android:textSize="20sp" />
+
+            <TextView
+
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="15dp"
+                android:text=" ml milk "
+                android:textColor="@color/black"
+                android:textSize="20sp"
+                android:textStyle="bold" />
+
+            <ImageView
+
+                android:layout_width="65dp"
+                android:layout_height="wrap_content"
+                android:src="@drawable/milk" />
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:id="@+id/linearLayoutCheese"
+            android:layout_width="0dp"
+            android:layout_height="70dp"
+            android:layout_marginStart="20dp"
+            android:layout_marginTop="10dp"
+            android:layout_marginEnd="20dp"
+            android:background="@drawable/border1"
+            android:orientation="horizontal"
+            android:padding="10dp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/linearLayoutMilk">
+
+            <EditText
+                android:id="@+id/edit_text_cheese_consume_gram"
+                android:layout_width="wrap_content"
+                android:layout_height="45dp"
+                android:layout_marginStart="20dp"
+                android:gravity="center_vertical"
+                android:hint="cheese    "
+                android:inputType="numberDecimal"
+                android:textSize="20sp" />
+
+            <TextView
+
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="15dp"
+                android:text=" gm cheese "
+                android:textColor="@color/black"
+                android:textSize="20sp"
+                android:textStyle="bold" />
+
+            <ImageView
+
+                android:layout_width="65dp"
+                android:layout_height="wrap_content"
+                android:src="@drawable/cheese" />
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:id="@+id/linearLayoutNoodles"
+            android:layout_width="0dp"
+            android:layout_height="70dp"
+            android:layout_marginStart="20dp"
+            android:layout_marginTop="10dp"
+            android:layout_marginEnd="20dp"
+            android:background="@drawable/border1"
+            android:orientation="horizontal"
+            android:padding="10dp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/linearLayoutCheese">
+
+            <EditText
+                android:id="@+id/edit_text_noodles_consume_gram"
+                android:layout_width="wrap_content"
+                android:layout_height="45dp"
+                android:layout_marginStart="20dp"
+                android:gravity="center_vertical"
+                android:hint="noodles    "
+                android:inputType="numberDecimal"
+                android:textSize="20sp" />
+
+            <TextView
+
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="15dp"
+                android:text=" gm noodles "
+                android:textColor="@color/black"
+                android:textSize="20sp"
+                android:textStyle="bold" />
+
+            <ImageView
+
+                android:layout_width="65dp"
+                android:layout_height="wrap_content"
+                android:src="@drawable/noodles" />
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:id="@+id/linearLayoutEgg"
+            android:layout_width="0dp"
+            android:layout_height="70dp"
+            android:layout_marginStart="20dp"
+            android:layout_marginTop="10dp"
+            android:layout_marginEnd="20dp"
+            android:background="@drawable/border1"
+            android:orientation="horizontal"
+            android:padding="10dp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/linearLayoutNoodles">
+
+            <EditText
+                android:id="@+id/edit_text_egg_consume_gram"
+                android:layout_width="wrap_content"
+                android:layout_height="45dp"
+                android:layout_marginStart="20dp"
+                android:gravity="center_vertical"
+                android:hint="egg    "
+                android:inputType="numberDecimal"
+                android:textSize="20sp" />
+
+            <TextView
+
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="15dp"
+                android:text=" gm egg "
+                android:textColor="@color/black"
+                android:textSize="20sp"
+                android:textStyle="bold" />
+
+            <ImageView
+
+                android:layout_width="65dp"
+                android:layout_height="wrap_content"
+                android:src="@drawable/egg" />
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:id="@+id/linearLayoutJuice"
+            android:layout_width="0dp"
+            android:layout_height="70dp"
+            android:layout_marginStart="20dp"
+            android:layout_marginTop="10dp"
+            android:layout_marginEnd="20dp"
+            android:background="@drawable/border1"
+            android:orientation="horizontal"
+            android:padding="10dp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/linearLayoutEgg">
+
+            <EditText
+                android:id="@+id/edit_text_juice_consume_gram"
+                android:layout_width="wrap_content"
+                android:layout_height="45dp"
+                android:layout_marginStart="20dp"
+                android:gravity="center_vertical"
+                android:hint="juice    "
+                android:inputType="numberDecimal"
+                android:textSize="20sp" />
+
+            <TextView
+
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="15dp"
+                android:text=" ml juice "
+                android:textColor="@color/black"
+                android:textSize="20sp"
+                android:textStyle="bold" />
+
+            <ImageView
+
+                android:layout_width="65dp"
+                android:layout_height="wrap_content"
+                android:src="@drawable/juice" />
+
+        </LinearLayout>
+
+        <Button
+            android:id="@+id/totalCalorie"
+            android:layout_width="250dp"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="30dp"
+            android:layout_marginTop="40dp"
+            android:layout_marginEnd="30dp"
+            android:background="@drawable/button_light_blue"
+            android:fontFamily="@font/bangers"
+            android:gravity="center"
+            android:onClick="calculateTotalCalorie"
+            android:text="Calculate Total Calorie"
+            android:textSize="30sp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/linearLayoutJuice" />
 
         <TextView
-            android:textColor="@color/black"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginStart="15dp"
-            android:text=" gm Meat "
-            android:textSize="20sp"
-            android:textStyle="bold" />
-
-        <ImageView
-
-            android:layout_width="65dp"
-            android:layout_height="wrap_content"
-            android:src="@drawable/meat" />
-
-    </LinearLayout>
-
-    <LinearLayout
-        android:id="@+id/linearLayoutRice"
-        android:layout_width="0dp"
-        android:layout_height="70dp"
-        android:layout_marginStart="20dp"
-        android:layout_marginTop="10dp"
-        android:layout_marginEnd="20dp"
-        android:background="@drawable/border1"
-        android:orientation="horizontal"
-        android:padding="10dp"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/linearLayoutMeat">
-
-        <EditText
-            android:id="@+id/edit_text_rice_consume_gram"
-            android:layout_width="wrap_content"
-            android:layout_height="45dp"
-            android:layout_marginStart="20dp"
-            android:layout_marginTop="1dp"
-            android:hint="Rice  "
-            android:inputType="numberDecimal"
-            android:textSize="20sp" />
+            android:id="@+id/calorieResult"
+            android:layout_width="130dp"
+            android:layout_height="60dp"
+            android:gravity="center"
+            android:layout_marginStart="30dp"
+            android:layout_marginTop="20dp"
+            android:layout_marginEnd="30dp"
+            android:fontFamily="@font/carter_one"
+            android:text="Calorie"
+            android:textColor="#2196F3"
+            android:textSize="24sp"
+            android:background="@drawable/border3"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/totalCalorie" />
 
         <TextView
+            android:id="@+id/textView13"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginStart="15dp"
-            android:text=" gm Rice "
+            android:layout_marginStart="10dp"
+            android:layout_marginTop="40dp"
+            android:text="cal"
             android:textColor="@color/black"
-            android:textSize="20sp"
-            android:textStyle="bold" />
-
-        <ImageView
-
-            android:layout_width="65dp"
-            android:layout_height="wrap_content"
-            android:src="@drawable/rice" />
-
-    </LinearLayout>
-
-    <LinearLayout
-        android:id="@+id/linearLayoutFish"
-        android:layout_width="0dp"
-        android:layout_height="70dp"
-        android:layout_marginStart="20dp"
-        android:layout_marginTop="10dp"
-        android:layout_marginEnd="20dp"
-        android:background="@drawable/border1"
-        android:orientation="horizontal"
-        android:padding="10dp"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/linearLayoutRice">
-
-        <EditText
-            android:id="@+id/edit_text_fish_consume_gram"
-            android:layout_width="wrap_content"
-            android:layout_height="45dp"
-            android:layout_marginStart="20dp"
-            android:layout_marginTop="1dp"
-            android:hint="Fish   "
-            android:inputType="numberDecimal"
-            android:textSize="20sp" />
-
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginStart="15dp"
-            android:text=" gm Fish "
-            android:textColor="@color/black"
-            android:textSize="20sp"
-            android:textStyle="bold" />
-
-        <ImageView
-
-            android:layout_width="65dp"
-            android:layout_height="wrap_content"
-            android:src="@drawable/fish" />
-
-    </LinearLayout>
-
-    <LinearLayout
-        android:id="@+id/linearLayoutVegetables"
-        android:layout_width="0dp"
-        android:layout_height="70dp"
-        android:layout_marginStart="20dp"
-        android:layout_marginTop="10dp"
-        android:layout_marginEnd="20dp"
-        android:background="@drawable/border1"
-        android:orientation="horizontal"
-        android:padding="10dp"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/linearLayoutFish">
-
-        <EditText
-            android:id="@+id/edit_text_vegetable_consume_gram"
-            android:layout_width="wrap_content"
-            android:layout_height="45dp"
-            android:layout_marginStart="20dp"
-            android:hint="Veg   "
-            android:inputType="numberDecimal"
-            android:textSize="20sp" />
-
-        <TextView
-            android:textColor="@color/black"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginStart="15dp"
-            android:text=" gm Veg "
-            android:textSize="20sp"
-            android:textStyle="bold" />
-
-        <ImageView
-
-            android:layout_width="65dp"
-            android:layout_height="wrap_content"
-            android:src="@drawable/vegetable" />
-
-    </LinearLayout>
-
-    <LinearLayout
-        android:id="@+id/linearLayoutOil"
-        android:layout_width="0dp"
-        android:layout_height="70dp"
-        android:layout_marginStart="20dp"
-        android:layout_marginTop="10dp"
-        android:layout_marginEnd="20dp"
-        android:background="@drawable/border1"
-        android:orientation="horizontal"
-        android:padding="10dp"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/linearLayoutVegetables">
-
-        <EditText
-            android:id="@+id/edit_text_oil_consume_gram"
-            android:layout_width="wrap_content"
-            android:layout_height="45dp"
-            android:layout_marginStart="20dp"
-
-            android:hint="Oil    "
-            android:inputType="numberDecimal"
-            android:textSize="20sp" />
-
-        <TextView
-            android:id="@+id/text_times"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginStart="15dp"
-            android:text=" gm Oil "
-            android:textColor="@color/black"
-            android:textSize="20sp"
-            android:textStyle="bold" />
-
-        <ImageView
-
-            android:layout_width="65dp"
-            android:layout_height="wrap_content"
-            android:src="@drawable/oil_bottle" />
-
-    </LinearLayout>
-
-    <LinearLayout
-        android:id="@+id/linearLayoutLentil"
-        android:layout_width="0dp"
-        android:layout_height="70dp"
-        android:layout_marginStart="20dp"
-        android:layout_marginTop="10dp"
-        android:layout_marginEnd="20dp"
-        android:background="@drawable/border1"
-        android:orientation="horizontal"
-        android:padding="10dp"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/linearLayoutOil">
-
-        <EditText
-            android:id="@+id/edit_text_lentil_consume_gram"
-            android:layout_width="wrap_content"
-            android:layout_height="45dp"
-            android:layout_marginStart="20dp"
-           android:gravity="center_vertical"
-            android:hint="Lentil  "
-            android:inputType="numberDecimal"
-            android:textSize="20sp" />
-
-        <TextView
-
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginStart="15dp"
-            android:text=" gm Lentil "
-            android:textColor="@color/black"
-            android:textSize="20sp"
-            android:textStyle="bold" />
-
-        <ImageView
-
-            android:layout_width="65dp"
-            android:layout_height="wrap_content"
-            android:src="@drawable/lentil" />
-
-    </LinearLayout>
-
-    <LinearLayout
-        android:id="@+id/linearLayoutBread"
-        android:layout_width="0dp"
-        android:layout_height="70dp"
-        android:layout_marginStart="20dp"
-        android:layout_marginTop="10dp"
-        android:layout_marginEnd="20dp"
-        android:background="@drawable/border1"
-        android:orientation="horizontal"
-        android:padding="10dp"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/linearLayoutLentil">
-
-        <EditText
-            android:id="@+id/edit_text_bread_consume_gram"
-            android:layout_width="wrap_content"
-            android:layout_height="45dp"
-            android:gravity="center_vertical"
-            android:layout_marginStart="20dp"
-            android:hint="Bread    "
-            android:inputType="numberDecimal"
-            android:textSize="20sp" />
-
-        <TextView
-
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginStart="15dp"
-            android:text=" gm bread "
-            android:textColor="@color/black"
-            android:textSize="20sp"
-            android:textStyle="bold" />
-
-        <ImageView
-
-            android:layout_width="65dp"
-            android:layout_height="wrap_content"
-            android:src="@drawable/bread" />
-
-    </LinearLayout>
-
-    <LinearLayout
-        android:id="@+id/linearLayoutFruits"
-        android:layout_width="0dp"
-        android:layout_height="70dp"
-        android:layout_marginStart="20dp"
-        android:layout_marginTop="10dp"
-        android:layout_marginEnd="20dp"
-        android:background="@drawable/border1"
-        android:orientation="horizontal"
-        android:padding="10dp"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/linearLayoutBread">
-
-        <EditText
-            android:id="@+id/edit_text_fruit_consume_gram"
-            android:layout_width="wrap_content"
-            android:layout_height="45dp"
-            android:layout_marginStart="20dp"
-            android:gravity="center_vertical"
-            android:hint="Fruit    "
-            android:inputType="numberDecimal"
-            android:textSize="20sp" />
-
-        <TextView
-
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginStart="15dp"
-            android:text=" gm fruit "
-            android:textColor="@color/black"
-            android:textSize="20sp"
-            android:textStyle="bold" />
-
-        <ImageView
-
-            android:layout_width="65dp"
-            android:layout_height="wrap_content"
-            android:src="@drawable/healthy" />
-
-    </LinearLayout>
-
-    <Button
-        android:id="@+id/totalCalorie"
-        android:layout_width="250dp"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="30dp"
-        android:layout_marginTop="40dp"
-        android:layout_marginEnd="30dp"
-        android:background="@drawable/button_light_blue"
-        android:fontFamily="@font/bangers"
-        android:gravity="center"
-        android:onClick="calculateTotalCalorie"
-        android:text="Calculate Total Calorie"
-        android:textSize="30sp"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/linearLayoutFruits" />
-
-    <TextView
-        android:id="@+id/calorieResult"
-        android:layout_width="130dp"
-        android:layout_height="60dp"
-        android:gravity="center"
-        android:layout_marginStart="30dp"
-        android:layout_marginTop="20dp"
-        android:layout_marginEnd="30dp"
-        android:fontFamily="@font/carter_one"
-        android:text="Calorie"
-        android:textColor="#2196F3"
-        android:textSize="24sp"
-        android:background="@drawable/border3"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/totalCalorie" />
-
-    <TextView
-        android:id="@+id/textView13"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="10dp"
-        android:layout_marginTop="40dp"
-        android:text="cal"
-        android:textColor="@color/black"
-        android:textSize="24sp"
-        app:layout_constraintStart_toEndOf="@+id/calorieResult"
-        app:layout_constraintTop_toBottomOf="@+id/totalCalorie" />
+            android:textSize="24sp"
+            app:layout_constraintStart_toEndOf="@+id/calorieResult"
+            app:layout_constraintTop_toBottomOf="@+id/totalCalorie" />
 
 
-</androidx.constraintlayout.widget.ConstraintLayout>
+    </androidx.constraintlayout.widget.ConstraintLayout>
 
 </ScrollView>
