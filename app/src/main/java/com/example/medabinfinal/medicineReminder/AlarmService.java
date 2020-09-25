@@ -147,7 +147,7 @@ public class AlarmService extends Service {
 
 
             }
-        },0,50000);
+        },0,5000);
 
 
         return super.onStartCommand(intent, flags, startId);

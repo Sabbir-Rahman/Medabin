@@ -88,7 +88,7 @@ public class alarmReceiveActivity extends AppCompatActivity {
         later.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                ringtone.stop();
+                //ringtone.stop();
                 noticeText.setText("Please take "+medicineName+" on your own");
                 noticeText.setTextColor(Color.BLUE);
             }

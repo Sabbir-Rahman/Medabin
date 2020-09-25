@@ -264,10 +264,7 @@ public class medicineReminderAdd extends AppCompatActivity {
 
             db.addData(alarmModel);
 
-            alarmService.stopForegroundservice();
-            alarmService.stopSelf();
-            alarmService.stopForegroundservice();
-            sendUserToDashboard();
+
 
 
 

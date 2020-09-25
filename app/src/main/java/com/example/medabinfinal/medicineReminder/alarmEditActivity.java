@@ -258,7 +258,7 @@ public class alarmEditActivity extends AppCompatActivity {
     }
 
 
-    private void updateData()
+    public void updateData()
     {
         try
         {
@@ -295,8 +295,7 @@ public class alarmEditActivity extends AppCompatActivity {
 
 
             db.editAlarm(alarmModel,id);
-            alarmService.stopForegroundservice();
-            sendUserToDashboard();
+
 
 
 
