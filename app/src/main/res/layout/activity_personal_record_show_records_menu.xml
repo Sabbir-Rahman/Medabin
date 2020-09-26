@@ -146,7 +146,7 @@
         android:layout_marginStart="16dp"
         android:layout_marginTop="20dp"
         android:fontFamily="@font/aladin"
-        android:text="Food consumption"
+        android:text="Daily Time"
         android:textColor="#BA3535"
         android:textSize="22sp"
         app:layout_constraintStart_toStartOf="parent"

@@ -453,6 +453,77 @@ public class AlarmDatabase extends SQLiteOpenHelper {
 
     }
 
+
+    public int getOneMedicneTime1Hour(Integer id)
+    {
+        SQLiteDatabase db = getReadableDatabase();
+        SQLiteQueryBuilder queryBuilder = new SQLiteQueryBuilder();
+
+        String[] sqlSelect = {COL_TIME_1_HOUR};
+        String tableName = TABLE_NAME;
+
+        queryBuilder.setTables(tableName);
+
+        //select from title with like query
+
+        Cursor cursor = queryBuilder.query(db,sqlSelect,"ID LIKE ?",new String[]{String.valueOf(id)},null,null,null);
+
+        int result = 0;
+
+        if (cursor.moveToFirst())
+        {
+            do{
+                result =   cursor.getInt(cursor.getColumnIndex(COL_TIME_1_HOUR));
+            }while (cursor.moveToNext());
+        }
+        else
+        {
+            Toast.makeText(context, "No value in Database", Toast.LENGTH_SHORT).show();
+        }
+        db.close();
+        cursor.close();
+        return result;
+
+
+
+
+    }
+
+    public int getOneMedicneTime1Minute(Integer id)
+    {
+        SQLiteDatabase db = getReadableDatabase();
+        SQLiteQueryBuilder queryBuilder = new SQLiteQueryBuilder();
+
+        String[] sqlSelect = {COL_TIME_1_MINUTE};
+        String tableName = TABLE_NAME;
+
+        queryBuilder.setTables(tableName);
+
+        //select from title with like query
+
+        Cursor cursor = queryBuilder.query(db,sqlSelect,"ID LIKE ?",new String[]{String.valueOf(id)},null,null,null);
+
+        int result = 0;
+
+        if (cursor.moveToFirst())
+        {
+            do{
+                result =   cursor.getInt(cursor.getColumnIndex(COL_TIME_1_MINUTE));
+            }while (cursor.moveToNext());
+        }
+        else
+        {
+            Toast.makeText(context, "No value in Database", Toast.LENGTH_SHORT).show();
+        }
+        db.close();
+        cursor.close();
+        return result;
+
+
+
+
+    }
+
     public String getOneMedicneTime2(Integer id)
     {
         SQLiteDatabase db = getReadableDatabase();
@@ -473,6 +544,76 @@ public class AlarmDatabase extends SQLiteOpenHelper {
         {
             do{
                 result =   cursor.getString(cursor.getColumnIndex(COL_TIME_2));
+            }while (cursor.moveToNext());
+        }
+        else
+        {
+            Toast.makeText(context, "No value in Database", Toast.LENGTH_SHORT).show();
+        }
+        db.close();
+        cursor.close();
+        return result;
+
+
+
+
+    }
+
+    public int getOneMedicneTime2Hour(Integer id)
+    {
+        SQLiteDatabase db = getReadableDatabase();
+        SQLiteQueryBuilder queryBuilder = new SQLiteQueryBuilder();
+
+        String[] sqlSelect = {COL_TIME_2_HOUR};
+        String tableName = TABLE_NAME;
+
+        queryBuilder.setTables(tableName);
+
+        //select from title with like query
+
+        Cursor cursor = queryBuilder.query(db,sqlSelect,"ID LIKE ?",new String[]{String.valueOf(id)},null,null,null);
+
+        int result = 0;
+
+        if (cursor.moveToFirst())
+        {
+            do{
+                result =   cursor.getInt(cursor.getColumnIndex(COL_TIME_2_HOUR));
+            }while (cursor.moveToNext());
+        }
+        else
+        {
+            Toast.makeText(context, "No value in Database", Toast.LENGTH_SHORT).show();
+        }
+        db.close();
+        cursor.close();
+        return result;
+
+
+
+
+    }
+
+    public int getOneMedicneTime2Minute(Integer id)
+    {
+        SQLiteDatabase db = getReadableDatabase();
+        SQLiteQueryBuilder queryBuilder = new SQLiteQueryBuilder();
+
+        String[] sqlSelect = {COL_TIME_2_MINUTE};
+        String tableName = TABLE_NAME;
+
+        queryBuilder.setTables(tableName);
+
+        //select from title with like query
+
+        Cursor cursor = queryBuilder.query(db,sqlSelect,"ID LIKE ?",new String[]{String.valueOf(id)},null,null,null);
+
+        int result = 0;
+
+        if (cursor.moveToFirst())
+        {
+            do{
+                result =   cursor.getInt(cursor.getColumnIndex(COL_TIME_2_MINUTE));
             }while (cursor.moveToNext());
         }
         else
@@ -509,6 +650,76 @@ public class AlarmDatabase extends SQLiteOpenHelper {
         {
             do{
                 result =   cursor.getString(cursor.getColumnIndex(COL_TIME_3));
+            }while (cursor.moveToNext());
+        }
+        else
+        {
+            Toast.makeText(context, "No value in Database", Toast.LENGTH_SHORT).show();
+        }
+        db.close();
+        cursor.close();
+        return result;
+
+
+
+
+    }
+
+    public int getOneMedicneTime3Hour(Integer id)
+    {
+        SQLiteDatabase db = getReadableDatabase();
+        SQLiteQueryBuilder queryBuilder = new SQLiteQueryBuilder();
+
+        String[] sqlSelect = {COL_TIME_3_HOUR};
+        String tableName = TABLE_NAME;
+
+        queryBuilder.setTables(tableName);
+
+        //select from title with like query
+
+        Cursor cursor = queryBuilder.query(db,sqlSelect,"ID LIKE ?",new String[]{String.valueOf(id)},null,null,null);
+
+        int result = 0;
+
+        if (cursor.moveToFirst())
+        {
+            do{
+                result =   cursor.getInt(cursor.getColumnIndex(COL_TIME_3_HOUR));
+            }while (cursor.moveToNext());
+        }
+        else
+        {
+            Toast.makeText(context, "No value in Database", Toast.LENGTH_SHORT).show();
+        }
+        db.close();
+        cursor.close();
+        return result;
+
+
+
+
+    }
+
+    public int getOneMedicneTime3Minute(Integer id)
+    {
+        SQLiteDatabase db = getReadableDatabase();
+        SQLiteQueryBuilder queryBuilder = new SQLiteQueryBuilder();
+
+        String[] sqlSelect = {COL_TIME_3_MINUTE};
+        String tableName = TABLE_NAME;
+
+        queryBuilder.setTables(tableName);
+
+        //select from title with like query
+
+        Cursor cursor = queryBuilder.query(db,sqlSelect,"ID LIKE ?",new String[]{String.valueOf(id)},null,null,null);
+
+        int result = 0;
+
+        if (cursor.moveToFirst())
+        {
+            do{
+                result =   cursor.getInt(cursor.getColumnIndex(COL_TIME_3_MINUTE));
             }while (cursor.moveToNext());
         }
         else

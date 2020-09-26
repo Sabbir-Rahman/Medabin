@@ -66,6 +66,16 @@ public class alarmEditActivity extends AppCompatActivity {
         time2.setText(db.getOneMedicneTime2(id));
         time3.setText(db.getOneMedicneTime3(id));
 
+        time1Databse = db.getOneMedicneTime1(id);
+        time2Databse = db.getOneMedicneTime2(id);
+        time3Databse = db.getOneMedicneTime3(id);
+        time1HourDatabse = db.getOneMedicineTime1Hour(id);
+        time1MinuteDatabse = db.getOneMedicineTime1Minute(id);
+        time2HourDatabse = db.getOneMedicineTime2Hour(id);
+        time2MinuteDatabse = db.getOneMedicineTime2Minute(id);
+        time3HourDatabse = db.getOneMedicineTime3Hour(id);
+        time3MinuteDatabse = db.getOneMedicineTime3Minute(id);
+
 
         if(db.getOneAlarmIsOne(id).equals("Yes"))
         {
